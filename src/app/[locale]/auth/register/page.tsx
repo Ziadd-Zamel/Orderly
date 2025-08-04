@@ -1,7 +1,9 @@
+import RegisterForm from "../_components/register-form";
+
 export default function Page() {
   return (
     <>
-      <p>sdasds</p>
+      <RegisterForm />
     </>
   );
 }
