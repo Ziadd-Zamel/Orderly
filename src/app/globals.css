@@ -41,6 +41,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-main: hsla(166, 79%, 33%, 1);
+  --color-gradient: var(--gradient-hero);
 }
 
 :root {
@@ -70,12 +72,11 @@
   --sidebar-foreground: oklch(0.141 0.005 285.823);
   --sidebar-primary: oklch(0.21 0.006 285.885);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --gradient-hero: linear-gradient(131.11deg, #a259ff 16.54%, #00f0b5 84.99%);
 }
 
 .dark {
@@ -119,6 +120,29 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+@layer utilities {
+  .bg-hero-gradient {
+    background: linear-gradient(131.11deg, #a259ff 16.54%, #00f0b5 84.99%);
+  }
+}
+.bg-gradient {
+  background: linear-gradient(131.11deg, #a259ff 16.54%, #00f0b5 84.99%);
+}
+.bg-footer-gradient {
+  background: linear-gradient(
+    131.11deg,
+    rgba(162, 89, 255, 0.3) 16.54%,
+    rgba(0, 240, 181, 0.3) 84.99%
+  );
+}
+.bg-hero-gradient {
+  background: #e659ff;
+  background: radial-gradient(
+    circle,
+    rgba(162, 89, 255, 0.3) 16.54%,
+    rgba(0, 240, 181, 0.3) 84.99%
+  );
 }
 
 @utility flex-center {

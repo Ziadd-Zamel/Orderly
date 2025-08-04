@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import Providers from "@/components/providers";
 
 //Metadata
 export const metadata: Metadata = {
@@ -26,8 +27,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body>
         {/* Providers */}
-        {/* Main children  */}
-        {children}
+        <Providers>
+          {/* Main children  */}
+          {children}
+        </Providers>
       </body>
     </html>
   );
