@@ -1,4 +1,87 @@
 {
+  "auth": {
+    "register": {
+      "title": "Sign up",
+      "subtitle": "Sign up to enjoy the feature of Revolution",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter your Name"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter phone Number"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter password"
+        },
+        "rePassword": {
+          "label": "Re-enter Password",
+          "placeholder": "Re-enter password"
+        }
+      },
+      "submitButton": "Sign up",
+      "loginPrompt": "Already Have Account?",
+      "loginLink": "Sign In",
+      "agree": "Agree",
+      "terms": "Terms & Conditions"
+    },
+    "login": {
+      "title": "Log In",
+      "subtitle": "Welcome Back , You've been Missed",
+      "fields": {
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter phone Number"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter password"
+        }
+      },
+      "forgetPassword": "Forget Password",
+      "submitButton": "Sign in",
+      "registerPrompt": "Need an account?",
+      "registerLink": "Create one"
+    },
+    "forget": {
+      "title": "Forget Password",
+      "subtitle": "Don’t worry - we’ve got your back",
+      "submitButton": "Send",
+      "fields": {
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter your phone number"
+        }
+      }
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "subtitle": "Set a new password to protect your account",
+      "submitButton": "Confirm"
+    },
+    "otp": {
+      "title": "Verification",
+      "subtitle": "Enter the code sent to your phone number",
+      "submitButton": "Verify",
+      "notReceived": "Didn’t receive the OTP?",
+      "resend": "Resend OTP"
+    },
+    "passwordInput": {
+      "show": "Show password",
+      "hide": "Hide password"
+    }
+  },
+  "firstname-required": "First name is required",
+  "phone-required": "Phone number is required",
+  "phone-invalid": "Phone number format is invalid",
+  "password-required": "Password is required",
+  "password-min": "Password must be at least {min} characters",
+  "password-weak": "Password must include uppercase, lowercase, number, and special character",
+  "repassword-required": "Confirmation password is required",
+  "password-mismatch": "Passwords do not match",
+  "terms-required": "You must agree to the Terms & Conditions"
   "welcome_back": "Welcome back!",
   "no_account": "Don't have an account yet?",
   "create_account": "Create one now!",

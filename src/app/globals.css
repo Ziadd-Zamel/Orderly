@@ -42,6 +42,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-main: hsla(166, 79%, 33%, 1);
+  --color-custom-orang: hsla(37, 100%, 50%, 1);
   --color-gradient: var(--gradient-hero);
 }
 
