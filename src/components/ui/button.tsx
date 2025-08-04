@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
+import { HiArrowLongRight } from "react-icons/hi2";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[10px] text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none cursor-pointer [&_svg]:shrink-0 hover:transition-all hover:duration-300",
@@ -39,12 +39,22 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   loading?: boolean;
+  routable?: boolean;
   children?: React.ReactNode;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, loading = false, children = "Button", asChild = false, ...props },
+    {
+      className,
+      variant,
+      size,
+      loading = false,
+      routable = false,
+      children = "Button",
+      asChild = false,
+      ...props
+    },
     ref,
   ) => {
     void loading;
@@ -53,6 +63,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
         {children}
         {loading && <Loader2 size={18} className="animate-spin" />}
+        {routable && <HiArrowLongRight size={25} />}
       </Comp>
     );
   },

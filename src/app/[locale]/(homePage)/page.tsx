@@ -1,4 +1,4 @@
-import { SwitchLocale } from "@/components/common/switch-locale";
+import { SwitchLocale } from "@/components/custom/switch-locale";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
