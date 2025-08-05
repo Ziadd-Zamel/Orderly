@@ -9,6 +9,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
 import { FavoriteButton } from "@/components/common/shared-buttons";
+import PlacesCarousel from "@/components/common/places-carousel";
+import { Places } from "@/lib/constants/data.constant";
+import OrderCard from "@/components/common/order-card";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);
@@ -208,11 +211,10 @@ export default function Page() {
           </div>
         </div>
       </div>
-
-      <div className="container p-10">
-        <div className="flex flex-col items-center gap-10 w-[30%] px-6 py-24 border-2 border-dashed rounded-xl"></div>
+      <div className="bg-[#FBFBFB] h-[250px] flex items-center justify-center ">
+        <OrderCard />
       </div>
-
+      <PlacesCarousel title="Top Rated Places " Places={Places} />
       <Toaster />
     </>
   );
