@@ -149,6 +149,9 @@
 @utility flex-center {
   @apply flex justify-center items-center;
 }
+@utility box-container {
+  @apply container w-full 2xl:max-w-[90%] mx-auto px-5 sm:px-0;
+}
 
 @utility circle {
   @apply rounded-full;

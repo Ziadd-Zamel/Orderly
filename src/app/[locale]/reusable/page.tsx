@@ -5,13 +5,14 @@ import { toast, Toaster } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-// import { BorderBeam } from "@/components/magicui/border-beam";
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
 import { FavoriteButton } from "@/components/common/shared-buttons";
 import PlacesCarousel from "@/components/common/places-carousel";
 import { Places } from "@/lib/constants/data.constant";
 import OrderCard from "@/components/common/order-card";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);
@@ -27,6 +28,7 @@ export default function Page() {
 
   return (
     <>
+      <Header />
       <div className="container p-10 flex gap-10">
         {/* ********************************************************************** */}
         {/* ***************************** Inputs ********************************* */}
@@ -211,11 +213,12 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="bg-[#FBFBFB] h-[250px] flex items-center justify-center ">
+      <div className="bg-[#FBFBFB] h-[250px] flex items-center justify-center mb-20">
         <OrderCard />
       </div>
       <PlacesCarousel title="Top Rated Places " Places={Places} />
       <Toaster />
+      <Footer />
     </>
   );
 }
