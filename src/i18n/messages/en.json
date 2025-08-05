@@ -81,7 +81,7 @@
   "password-weak": "Password must include uppercase, lowercase, number, and special character",
   "repassword-required": "Confirmation password is required",
   "password-mismatch": "Passwords do not match",
-  "terms-required": "You must agree to the Terms & Conditions"
+  "terms-required": "You must agree to the Terms & Conditions",
   "welcome_back": "Welcome back!",
   "no_account": "Don't have an account yet?",
   "create_account": "Create one now!",
