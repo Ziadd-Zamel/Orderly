@@ -77,8 +77,7 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
-
-      <div className="h-22"></div>
+      <div className="h-[100px]"></div>
     </>
   );
 }
