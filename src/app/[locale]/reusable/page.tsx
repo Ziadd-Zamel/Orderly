@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 "use client";
 
 import React, { useState } from "react";
@@ -237,21 +238,23 @@ export default function Page() {
             <TimePickerForm />
           </div>
         </div>
-      <div className="bg-[#FBFBFB] h-[250px] flex items-center justify-center mb-20">
-        <OrderCard />
-      </div>
 
-      <div className="container p-10 flex gap-10">
-        <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
-          <PaginationComp currentPage={1} totalPages={10} onPageChange={() => {}} />
+        <div className="bg-[#FBFBFB] h-[250px] flex items-center justify-center mb-20">
+          <OrderCard />
         </div>
 
-        <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
-          <div className="flex items-center gap-2 p-1">
-            <Button onClick={() => handleAudienceChange("general")} children={"General"} />
-            <Button onClick={() => handleAudienceChange("gen-z")} children={"gen-z"} />
+        <div className="container p-10 flex gap-10">
+          <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
+            <PaginationComp currentPage={1} totalPages={10} onPageChange={() => {}} />
           </div>
-          <Counter number={number} setNumber={setNumber} audience={newAudience} />
+
+          <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
+            <div className="flex items-center gap-2 p-1">
+              <Button onClick={() => handleAudienceChange("general")} children={"General"} />
+              <Button onClick={() => handleAudienceChange("gen-z")} children={"gen-z"} />
+            </div>
+            <Counter number={number} setNumber={setNumber} audience={newAudience} />
+          </div>
         </div>
       </div>
       <PlacesCarousel title="Top Rated Places " Places={Places} />

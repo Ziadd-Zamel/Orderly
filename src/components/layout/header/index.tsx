@@ -6,8 +6,11 @@ import Image from "next/image";
 import Sidebar from "./_components/sidebar";
 import { useTranslations } from "next-intl";
 
-export default function Header() {
+export default function Navbar() {
+  // Translation
   const t = useTranslations();
+
+  // Variables
   const navigationLinks = [
     { href: "/", label: t("navbar.home"), active: true },
     { href: "/restaurants", label: t("navbar.restaurants"), active: false },
@@ -17,7 +20,7 @@ export default function Header() {
 
   return (
     <header>
-      <nav className=" box-container py-6 flex items-center justify-between  bg-white ">
+      <nav className=" box-container py-6 flex items-center justify-between  bg-white">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image src={"/assets/Images/logo.svg"} alt="logo" width={100} height={0} />

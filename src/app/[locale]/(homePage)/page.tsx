@@ -1,7 +1,12 @@
+import Footer from "@/components/layout/footer";
+import Navbar from "@/components/layout/header";
+
 export default function Home() {
   return (
     <>
-      <p className="text-black text-9xl">Home</p>
+      <Navbar />
+      <div className="h-screen flex-center">Home Page</div>
+      <Footer />
     </>
   );
 }
