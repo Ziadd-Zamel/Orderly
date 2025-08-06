@@ -9,17 +9,30 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
 import { FavoriteButton } from "@/components/common/shared-buttons";
+import DateSelector from "./_components/date-selector";
+import TimePickerForm from "@/components/custom/time-picker/time-wheel-picker";
+import PaginationComp from "@/components/common/pagination-comp";
+import { Counter } from "@/components/animate-ui/components/counter";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);
   const t = useTranslations();
   const format = useFormatter();
 
+  // Example state for demonstration purposes - Counter
+  const [number, setNumber] = React.useState(5);
+  const [newAudience, setNewAudience] = useState<string | null>(null);
+
   const handleClick = () => {
     setIsloading(true);
     setTimeout(() => {
       setIsloading(false);
     }, 1000);
+  };
+
+  const handleAudienceChange = (newAudience: string | null) => {
+    setNewAudience(newAudience);
+    localStorage.setItem("audience", newAudience || "");
   };
 
   return (
@@ -209,10 +222,31 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="container p-10">
-        <div className="flex flex-col items-center gap-10 w-[30%] px-6 py-24 border-2 border-dashed rounded-xl"></div>
+      <div className="container p-10 flex gap-10">
+        <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
+          <DateSelector />
+        </div>
+
+        <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
+          <div className="w-full bg-[#F6F6F6] rounded-2xl p-6">
+            <TimePickerForm />
+          </div>
+        </div>
       </div>
 
+      <div className="container p-10 flex gap-10">
+        <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
+          <PaginationComp currentPage={1} totalPages={10} onPageChange={() => {}} />
+        </div>
+
+        <div className="flex flex-col items-center gap-10 w-[50%] px-6 py-24 border-2 border-dashed rounded-xl">
+          <div className="flex items-center gap-2 p-1">
+            <Button onClick={() => handleAudienceChange("general")} children={"General"} />
+            <Button onClick={() => handleAudienceChange("gen-z")} children={"gen-z"} />
+          </div>
+          <Counter number={number} setNumber={setNumber} audience={newAudience} />
+        </div>
+      </div>
       <Toaster />
     </>
   );

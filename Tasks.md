@@ -10,9 +10,8 @@
 
 =========================
 
-- Carousel =>
-- Select date & Time =>
+- Carousel => Done
+- Select date & Time => Done
 - Order Row =>
-- Accordion =>
-- Toast =>
-- Pagination =>
+- Accordion => Done
+- Pagination => Done
