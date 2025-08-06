@@ -103,5 +103,22 @@
   "password-weak": "يجب أن تحتوي كلمة المرور على حرف كبير، حرف صغير، رقم، ورمز خاص",
   "repassword-required": "تأكيد كلمة المرور مطلوب",
   "password-mismatch": "كلمتا المرور غير متطابقتين",
-  "terms-required": "يجب الموافقة على الشروط والأحكام"
+  "terms-required": "يجب الموافقة على الشروط والأحكام",
+  "navbar": {
+    "home": "الرئيسية",
+    "restaurants": "المطاعم",
+    "coffeeShops": "المقاهي",
+    "favourite": "المفضلة",
+    "expand": "توسيع",
+    "shoppingBag": "سلة التسوق",
+    "notifications": "الإشعارات",
+    "openMenu": "فتح القائمة"
+  },
+  "sidebar": {
+    "navigation": "التنقل",
+    "account": "الحساب",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "signOut": "تسجيل الخروج"
+  }
 }

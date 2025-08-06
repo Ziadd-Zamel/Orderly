@@ -5,7 +5,6 @@ import { toast, Toaster } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-// import { BorderBeam } from "@/components/magicui/border-beam";
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
 import { FavoriteButton } from "@/components/common/shared-buttons";
@@ -13,6 +12,11 @@ import DateSelector from "./_components/date-selector";
 import TimePickerForm from "@/components/custom/time-picker/time-wheel-picker";
 import PaginationComp from "@/components/common/pagination-comp";
 import { Counter } from "@/components/animate-ui/components/counter";
+import PlacesCarousel from "@/components/common/places-carousel";
+import { Places } from "@/lib/constants/data.constant";
+import OrderCard from "@/components/common/order-card";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);
@@ -37,6 +41,7 @@ export default function Page() {
 
   return (
     <>
+      <Header />
       <div className="container p-10 flex gap-10">
         {/* ********************************************************************** */}
         {/* ***************************** Inputs ********************************* */}
@@ -232,6 +237,8 @@ export default function Page() {
             <TimePickerForm />
           </div>
         </div>
+      <div className="bg-[#FBFBFB] h-[250px] flex items-center justify-center mb-20">
+        <OrderCard />
       </div>
 
       <div className="container p-10 flex gap-10">
@@ -247,7 +254,9 @@ export default function Page() {
           <Counter number={number} setNumber={setNumber} audience={newAudience} />
         </div>
       </div>
+      <PlacesCarousel title="Top Rated Places " Places={Places} />
       <Toaster />
+      <Footer />
     </>
   );
 }
