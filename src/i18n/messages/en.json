@@ -120,5 +120,11 @@
     "profile": "Profile",
     "settings": "Settings",
     "signOut": "Sign Out"
-  }
+  },
+  "heroSection": {
+    "heading": "Explore Your Perfect",
+    "description": "Food Delivery is a thriving business and there are many opportunities for this businesses as its growing"
+  },
+  "search": "Search",
+  "search-input-placeholder": "Search for places"
 }

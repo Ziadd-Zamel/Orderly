@@ -150,11 +150,15 @@
   @apply flex justify-center items-center;
 }
 @utility box-container {
-  @apply container w-full 2xl:max-w-[90%] mx-auto px-5 sm:px-0;
+  @apply container w-full 2xl:max-w-[85%] mx-auto px-5 md:px-0 lg:px-5;
 }
 
 @utility circle {
   @apply rounded-full;
+}
+
+@utility hero-content-box {
+  @apply w-full lg:w-1/2;
 }
 
 /*==================================*/
