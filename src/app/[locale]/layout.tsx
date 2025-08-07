@@ -5,6 +5,8 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/providers";
 import { Poppins } from "next/font/google";
+import Navbar from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,8 +38,11 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       <body className={`${poppins.className}`}>
         {/* Providers */}
         <Providers>
-          {/* Main children  */}
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

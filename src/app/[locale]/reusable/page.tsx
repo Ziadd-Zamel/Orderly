@@ -18,6 +18,7 @@ import { Places } from "@/lib/constants/data.constant";
 import OrderCard from "@/components/common/order-card";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import BannerCarousel from "@/components/common/banner-carusel";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);
@@ -258,6 +259,7 @@ export default function Page() {
         </div>
       </div>
       <PlacesCarousel title="Top Rated Places " Places={Places} />
+      <BannerCarousel />
       <Toaster />
       <Footer />
     </>
