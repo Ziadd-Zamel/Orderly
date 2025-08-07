@@ -1,11 +1,16 @@
 "use client";
+
 import React from "react";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import BackgroundVectors from "./hero-vectors";
+
+const BackgroundVectors = dynamic(() => import("./hero-vectors"), {
+  ssr: false,
+});
 
 // Animation variants for the heading (letter-by-letter)
 const letterVariants: Variants = {
@@ -35,7 +40,7 @@ const descriptionVariants: Variants = {
   },
 };
 
-// Animation variants for the image hover vibration
+// Animation variants for the image
 const imageVariants: Variants = {
   initial: { rotate: 0 },
   hover: {
@@ -63,12 +68,17 @@ const searchInputVariants: Variants = {
 };
 
 export default function HeroSection() {
+  // Translation
   const t = useTranslations();
-  const headingText = t("heroSection.heading") || "Default Heading"; // Fallback for undefined
+
+  // Variables
+  const headingText = t("heroSection.heading");
 
   return (
     <section className="box-container mb-10 lg:my-10 lg:py-6">
+      {/* Vectors */}
       <BackgroundVectors />
+
       <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
         <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
           {/* Heading */}
@@ -95,7 +105,7 @@ export default function HeroSection() {
             className="relative before:w-1 before:h-full before:absolute before:start-0 before:top-0 before:rounded-t-full before:rounded-b-full ps-4 before:bg-[#A259FF]"
           >
             <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800 font-poppins">
-              {t("heroSection.description") || "Default description"}
+              {t("heroSection.description")}
             </p>
           </motion.div>
 
@@ -105,12 +115,16 @@ export default function HeroSection() {
             initial="initial"
             animate="visible"
             className="w-full lg:w-4/5 relative p-1.5 bg-main/10 flex gap-2 rounded-full"
+            aria-label={t("search-input")}
           >
             <Input
               className="bg-background border-none w-4/5 h-10"
               placeholder={t("search-input-placeholder") || "Search..."}
             />
-            <Button className="rounded-full w-[30%]">{t("search") || "Search"}</Button>
+            {/* Search Button */}
+            <Button className="rounded-full w-[30%]" aria-label={t("search-button")}>
+              {t("search") || "Search"}
+            </Button>
           </motion.div>
         </div>
 

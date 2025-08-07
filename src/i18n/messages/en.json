@@ -126,5 +126,7 @@
     "description": "Food Delivery is a thriving business and there are many opportunities for this businesses as its growing"
   },
   "search": "Search",
-  "search-input-placeholder": "Search for places"
+  "search-input-placeholder": "Search for places",
+  "search-button": "Search button",
+  "search-input": "Search input"
 }
