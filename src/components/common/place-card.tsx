@@ -11,7 +11,7 @@ type Place = {
 export default function PlaceCard({ place }: { place: Place }) {
   return (
     <div>
-      <Card className="relative w-[300px] h-[300px]  bg-slate-100 rounded-[30px]">
+      <Card className="relative w-[260px] h-[260px]  bg-slate-100 rounded-[30px] mt-10">
         <CardContent className="px-5 pb-0 pt-12 h-full">
           <Image
             src={place.RestaurantImg}
