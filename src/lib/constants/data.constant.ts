@@ -1,32 +1,38 @@
-export const Places = [
+export const places = [
   {
     id: 1,
-    ProductImg: "/assets/images/resturant.png",
-    RestaurantImg: "/assets/images/place-demo.png",
+    productImg: "/assets/images/place-demo.png",
+    restaurantImg: "/assets/images/resturant.png",
     name: "Vinny’s Pizza",
   },
   {
     id: 2,
-    ProductImg: "/assets/images/resturant.png",
-    RestaurantImg: "/assets/images/place-demo.png",
+    productImg: "/assets/images/place-demo.png",
+    restaurantImg: "/assets/images/resturant.png",
     name: "Vinny’s Pizza",
   },
   {
     id: 3,
-    ProductImg: "/assets/images/resturant.png",
-    RestaurantImg: "/assets/images/place-demo.png",
+    productImg: "/assets/images/place-demo.png",
+    restaurantImg: "/assets/images/resturant.png",
     name: "Vinny’s Pizza",
   },
   {
     id: 4,
-    ProductImg: "/assets/images/resturant.png",
-    RestaurantImg: "/assets/images/place-demo.png",
+    productImg: "/assets/images/place-demo.png",
+    restaurantImg: "/assets/images/resturant.png",
     name: "Vinny’s Pizza",
   },
   {
     id: 5,
-    ProductImg: "/assets/images/resturant.png",
-    RestaurantImg: "/assets/images/place-demo.png",
+    productImg: "/assets/images/place-demo.png",
+    restaurantImg: "/assets/images/resturant.png",
+    name: "Vinny’s Pizza",
+  },
+  {
+    id: 6,
+    productImg: "/assets/images/place-demo.png",
+    restaurantImg: "/assets/images/resturant.png",
     name: "Vinny’s Pizza",
   },
 ];

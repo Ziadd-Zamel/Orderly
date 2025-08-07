@@ -13,8 +13,8 @@ import DateSelector from "./_components/date-selector";
 import TimePickerForm from "@/components/custom/time-picker/time-wheel-picker";
 import PaginationComp from "@/components/common/pagination-comp";
 import { Counter } from "@/components/animate-ui/components/counter";
-import PlacesCarousel from "@/components/common/places-carousel";
-import { Places } from "@/lib/constants/data.constant";
+import PlacesCarousel from "@/app/[locale]/(homePage)/_components/places-slider/places-carousel";
+import { places } from "@/lib/constants/data.constant";
 import OrderCard from "@/components/common/order-card";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -258,7 +258,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <PlacesCarousel title="Top Rated Places " Places={Places} />
+      <PlacesCarousel title="Top Rated Places " places={places} />
       <BannerCarousel />
       <Toaster />
       <Footer />

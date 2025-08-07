@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import {
@@ -5,8 +6,10 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselApi,
+  CarouselHeader,
 } from "../../../../../components/ui/carousel";
 import { DotButton, useDotButton } from "./dots";
+import { useTranslations } from "next-intl";
 
 const Images = [
   "/assets/Images/banner.png",
@@ -15,6 +18,9 @@ const Images = [
 ];
 
 export default function HomeSlider() {
+  // Translation
+  const t = useTranslations();
+
   // States
   const [api, setApi] = useState<CarouselApi>();
 
@@ -22,18 +28,21 @@ export default function HomeSlider() {
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api);
 
   return (
-    <div className="w-full max-w-6xl overflow-hidden box-container py-10">
+    <div className="box-container my-14 lg:my-20">
       {/* Carousel component */}
-      <Carousel className="w-screen" setApi={setApi}>
-        <CarouselContent className="flex">
+      <Carousel className="w-full" setApi={setApi}>
+        <CarouselHeader className="text-center text-zinc-800 font-semibold text-2xl sm:text-3xl py-4 lg:py-6 xl:py-8">
+          {t("offers-for-you")}
+        </CarouselHeader>
+        <CarouselContent className="flex px-1">
           {Images.map((Img, index) => (
-            <CarouselItem key={index} className="w-full">
-              <div className="relative w-screen h-[400px]">
+            <CarouselItem key={index} className="w-full rounded-4xl overflow-hidden cursor-grab">
+              <div className="relative w-full h-[200px] md:h-[300px] xl:h-[400px]">
                 <Image
                   src={Img}
                   alt={`Banner ${index}`}
                   fill
-                  className="object-cover"
+                  className="object-fill"
                   loading="lazy"
                 />
               </div>
@@ -48,7 +57,7 @@ export default function HomeSlider() {
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
-            className={"embla__dot w-4 h-2 rounded-sm border-2 transition-all duration-200".concat(
+            className={"embla__dot w-4 h-2 rounded-sm border-2 transition-all duration-200 cursor-pointer".concat(
               index === selectedIndex
                 ? " embla__dot--selected bg-custom-orange w-16 "
                 : " bg-gray-300 hover:border-main",

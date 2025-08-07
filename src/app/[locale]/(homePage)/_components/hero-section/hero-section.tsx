@@ -75,7 +75,7 @@ export default function HeroSection() {
   const headingText = t("heroSection.heading");
 
   return (
-    <section className="box-container mb-10 lg:my-10 lg:py-6">
+    <section className="box-container mb-10 lg:mt-28 lg:py-6">
       {/* Vectors */}
       <BackgroundVectors />
 
