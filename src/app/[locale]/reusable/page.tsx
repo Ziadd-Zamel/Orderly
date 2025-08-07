@@ -18,7 +18,7 @@ import { Places } from "@/lib/constants/data.constant";
 import OrderCard from "@/components/common/order-card";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import BannerCarousel from "@/components/common/banner-carusel";
+import BannerCarousel from "@/app/[locale]/(homePage)/_components/home-slider/slider";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);

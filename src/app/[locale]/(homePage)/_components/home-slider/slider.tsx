@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "../ui/carousel";
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselApi,
+} from "../../../../../components/ui/carousel";
+import { DotButton, useDotButton } from "./dots";
 
 const Images = [
   "/assets/Images/banner.png",
@@ -9,25 +14,35 @@ const Images = [
   "/assets/Images/banner.png",
 ];
 
-export default function BannerCarousel() {
+export default function HomeSlider() {
+  // States
   const [api, setApi] = useState<CarouselApi>();
 
+  // Hooks
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api);
 
   return (
     <div className="w-full max-w-6xl overflow-hidden box-container py-10">
+      {/* Carousel component */}
       <Carousel className="w-screen" setApi={setApi}>
         <CarouselContent className="flex">
           {Images.map((Img, index) => (
             <CarouselItem key={index} className="w-full">
               <div className="relative w-screen h-[400px]">
-                <Image src={Img} alt={`Banner ${index}`} fill className="object-cover" priority />
+                <Image
+                  src={Img}
+                  alt={`Banner ${index}`}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
 
+      {/* Dots for navigation */}
       <div className=" flex justify-center mt-4 space-x-2">
         {scrollSnaps.map((_, index) => (
           <DotButton
