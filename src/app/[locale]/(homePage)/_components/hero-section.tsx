@@ -69,10 +69,10 @@ export default function HeroSection() {
   return (
     <section className="box-container mb-10 lg:my-10 lg:py-6">
       <BackgroundVectors />
-      <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10">
-        <div className="w-full lg:w-3/5 flex flex-col items-start gap-10">
+      <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
+        <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
           {/* Heading */}
-          <h2 className="text-[32px] md:text-4xl lg:text-5xl xl:text-[68px] text-main font-poppins font-bold leading-20 lg:mb-10">
+          <h2 className="text-[32px] md:text-5xl lg:text-[54px] xl:text-[68px] text-main font-poppins font-bold leading-20 lg:mb-10">
             {headingText.split("").map((char, i) => (
               <motion.span
                 key={`${char}-${i}`} // Unique key
@@ -115,7 +115,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Image */}
-        <div className="w-full lg:w-2/5 flex-center h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px]">
+        <div className="w-full lg:w-2/5 flex-center h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
           <motion.div
             className="relative w-full h-full"
             variants={imageVariants}
