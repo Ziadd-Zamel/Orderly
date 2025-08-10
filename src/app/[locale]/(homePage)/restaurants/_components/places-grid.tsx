@@ -4,8 +4,8 @@ import PlaceCard from "@/components/common/place-card";
 
 type Place = {
   id: number;
-  ProductImg: string;
-  RestaurantImg: string;
+  productImg: string;
+  restaurantImg: string;
   name: string;
 };
 

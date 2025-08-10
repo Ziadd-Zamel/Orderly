@@ -1,7 +1,7 @@
 import PaginationComp from "@/components/common/pagination-comp";
 import Filter from "./filter";
 import PlacesGrid from "./places-grid";
-import { Places } from "@/lib/constants/data.constant";
+import { places } from "@/lib/constants/data.constant";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -31,7 +31,7 @@ export default function RestaurantsPage() {
               </div>
             </div>
             {/* Places Grid */}
-            <PlacesGrid places={Places} />
+            <PlacesGrid places={places} />
           </div>
         </div>
       </div>

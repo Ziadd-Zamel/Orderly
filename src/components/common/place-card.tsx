@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FavoriteButton } from "./shared-buttons";
 import { Card, CardContent } from "../ui/card";
+import { Link } from "@/i18n/routing";
 
 type Place = {
   id: number;
@@ -11,7 +12,7 @@ type Place = {
 
 export default function PlaceCard({ place }: { place: Place }) {
   return (
-    <div className="w-full max-w-[300px] mx-auto">
+    <Link href={"/restaurants/name"} className="w-full max-w-[300px] mx-auto">
       <Card className="relative h-[260px] rounded-[30px]">
         <CardContent className="h-full p-0">
           <Image
@@ -45,6 +46,6 @@ export default function PlaceCard({ place }: { place: Place }) {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </Link>
   );
 }
