@@ -66,6 +66,6 @@ export const branches = [
   },
   {
     name: "Maadi",
-    address: "12 Brazil Street, Apartment 5",
+    address: "12 Brazil Street, Apartment 5sssss",
   },
 ];
