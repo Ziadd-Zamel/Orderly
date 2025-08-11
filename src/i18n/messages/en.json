@@ -152,5 +152,12 @@
     "heading": "Choose Order Type"
   },
   "choose-floor": "Choose The Floor",
-  "date-time": "Select Date & Time"
+  "date-time": "Select Date & Time",
+  "chair": "Chair",
+  "chairs": "Chairs",
+  "am": "AM",
+  "pm": "PM",
+  "1st-floor": "1st Floor",
+  "2nd-floor": "2nd Floor",
+  "out-doors": "Out Doors"
 }

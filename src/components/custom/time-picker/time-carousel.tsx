@@ -5,59 +5,75 @@ import { useCallback } from "react";
 import type { EmblaOptionsType } from "embla-carousel";
 import { IosPickerItem } from "./picker-item";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
+
+type TimeFormValues = {
+  hours: number;
+  minutes: number;
+  period: "AM" | "PM";
+};
 
 type PropType = {
   loop?: EmblaOptionsType["loop"];
   initialHours?: number;
   initialMinutes?: number;
-  initialPeriod?: "AM" | "PM"; // Changed to string
+  initialPeriod?: "AM" | "PM";
   onHoursChange?: (value: number) => void;
   onMinutesChange?: (value: number) => void;
-  onPeriodChange?: (value: "AM" | "PM") => void; // Changed to string
+  onPeriodChange?: (value: "AM" | "PM") => void;
+  selectedTime: TimeFormValues;
+  setSelectedTime: React.Dispatch<React.SetStateAction<TimeFormValues>>;
 };
 
 const TimeWheelPicker: React.FC<PropType> = (props) => {
+  // Translation
+  const t = useTranslations();
+  // Props
   const {
     loop,
-    initialHours = 8, // Default to 8 for 12-hour format
+    initialHours = 8,
     initialMinutes = 5,
-    initialPeriod = "PM", // Default to PM
+    initialPeriod = "PM",
     onHoursChange,
     onMinutesChange,
     onPeriodChange,
+    setSelectedTime,
   } = props;
 
-  // Callbacks to update parent component
+  // Handlers
   const handleHoursSelect = useCallback(
     (index: number) => {
-      const hourValue = index === 0 ? 12 : index; // Map 0 to 12, others as is
+      const hourValue = index === 0 ? 12 : index;
       onHoursChange?.(hourValue);
+      setSelectedTime((prev) => ({ ...prev, hours: hourValue }));
     },
-    [onHoursChange],
+    [onHoursChange, setSelectedTime],
   );
 
   const handleMinutesSelect = useCallback(
     (index: number) => {
       onMinutesChange?.(index);
+      setSelectedTime((prev) => ({ ...prev, minutes: index }));
     },
-    [onMinutesChange],
+    [onMinutesChange, setSelectedTime],
   );
 
   const handlePeriodButtonClick = useCallback(
     (period: "AM" | "PM") => {
-      onPeriodChange?.(period); // Directly pass the string
+      onPeriodChange?.(period);
+      setSelectedTime((prev) => ({ ...prev, period }));
     },
-    [onPeriodChange],
+    [onPeriodChange, setSelectedTime],
   );
 
   // For hours, if initialHours is 12, it should map to index 0. Otherwise, it's initialHours.
   const initialHoursIndex = initialHours === 12 ? 0 : initialHours;
 
   return (
-    <div className="w-full max-w-[300px] flex items-center justify-center">
-      <div className="relative flex justify-center  w-full h-[120px] mx-auto">
+    <div className="w-full flex items-center bg-white rounded-3xl p-6">
+      <div className="relative flex justify-between w-full h-[120px] mx-auto">
         {/* Hours Picker */}
-        <div className="flex items-center justify-center flex-1 p-1">
+        <div className="flex items-center justify-center p-1 w-3/5">
           <IosPickerItem
             slideCount={12}
             perspective="left"
@@ -80,30 +96,30 @@ const TimeWheelPicker: React.FC<PropType> = (props) => {
         </div>
 
         {/* New AM/PM buttons */}
-        <div className="w-1/2 flex flex-col justify-center items-center">
+        <div className="w-1/3 flex flex-col justify-center items-center">
           <button
             type="button"
             onClick={() => handlePeriodButtonClick("AM")}
             className={cn(
-              "w-[75px] h-[40px] flex items-center justify-center text-xl font-medium transition-colors duration-200",
+              "w-[75px] h-[40px] flex items-center justify-center text-xl font-medium transition-colors duration-200 cursor-pointer",
               initialPeriod === "AM"
                 ? "bg-[#129575]/15 text-[#129575] rounded-md"
                 : "opacity-80 text-[rgb(150,150,150)]",
             )}
           >
-            AM
+            {t("am")}
           </button>
           <button
             type="button"
             onClick={() => handlePeriodButtonClick("PM")}
             className={cn(
-              "w-[75px] h-[40px] flex items-center justify-center text-xl font-medium transition-colors duration-200",
+              "w-[75px] h-[40px] flex items-center justify-center text-xl font-medium transition-colors duration-200 cursor-pointer",
               initialPeriod === "PM"
                 ? "bg-[#129575]/15 text-[#129575] rounded-md"
                 : "opacity-80 text-[rgb(150,150,150)]",
             )}
           >
-            PM
+            {t("pm")}
           </button>
         </div>
       </div>

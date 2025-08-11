@@ -1,24 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+"use client";
+
+import type React from "react";
 import { cn } from "@/lib/utils";
-
-// Zod schema for validation
-const dateSelectionSchema = z.object({
-  selectedDate: z.string().min(1, "Please select a date"),
-});
-
-type DateSelectionForm = z.infer<typeof dateSelectionSchema>;
 
 // Helper function to get next 7 days
 const getNext7Days = () => {
@@ -54,74 +37,51 @@ const getNext7Days = () => {
   });
 };
 
-const DateSelector = () => {
+interface DateSelectorProps {
+  selectedDate: string;
+  setSelectedDate: (date: string) => void;
+}
+
+const DateSelector: React.FC<DateSelectorProps> = ({ selectedDate, setSelectedDate }) => {
   const days = getNext7Days();
 
-  const form = useForm<DateSelectionForm>({
-    resolver: zodResolver(dateSelectionSchema),
-    defaultValues: {
-      selectedDate: "",
-    },
-  });
-
-  const onSubmit = (data: DateSelectionForm) => {
-    const selectedDay = days.find((day) => day.id === data.selectedDate);
-    console.log("Selected date:", data.selectedDate);
-    console.log("Selected day info:", selectedDay);
-    alert(`Selected: ${selectedDay?.dayName} ${selectedDay?.dayNumber}, ${selectedDay?.month}`);
+  const handleDateSelect = (dateId: string) => {
+    setSelectedDate(dateId);
   };
 
   return (
-    <div className="w-full mx-auto p-6 space-y-6">
-      <Form {...form}>
-        <div className="space-y-6">
-          <FormField
-            control={form.control}
-            name="selectedDate"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <div className="flex gap-1 p-1 min-h-28 bg-main rounded-2xl overflow-hidden">
-                    {days.map((day) => (
-                      <button
-                        key={day.id}
-                        type="button"
-                        onClick={() => field.onChange(day.id)}
-                        className={`
-                          group flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-full transition-all duration-200 cursor-pointer
-                          ${
-                            field.value === day.id
-                              ? "bg-white text-zinc-800 shadow-md"
-                              : "bg-transparent text-gray-700"
-                          }
-                        `}
-                      >
-                        <span
-                          className={cn("text-xl font-medium font-poppins mb-1", {
-                            "text-zinc-300": day.dayName,
-                            "text-zinc-400": field.value === day.id,
-                          })}
-                        >
-                          {day.dayName}
-                        </span>
-                        <span
-                          className={cn("text-xl font-medium font-poppins", {
-                            "text-zinc-50": day.dayNumber,
-                            "text-zinc-800": field.value === day.id,
-                          })}
-                        >
-                          {day.dayNumber}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-      </Form>
+    <div className="w-full mx-auto space-y-6">
+      <div className="flex gap-1 p-1 min-h-28 bg-main rounded-2xl overflow-hidden">
+        {days.map((day) => (
+          <button
+            key={day.id}
+            type="button"
+            onClick={() => handleDateSelect(day.id)}
+            className={`group flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-full transition-all duration-200 cursor-pointer ${
+              selectedDate === day.id
+                ? "bg-white text-zinc-800 shadow-md"
+                : "bg-transparent text-gray-700"
+            }`}
+          >
+            <span
+              className={cn("text-xl font-medium font-poppins mb-1", {
+                "text-zinc-300": !selectedDate || selectedDate !== day.id,
+                "text-zinc-400": selectedDate === day.id,
+              })}
+            >
+              {day.dayName}
+            </span>
+            <span
+              className={cn("text-xl font-medium font-poppins", {
+                "text-zinc-50": !selectedDate || selectedDate !== day.id,
+                "text-zinc-800": selectedDate === day.id,
+              })}
+            >
+              {day.dayNumber}
+            </span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

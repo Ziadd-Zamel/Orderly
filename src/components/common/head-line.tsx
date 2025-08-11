@@ -8,13 +8,12 @@ export default function HeadLine({ children, title }: { children?: ReactNode; ti
         src={"/assets/vectors/headline-vectors.svg"}
         alt="Frame"
         fill
-        className="absolute inset-0"
+        className="w-full h-full object-cover"
+        loading="lazy"
       />
-      <div className="box-container flex flex-row items-center justify-between w-full  relative z-10">
-        <h3 className=" text-xl sm:text-2xl md:text-3xl font-semibold text-zinc-800 self-start">
-          {title}
-        </h3>
-        {children}
+      <div className="box-container flex flex-col md:flex-row gap-6 items-center justify-between w-full  relative z-10">
+        <h3 className="text-2xl md:text-3xl font-semibold text-zinc-800">{title}</h3>
+        {children && children}
       </div>
     </div>
   );
