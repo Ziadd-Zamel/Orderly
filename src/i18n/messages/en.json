@@ -1,4 +1,14 @@
 {
+  "profile": {
+    "myInfo": "My Info",
+    "myOrders": "My Orders",
+    "myPoints": "My Points",
+    "myAddresses": "My Addresses",
+    "referEarn": "Refer & Earn",
+    "accountSettings": "Account Settings",
+    "termsConditions": "Terms & Conditions",
+    "logout": "Logout"
+  },
   "auth": {
     "register": {
       "title": "Sign up",
