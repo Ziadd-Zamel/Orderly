@@ -13,7 +13,7 @@ export default function MealCard() {
       <Card className="relative w-[250px] bg-slate-100 rounded-3xl mt-32">
         <CardContent className="px-5 pb-0 pt-12">
           <Image
-            src={"/assets/images/test-product.png"}
+            src={"/assets/images/test-product.svg"}
             alt="Meal Name"
             width={180}
             height={0}
