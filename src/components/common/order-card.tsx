@@ -7,7 +7,7 @@ export default function OrderCard() {
   const format = useFormatter();
 
   return (
-    <div className="relative bg-white rounded-3xl max-w-[750px] px-9 py-6 min-h-[120px] w-full">
+    <div className="relative bg-white rounded-3xl px-9 py-6 min-h-[90px] w-full mt-12">
       <Image
         src={"/assets/images/place-demo.png"}
         width={110}

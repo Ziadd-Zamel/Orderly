@@ -43,6 +43,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-main: hsla(166, 79%, 33%, 1);
   --color-custom-orange: hsla(37, 100%, 50%, 1);
+  --color-custom-gray: rgba(251, 251, 251, 1);
   --color-gradient: var(--gradient-hero);
 }
 
@@ -254,4 +255,12 @@
   font-weight: 700;
   transform: translateX(-55px);
   pointer-events: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

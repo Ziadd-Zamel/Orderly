@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FavoriteButton } from "./shared-buttons";
 import { Card, CardContent } from "../ui/card";
+import { cn } from "@/lib/utils";
 
 type Place = {
   id: number;
@@ -8,10 +9,12 @@ type Place = {
   RestaurantImg: string;
   name: string;
 };
-export default function PlaceCard({ place }: { place: Place }) {
+export default function PlaceCard({ place, className }: { place: Place; className?: string }) {
   return (
     <div>
-      <Card className="relative w-[260px] h-[260px]  bg-slate-100 rounded-[30px] mt-10">
+      <Card
+        className={cn("relative w-[260px] h-[260px] bg-slate-100 rounded-[30px] mt-10", className)}
+      >
         <CardContent className="px-5 pb-0 pt-12 h-full">
           <Image
             src={place.RestaurantImg}
