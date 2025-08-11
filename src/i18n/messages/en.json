@@ -7,7 +7,16 @@
     "referEarn": "Refer & Earn",
     "accountSettings": "Account Settings",
     "termsConditions": "Terms & Conditions",
-    "logout": "Logout"
+    "logout": "Logout",
+    "points": {
+      "title": "My Points",
+      "currentPoints": "Current Points",
+      "points": "points",
+      "vipTier": "VIP tier",
+      "progressToNextTier": "Progress to next tier",
+      "currentValue": "Current: 2000",
+      "nextTierValue": "Next tier: 3500"
+    }
   },
   "auth": {
     "register": {
