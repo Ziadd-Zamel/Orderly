@@ -1,7 +1,7 @@
 import MealCard from "@/components/common/meal-card";
-import TitleFrame from "@/components/common/title-frame";
+import HeadLine from "@/components/common/head-line";
 import RestaurantInfo from "./restaurant-Info";
-import OrderType from "./order-type";
+import OrderTypes from "./order-type";
 import RestaurantBanner from "./restaurant-banner";
 import Menu from "./menu";
 
@@ -16,11 +16,11 @@ export default function RestaurantPage() {
         <RestaurantInfo />
 
         {/* Orders type */}
-        <OrderType />
+        <OrderTypes />
 
         {/* Best seller */}
         <div className="mt-20">
-          <TitleFrame title="Best Seller" />
+          <HeadLine title="Best Seller" />
           <div className="box-container grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center">
             <MealCard />
             <MealCard />

@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -80,7 +80,6 @@ const DateSelector = () => {
             name="selectedDate"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-lg font-semibold">Select a Date</FormLabel>
                 <FormControl>
                   <div className="flex gap-1 p-1 min-h-28 bg-main rounded-2xl overflow-hidden">
                     {days.map((day) => (
@@ -121,34 +120,8 @@ const DateSelector = () => {
               </FormItem>
             )}
           />
-
-          <div className="flex gap-4">
-            <Button
-              type="button"
-              onClick={form.handleSubmit(onSubmit)}
-              className="bg-main hover:bg-green-700"
-            >
-              Confirm Selection
-            </Button>
-            <Button type="button" variant="outline" onClick={() => form.reset()}>
-              Clear
-            </Button>
-          </div>
         </div>
       </Form>
-
-      {/* Display current selection */}
-      {form.watch("selectedDate") && (
-        <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-          <p className="text-green-800">
-            <strong>Selected:</strong>{" "}
-            {(() => {
-              const selected = days.find((day) => day.id === form.watch("selectedDate"));
-              return selected ? `${selected.dayName}, ${selected.month} ${selected.dayNumber}` : "";
-            })()}
-          </p>
-        </div>
-      )}
     </div>
   );
 };

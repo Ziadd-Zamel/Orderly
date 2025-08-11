@@ -141,5 +141,16 @@
   "delivery": "Delivery",
   "and-take-away": "And Takeaway",
   "enjoy": "Enjoy",
-  "sit-back-and-relax": "Sit back, relax and get ready to enjoy every bite."
+  "sit-back-and-relax": "Sit back, relax and get ready to enjoy every bite.",
+  "orderType": {
+    "dineIn": "Dine In",
+    "dineInDescription": "Book your table now",
+    "takeaway": "Takeaway",
+    "takeawayDescription": "Grab your food and go",
+    "delivery": "Delivery",
+    "deliveryDescription": "Enjoy fast delivery",
+    "heading": "Choose Order Type"
+  },
+  "choose-floor": "Choose The Floor",
+  "date-time": "Select Date & Time"
 }

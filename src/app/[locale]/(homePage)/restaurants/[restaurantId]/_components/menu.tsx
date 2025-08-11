@@ -1,6 +1,5 @@
 "use client";
 import MealCard from "@/components/common/meal-card";
-import TitleFrame from "@/components/common/title-frame";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { useState } from "react";
@@ -11,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import HeadLine from "@/components/common/head-line";
 
 export default function Menu() {
   const TabsData = ["all", "italian", "asian", "chinese", "fruit"];
@@ -19,7 +19,7 @@ export default function Menu() {
   return (
     <div className="mt-40">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TitleFrame title="Menu">
+        <HeadLine title="Menu">
           {/* Desktop Tabs */}
           <TabsList className="bg-white gap-10 h-12 self-end hidden md:flex">
             {TabsData.map((tab) => (
@@ -46,7 +46,7 @@ export default function Menu() {
               ))}
             </SelectContent>
           </Select>
-        </TitleFrame>
+        </HeadLine>
 
         {TabsData.map((tab) => (
           <TabsContent key={tab} value={tab}>
