@@ -4,8 +4,8 @@ import PlaceCard from "@/components/common/place-card";
 
 type Place = {
   id: number;
-  ProductImg: string;
-  RestaurantImg: string;
+  productImg: string;
+  restaurantImg: string;
   name: string;
 };
 
@@ -27,7 +27,7 @@ export default function PlacesGrid({ places }: PlacesGridProps) {
 
   return (
     <div className="flex-1">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-12 md:gap-6 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-y-14 justify-items-center">
         {places.map((place) => (
           <PlaceCard key={place.id} place={place} />
         ))}

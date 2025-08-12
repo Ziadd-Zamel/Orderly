@@ -120,5 +120,45 @@
     "profile": "Profile",
     "settings": "Settings",
     "signOut": "Sign Out"
-  }
+  },
+  "heroSection": {
+    "heading": "Explore Your Perfect Places",
+    "description": "Food Delivery is a thriving business and there are many opportunities for this businesses as its growing"
+  },
+  "search": "Search",
+  "search-input-placeholder": "Search for places",
+  "search-button": "Search button",
+  "search-input": "Search input",
+  "offers-for-you": "Offers For You",
+  "nearest-places": "Neares Places",
+  "top-rated-places": "Top Rated Places",
+  "how-to-work": "How to work",
+  "food-us": "Food Us An Important Part Of A Balanced Diet",
+  "browse": "Browse",
+  "pick-your-favorite-restaurant": "Pick your favourite restaurant and select your delicious meal.",
+  "choose": "Choose",
+  "for-dine-in": "For Dine-in",
+  "delivery": "Delivery",
+  "and-take-away": "And Takeaway",
+  "enjoy": "Enjoy",
+  "sit-back-and-relax": "Sit back, relax and get ready to enjoy every bite.",
+  "orderType": {
+    "dineIn": "Dine In",
+    "dineInDescription": "Book your table now",
+    "takeaway": "Takeaway",
+    "takeawayDescription": "Grab your food and go",
+    "delivery": "Delivery",
+    "deliveryDescription": "Enjoy fast delivery",
+    "heading": "Choose Order Type"
+  },
+  "choose-floor": "Choose The Floor",
+  "date-time": "Select Date & Time",
+  "chair": "Chair",
+  "chairs": "Chairs",
+  "am": "AM",
+  "pm": "PM",
+  "1st-floor": "1st Floor",
+  "2nd-floor": "2nd Floor",
+  "out-doors": "Out Doors",
+  "add-to-cart": "Add To Cart"
 }

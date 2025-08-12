@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { Instagram, Facebook, Youtube, Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
+  // Get the current year for copyright
   const currentYear = new Date().getFullYear();
 
   const navigationLinks = [
@@ -25,9 +26,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#129575] text-white pt-4">
-      <div className="box-container  py-12">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-12 mb-28">
+    <footer className="bg-main">
+      <div className="box-container">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-12 py-6 md:py-10 lg:py-16 border-b">
           {/* Brand Section - Left Side */}
           <div className="lg:max-w-sm">
             <div className="mb-4">
@@ -44,7 +45,7 @@ export default function Footer() {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex space-x-4">
+            <div className="flex gap-4">
               {socialLinks.map((social) => {
                 return (
                   <Link
@@ -61,7 +62,7 @@ export default function Footer() {
           </div>
 
           {/* Three Sections Grouped Together - Right Side */}
-          <div className="flex flex-col sm:flex-row justify-between gap-12 lg:gap-16 xl:gap-24 mt-10 lg:mt-0">
+          <div className="flex flex-col sm:flex-row justify-between gap-12 lg:gap-16 xl:gap-24 lg:mt-0">
             {/* Links Section */}
             <div>
               <h3 className="text-lg font-semibold text-white mb-4 uppercase tracking-wider">
@@ -129,9 +130,9 @@ export default function Footer() {
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-teal-500 ">
+        <div className="border-t border-main">
           <div className="flex-center w-full py-5 ">
-            <p className="text-center text-teal-100 -mb-10">
+            <p className="text-center text-white">
               © {currentYear} Orderly Inc. All rights reserved.
             </p>
           </div>

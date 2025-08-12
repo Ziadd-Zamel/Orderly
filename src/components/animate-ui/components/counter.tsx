@@ -61,7 +61,7 @@ function Counter({
             <FiMinus className="w-6 h-6" />
           </Button>
         ) : (
-          <DeleteButton audience={audience} />
+          <DeleteButton audience={audience} className={buttonProps?.className} />
         )}
       </motion.div>
 

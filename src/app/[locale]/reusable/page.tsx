@@ -13,12 +13,12 @@ import DateSelector from "./_components/date-selector";
 import TimePickerForm from "@/components/custom/time-picker/time-wheel-picker";
 import PaginationComp from "@/components/common/pagination-comp";
 import { Counter } from "@/components/animate-ui/components/counter";
-import PlacesCarousel from "@/components/common/places-carousel";
-import { Places } from "@/lib/constants/data.constant";
+import PlacesCarousel from "@/app/[locale]/(homePage)/_components/places-slider/places-carousel";
+import { places } from "@/lib/constants/data.constant";
 import OrderCard from "@/components/common/order-card";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import BannerCarousel from "@/components/common/banner-carusel";
+import BannerCarousel from "@/app/[locale]/(homePage)/_components/home-slider/slider";
 
 export default function Page() {
   const [isLoading, setIsloading] = useState(false);
@@ -143,7 +143,7 @@ export default function Page() {
             <Card className="relative w-[250px] bg-slate-100 rounded-3xl">
               <CardContent className="px-5 pb-0 pt-12">
                 <Image
-                  src={"/assets/images/test-product.png"}
+                  src={"/assets/images/test-product.svg"}
                   alt="Meal Name"
                   width={180}
                   height={0}
@@ -258,7 +258,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <PlacesCarousel title="Top Rated Places " Places={Places} />
+      <PlacesCarousel title="Top Rated Places " places={places} />
       <BannerCarousel />
       <Toaster />
       <Footer />

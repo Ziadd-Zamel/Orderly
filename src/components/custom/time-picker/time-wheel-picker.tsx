@@ -1,7 +1,6 @@
 "use client";
-import { useForm } from "react-hook-form";
+
 import TimeWheelPicker from "./time-carousel";
-import { Button } from "@/components/ui/button"; // Assuming shadcn button is available
 import { useCallback } from "react";
 
 type TimeFormValues = {
@@ -10,63 +9,45 @@ type TimeFormValues = {
   period: "AM" | "PM";
 };
 
-export default function TimePickerForm() {
-  const { handleSubmit, setValue, watch } = useForm<TimeFormValues>({
-    defaultValues: {
-      hours: 8, // Default to 8 hours
-      minutes: 5, // Default to 5 minutes
-      period: "PM", // Default to PM
-    },
-  });
+type TimePickerFormProps = {
+  selectedTime: TimeFormValues;
+  setSelectedTime: React.Dispatch<React.SetStateAction<TimeFormValues>>;
+};
 
-  const onSubmit = (data: TimeFormValues) => {
-    console.log("Selected Time:", data);
-    alert(
-      `Selected Time: ${data.hours}:${data.minutes.toString().padStart(2, "0")} ${data.period}`,
-    );
-  };
-
+export default function TimePickerForm({ selectedTime, setSelectedTime }: TimePickerFormProps) {
   // Watch for changes from the EmblaCarousel and update form values
   const handleHoursChange = useCallback(
     (value: number) => {
-      setValue("hours", value);
+      setSelectedTime((prev) => ({ ...prev, hours: value }));
     },
-    [setValue],
+    [setSelectedTime],
   );
 
   const handleMinutesChange = useCallback(
     (value: number) => {
-      setValue("minutes", value);
+      setSelectedTime((prev) => ({ ...prev, minutes: value }));
     },
-    [setValue],
+    [setSelectedTime],
   );
 
   const handlePeriodChange = useCallback(
     (value: "AM" | "PM") => {
-      setValue("period", value);
+      setSelectedTime((prev) => ({ ...prev, period: value }));
     },
-    [setValue],
+    [setSelectedTime],
   );
 
-  // Initial values for EmblaCarousel
-  const initialHours = watch("hours");
-  const initialMinutes = watch("minutes");
-  const initialPeriod = watch("period");
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-center gap-4">
-      <TimeWheelPicker
-        loop={true}
-        initialHours={initialHours}
-        initialMinutes={initialMinutes}
-        initialPeriod={initialPeriod}
-        onHoursChange={handleHoursChange}
-        onMinutesChange={handleMinutesChange}
-        onPeriodChange={handlePeriodChange}
-      />
-      <Button type="submit" className="mt-4">
-        Submit Time
-      </Button>
-    </form>
+    <TimeWheelPicker
+      loop={true}
+      initialHours={selectedTime.hours}
+      initialMinutes={selectedTime.minutes}
+      initialPeriod={selectedTime.period}
+      onHoursChange={handleHoursChange}
+      onMinutesChange={handleMinutesChange}
+      onPeriodChange={handlePeriodChange}
+      selectedTime={selectedTime}
+      setSelectedTime={setSelectedTime}
+    />
   );
 }
