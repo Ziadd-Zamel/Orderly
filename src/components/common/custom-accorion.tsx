@@ -16,13 +16,16 @@ interface Props {
 export default function CustomAccordion({ title, triggerContent, accordionContent }: Props) {
   return (
     <Accordion className="w-full" type="single" collapsible>
-      <AccordionItem value="item-1" className="border-gray-200 bg-white border-1 rounded-2xl p-6">
+      <AccordionItem
+        value="item-1"
+        className="border-gray-200 bg-white border-1 rounded-2xl px-6 py-4"
+      >
         <AccordionTrigger className="cursor-pointer w-full group transition-all duration-500 ease-in-out">
           <div className="flex items-center justify-between">
-            <p className="text-black font-medium text-lg flex items-center gap-2">
+            <p className="text-black font-medium  flex items-center gap-2">
               {title}
               <span>
-                <MdErrorOutline className="text-2xl" />
+                <MdErrorOutline className="text-xl" />
               </span>
             </p>
             <ChevronRight
