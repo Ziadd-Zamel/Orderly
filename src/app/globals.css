@@ -42,12 +42,15 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-main: hsla(166, 79%, 33%, 1);
+  --color-second: var(--second);
   --color-custom-orange: hsla(37, 100%, 50%, 1);
   --color-custom-gray: rgba(251, 251, 251, 1);
   --color-gradient: var(--gradient-hero);
 }
 
 :root {
+  --main: hsla(166, 79%, 33%, 1);
+  --second: #e0efed;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
