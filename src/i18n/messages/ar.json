@@ -7,7 +7,16 @@
     "referEarn": "أدعُ واربح",
     "accountSettings": "إعدادات الحساب",
     "termsConditions": "الشروط والأحكام",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "points": {
+      "title": "نقاطي",
+      "currentPoints": "النقاط الحالية",
+      "points": "نقاط",
+      "vipTier": "الدرجة المميزة",
+      "progressToNextTier": "التقدم إلى الدرجة التالية",
+      "currentValue": "الحالي: 2000",
+      "nextTierValue": "الدرجة التالية: 3500"
+    }
   },
   "welcome_back": "مرحباً بعودتك!",
   "no_account": "ليس لديك حساب بعد؟",
