@@ -1,5 +1,4 @@
 import { CalendarDays, ChevronRight, ShoppingCart } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OrderCard from "@/components/common/order-card";
@@ -8,40 +7,44 @@ import MyCart from "./my-cart";
 
 export default function CartPage() {
   return (
-    <div className=" box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
-      {/* Left Column: Restaurant Info and Order Cards */}
+    <main className="box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
+      {/* Left Column: Restaurant Info and Orders */}
       <section className="md:col-span-2 grid gap-6">
-        <div className="bg-custom-gray px-4 py-3 rounded-xl shadow-sm flex items-center justify-between">
-          <div className="flex items-center gap-4">
+        {/* Restaurant Info */}
+        <header className="bg-gray-50 px-4 py-3 rounded-xl flex items-center justify-between flex-col sm:flex-row">
+          <div className="flex items-center gap-4 self-start sm:self-center">
             <div className="bg-teal-50 p-3 rounded-full">
-              <ShoppingCart className="h-6 w-6 text-main" />
+              <ShoppingCart className="h-6 w-6 text-main" aria-hidden />
             </div>
             <div>
               <h2 className="text-lg font-medium">Vinny&apos;s</h2>
               <p className="text-sm text-gray-500">
-                Order Type: <span className="text-main">Delivery</span>
+                Order Type: <span className="text-main font-medium">Delivery</span>
               </p>
             </div>
           </div>
+
           <Button
             variant="outline"
-            className="rounded-full px-4 py-2 text-sm text-zinc-900 flex-center gap-2"
+            className="rounded-full px-4 py-2 text-sm text-zinc-900 flex items-center gap-2 self-end sm:self-center"
+            aria-label="Change order date"
           >
-            <CalendarDays className="h-4 w-4" />
+            <CalendarDays className="h-4 w-4" aria-hidden />
             Wed 123
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" aria-hidden />
           </Button>
-        </div>
+        </header>
 
-        <Card className="p-2 rounded-xl shadow-sm bg-custom-gray">
+        {/* Order List */}
+        <Card className="p-2 rounded-xl bg-gray-50">
           <CardContent className="pt-0">
-            <div className="space-y-4 overflow-y-auto max-h-[400px] no-scrollbar">
-              <OrderCard />
-              <OrderCard />
-              <OrderCard />
-              <OrderCard />
-              <OrderCard />
-            </div>
+            <ul className="space-y-4 overflow-y-auto max-h-[400px] no-scrollbar mt-2">
+              {Array.from({ length: 5 }, (_, i) => (
+                <li key={i}>
+                  <OrderCard className="bg-white" />
+                </li>
+              ))}
+            </ul>
           </CardContent>
         </Card>
       </section>
@@ -56,11 +59,10 @@ export default function CartPage() {
             { label: "Taxes", price: 10 },
           ]}
           total={180}
-          companyName={"Bazooka"}
-          onlyTotal
+          companyName="Bazooka"
         />
         <MyCart />
       </aside>
-    </div>
+    </main>
   );
 }
