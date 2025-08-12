@@ -1,20 +1,19 @@
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { FavoriteButton } from "./shared-buttons";
 import { Card, CardContent } from "../ui/card";
+import { FavoriteButton } from "./shared-buttons";
+import { Button } from "../ui/button";
 import { useFormatter, useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
 
-export default function MealCard({ className }: { className?: string }) {
+export default function MealCard() {
   const t = useTranslations();
   const format = useFormatter();
 
   return (
     <div>
-      <Card className={cn("relative w-[250px] bg-slate-100 rounded-3xl", className)}>
+      <Card className="relative w-[250px] bg-slate-100 rounded-3xl mt-32">
         <CardContent className="px-5 pb-0 pt-12">
           <Image
-            src={"/assets/images/test-product.png"}
+            src={"/assets/images/test-product.svg"}
             alt="Meal Name"
             width={180}
             height={0}

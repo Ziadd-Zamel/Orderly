@@ -178,7 +178,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-16 rounded-full bg-custom-orang disabled:border-white disabled:bg-gray-400 hover:bg-custom-orang/70 border-white border-2",
+        "absolute size-16 rounded-full bg-custom-orange disabled:border-white disabled:bg-gray-400 hover:bg-custom-orange/70 border-white border-2",
         orientation === "horizontal"
           ? "top-1/2 -left-7 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -208,7 +208,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-16 rounded-full bg-custom-orang disabled:border-white disabled:bg-gray-400 hover:bg-custom-orang/70 border-white border-2",
+        "absolute size-16 rounded-full bg-custom-orange disabled:border-white disabled:bg-gray-400 hover:bg-custom-orange/70 border-white border-2",
         orientation === "horizontal"
           ? "top-1/2 -right-7 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

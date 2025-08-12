@@ -36,9 +36,9 @@ export default function Sidebar() {
         <Button
           variant="ghost"
           size="icon"
-          className="text-gray-600 hover:text-gray-900 flex items-center justify-center"
+          className="text-zinc-800 flex items-center justify-center"
         >
-          <Menu className="h-5 w-5" />
+          <Menu size={26} />
           <span className="sr-only">{t("navbar.openMenu")}</span>
         </Button>
       </SheetTrigger>

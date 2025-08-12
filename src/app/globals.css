@@ -151,11 +151,27 @@
   @apply flex justify-center items-center;
 }
 @utility box-container {
-  @apply container w-full 2xl:max-w-[90%] mx-auto px-5 sm:px-0;
+  @apply container w-full 2xl:max-w-[85%] mx-auto px-5 md:px-2 lg:px-5;
 }
 
 @utility circle {
   @apply rounded-full;
+}
+
+@utility hero-content-box {
+  @apply w-full lg:w-1/2;
+}
+
+.hide-scrollbar {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE و Edge القديم */
+  -ms-overflow-style: none;
+}
+
+/* Chrome, Safari, Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /*==================================*/
@@ -263,4 +279,22 @@
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+
+/* Mobile App Image Rotation */
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(20deg);
+  }
+  40% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

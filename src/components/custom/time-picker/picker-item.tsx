@@ -203,7 +203,7 @@ export const IosPickerItem: React.FC<PropType> = (props) => {
   }, [emblaApi, initialValue, onSelect]);
 
   return (
-    <div className="h-full flex items-center flex-1 justify-center leading-none text-[1.8rem]">
+    <div className="h-full flex items-center flex-1 justify-center leading-none text-[1.8rem] cursor-grab">
       <div
         className="w-20 h-full overflow-hidden px-2 flex items-center touch-pan-x"
         ref={rootNodeRef}
