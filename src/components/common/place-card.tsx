@@ -19,7 +19,7 @@ export default function PlaceCard({ place }: { place: Place }) {
             src={place.productImg}
             alt="Meal Name"
             fill
-            loading="lazy"
+            // loading="lazy"
             className="object-cover rounded-[30px]"
           />
 

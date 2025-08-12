@@ -22,7 +22,7 @@ export default function RestaurantInfo() {
         </div>
 
         <div className="flex items-center justify-between w-full max-w-sm gap-4">
-          <GroupButton disableAnimation />
+          <GroupButton />
 
           <Button
             variant="outline"

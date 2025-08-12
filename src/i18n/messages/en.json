@@ -179,5 +179,9 @@
   "1st-floor": "1st Floor",
   "2nd-floor": "2nd Floor",
   "out-doors": "Out Doors",
-  "add-to-cart": "Add To Cart"
+  "add-to-cart": "Add To Cart",
+  "group-order": "Group Order",
+  "invitation-link": "Invitation Link",
+  "continue-shopping": "Continue Shopping",
+  "delete-group": "Delete Group"
 }
