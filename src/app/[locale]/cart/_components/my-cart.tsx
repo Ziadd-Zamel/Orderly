@@ -1,63 +1,81 @@
 import Link from "next/link";
-import { ChevronLeft, Users, User } from "lucide-react";
-
+import { ChevronLeft, User, ChevronRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 
-const groupMembers = [
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-  "/placeholder.svg?height=32&width=32",
-];
+const groupMembers = Array(10).fill("/placeholder.svg?height=32&width=32");
+
 export default function MyCart() {
+  const visibleMembers = groupMembers.slice(0, 3);
+  const extraCount = groupMembers.length - visibleMembers.length;
+
   return (
-    <Card className="rounded-xl shadow-sm">
+    <Card className="shadow-none bg-gray-50 border-none">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <div className="flex items-center gap-2">
-          <ChevronLeft className="h-5 w-5 text-gray-500" />
-          <CardTitle className="text-lg font-semibold">My Cart</CardTitle>
-        </div>
-        <Avatar className="h-8 w-8">
-          <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User Avatar" />
+        {/* Back button placeholder */}
+        <button
+          type="button"
+          aria-label="Go back"
+          className="p-1 hover:text-main transition-colors"
+        >
+          <ChevronLeft />
+        </button>
+
+        <CardTitle className="text-lg font-semibold text-zinc-900">My Cart</CardTitle>
+
+        <Avatar className="size-16">
           <AvatarFallback>
-            <Users className="h-5 w-5" />
+            <User aria-hidden />
           </AvatarFallback>
         </Avatar>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className="flex items-center gap-2">
-          <Users className="h-5 w-5 text-gray-500" />
-          <span className="text-sm font-medium text-gray-600">Group Members</span>
+
+      <CardContent className="flex flex-col gap-4">
+        <div className="flex items-center justify-between flex-wrap gap-2 w-full">
+          {/* Group Members Title */}
+          <div className="flex items-center gap-2">
+            <Image
+              src="/assets/icons/teamwork.svg"
+              alt="Teamwork icon"
+              width={30}
+              height={30}
+              loading="lazy"
+            />
+            <span className="font-medium text-zinc-800">Group Members</span>
+          </div>
+
+          {/* Member Avatars */}
           <div className="flex -space-x-2 ml-2">
-            {groupMembers.slice(0, 3).map((src, index) => (
-              <Avatar key={index} className="h-8 w-8 border-2 border-white">
-                <AvatarImage src={src || "/placeholder.svg"} alt={`Group Member ${index + 1}`} />
+            {visibleMembers.map((src, index) => (
+              <Avatar
+                key={index}
+                className="size-12 border-2 border-white"
+                title={`Group Member ${index + 1}`}
+              >
+                <AvatarImage src={src} alt={`Group Member ${index + 1}`} loading="lazy" />
                 <AvatarFallback>
-                  <User className="h-4 w-4" />
+                  <User size={20} aria-hidden />
                 </AvatarFallback>
               </Avatar>
             ))}
-            {groupMembers.length > 3 && (
-              <Avatar className="h-8 w-8 border-2 border-white bg-gray-200 text-gray-600 text-xs flex items-center justify-center">
-                <AvatarFallback>{`+${groupMembers.length - 3}`}</AvatarFallback>
+
+            {extraCount > 0 && (
+              <Avatar className="size-12 border-2 border-white bg-gray-200 text-gray-600 text-xs flex items-center justify-center">
+                <AvatarFallback>{`+${extraCount}`}</AvatarFallback>
               </Avatar>
             )}
           </div>
         </div>
+
+        {/* Add Members Link */}
         <Link
           href="#"
-          className="text-[#2ECC71] font-medium text-sm flex items-center gap-1"
+          className="text-main font-medium flex items-center gap-1 mt-5 self-end hover:underline"
           prefetch={false}
         >
           Add Members
-          <ChevronLeft className="h-4 w-4 rotate-180" />
+          <ChevronRight size={16} aria-hidden />
         </Link>
       </CardContent>
     </Card>
