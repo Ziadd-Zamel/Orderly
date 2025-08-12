@@ -9,7 +9,7 @@ import TimePickerForm from "@/components/custom/time-picker/time-wheel-picker";
 
 export default function CheckoutPage() {
   return (
-    <div className=" box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-6">
+    <div className=" box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
       {/* Left Column: Checkout */}
       <div className="md:col-span-2 grid gap-6">
         <Card className="py-3 px-4 rounded-xl shadow-sm bg-custom-gray">
@@ -28,13 +28,7 @@ export default function CheckoutPage() {
             <div className="space-y-4 overflow-y-auto max-h-[400px] no-scrollbar">
               <CustomAccordion
                 title="Select Date & Time"
-                accordionContent={
-                  <>
-                    <DateSelector />
-
-                    <TimePickerForm />
-                  </>
-                }
+                accordionContent={<>date</>}
                 triggerContent={
                   <div className="flex-center justify-start gap-2">
                     <p className="text-gray-400 font-medium text-xs">Take it By</p>

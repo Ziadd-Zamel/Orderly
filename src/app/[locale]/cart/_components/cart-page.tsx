@@ -8,7 +8,7 @@ import MyCart from "./my-cart";
 
 export default function CartPage() {
   return (
-    <div className=" box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-6">
+    <div className=" box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
       {/* Left Column: Restaurant Info and Order Cards */}
       <section className="md:col-span-2 grid gap-6">
         <div className="bg-custom-gray px-4 py-3 rounded-xl shadow-sm flex items-center justify-between">
