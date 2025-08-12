@@ -1,4 +1,14 @@
 {
+  "profile": {
+    "myInfo": "معلوماتي",
+    "myOrders": "طلباتي",
+    "myPoints": "نقاطي",
+    "myAddresses": "عناويني",
+    "referEarn": "أدعُ واربح",
+    "accountSettings": "إعدادات الحساب",
+    "termsConditions": "الشروط والأحكام",
+    "logout": "تسجيل الخروج"
+  },
   "welcome_back": "مرحباً بعودتك!",
   "no_account": "ليس لديك حساب بعد؟",
   "create_account": "أنشئ واحداً الآن!",
