@@ -4,8 +4,12 @@ import PlacesGrid from "./places-grid";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { places } from "@/lib/constants/data.constant";
+import { useTranslations } from "next-intl";
 
 export default function RestaurantsPage() {
+  // Translations
+  const t = useTranslations();
+
   return (
     <section className="">
       <div className="box-container mt-32 mb-14">
@@ -18,14 +22,14 @@ export default function RestaurantsPage() {
 
           <div className="flex-1 min-w-0">
             {/* Search Bar */}
-            <div className="relative max-w-xl mx-auto px-4 mb-5">
-              <Input
-                type="text"
-                placeholder="search for places"
-                className="w-full pl-8 pr-12 sm:pr-24 py-3 sm:py-4 bg-main/10 border-0 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all duration-200"
-              />
-              <Button className="absolute font-normal inset-y-0 right-1 my-1 px-6 sm:w-36  text-white rounded-full transition-colors duration-200 text-sm">
-                search
+            <div
+              className="w-full lg:w-4/5 relative p-1.5 bg-main/10 flex gap-2 rounded-full"
+              aria-label="Serach"
+            >
+              <Input className="bg-background border-none w-4/5 h-10" placeholder={"Search..."} />
+              {/* Search Button */}
+              <Button className="rounded-full w-[30%]" aria-label={""}>
+                {t("search") || "Search"}
               </Button>
             </div>
 
