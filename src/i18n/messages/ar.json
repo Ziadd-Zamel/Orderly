@@ -183,5 +183,21 @@
   "group-order": "طلب المجموعة",
   "invitation-link": "رابــط الدعـــوة",
   "continue-shopping": "أكمل التسوق",
-  "delete-group": "حذف المجموعة"
+  "delete-group": "حذف المجموعة",
+  "my-orders": "طـلبـاتـــي",
+  "all": "الـكــل",
+  "pending": "انتـظــار",
+  "completed": "مكـتمــل",
+  "canceled": "ملغــي",
+  "payment-success": "دفــع ناجـح!",
+  "payment-success-description": "لقد تم إجراء دفعتك بنجاح.",
+  "total-payment": "إجمالـي الدفــع",
+  "subtotal": "السعــر",
+  "service-fee": "رسـوم الخدمــة",
+  "tax": "الضـريبــة",
+  "delivery-fee": "رسـوم التـوصيــل",
+  "cash-on-delivery": "الدفـع نقـداَ عـند الاستــلام",
+  "pay-with": "الـدفــع بــ",
+  "shipping-in": "الشحــن فـي",
+  "delivery-address": "عنــوان الشحـــن"
 }

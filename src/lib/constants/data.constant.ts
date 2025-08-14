@@ -1,12 +1,3 @@
-import { BiSolidUser } from "react-icons/bi";
-import { FaClipboardList } from "react-icons/fa";
-import { FaStar } from "react-icons/fa6";
-import { HiMiniMapPin } from "react-icons/hi2";
-import { MdPeopleOutline } from "react-icons/md";
-import { BsFillShieldLockFill } from "react-icons/bs";
-import { IoSettingsSharp } from "react-icons/io5";
-import { IconType } from "react-icons/lib";
-
 export const places = [
   {
     id: 1,
@@ -77,18 +68,4 @@ export const branches = [
     name: "Maadi",
     address: "12 Brazil Street, Apartment 5",
   },
-];
-
-type MenuItem =
-  | { label: string; icon: IconType; path: string; divider?: false }
-  | { divider: true };
-export const menuItems: MenuItem[] = [
-  { label: "profile.myInfo", icon: BiSolidUser, path: "/profile" },
-  { label: "profile.myOrders", icon: FaClipboardList, path: "/profile/orders" },
-  { label: "profile.myPoints", icon: FaStar, path: "/profile/points" },
-  { label: "profile.myAddresses", icon: HiMiniMapPin, path: "/profile/addresses" },
-  { label: "profile.referEarn", icon: MdPeopleOutline, path: "/profile/refer" },
-  { divider: true },
-  { label: "profile.accountSettings", icon: IoSettingsSharp, path: "/profile/settings" },
-  { label: "profile.termsConditions", icon: BsFillShieldLockFill, path: "/profile/terms" },
 ];

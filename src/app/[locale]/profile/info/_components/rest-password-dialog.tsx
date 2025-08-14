@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
-import { PasswordInput } from "../../auth/_components/password-input";
+import { PasswordInput } from "../../../auth/_components/password-input";
 import { ArrowRight } from "lucide-react";
 
 export default function PasswordDialog({
