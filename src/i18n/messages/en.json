@@ -183,5 +183,21 @@
   "group-order": "Group Order",
   "invitation-link": "Invitation Link",
   "continue-shopping": "Continue Shopping",
-  "delete-group": "Delete Group"
+  "delete-group": "Delete Group",
+  "my-orders": "My Orders",
+  "all": "All",
+  "pending": "Pending",
+  "completed": "Completed",
+  "canceled": "Canceled",
+  "payment-success": "Payment Success!",
+  "payment-success-description": "Your payment has been successfully done.",
+  "total-payment": "Total Payment",
+  "subtotal": "Subtotal",
+  "service-fee": "Service Fee",
+  "tax": "Tax",
+  "delivery-fee": "Delivery Fee",
+  "cash-on-delivery": "Cash On Delivery",
+  "pay-with": "Pay With",
+  "shipping-in": "Shipping in",
+  "delivery-address": "Delivery Address"
 }

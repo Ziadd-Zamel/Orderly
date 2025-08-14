@@ -5,10 +5,10 @@ export default async function LocaleLayout({ children }: LayoutProps) {
   return (
     <>
       <Navbar />
-      <div className="flex items-start gap-6 mt-32 box-container">
+      <main className="flex items-start gap-6 mt-32 mb-10 box-container">
         <ProfileSidebar />
-        <div className="flex-1">{children}</div>
-      </div>
+        <section className="flex-1">{children}</section>
+      </main>
     </>
   );
 }
