@@ -130,7 +130,7 @@ export default function ProfileSidebar() {
   const SidebarContent = () => (
     <>
       {/* Profile & Menu */}
-      <div className="w-full lg:bg-[#FBFBFB] py-4 px-4 md:px-1 md:sm:px-8 rounded-3xl">
+      <div className="relative z-20 w-full lg:bg-[#FBFBFB] py-4 px-4 md:px-1 md:sm:px-8 rounded-3xl">
         {/* Profile */}
         <div
           className="mb-8 flex items-center gap-5"

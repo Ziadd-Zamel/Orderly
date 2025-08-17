@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 export const useMediaChecker = () => {
@@ -21,7 +23,7 @@ export const useMediaChecker = () => {
       const lgScreen = window.innerWidth > 1024 && window.innerWidth <= 1280;
       const xlScreen = window.innerWidth > 1280 && window.innerWidth <= 1536;
       const xxlScreen = window.innerWidth > 1536;
-      const screenWidth =  window.innerWidth
+      const screenWidth = window.innerWidth;
       setScreenWidth(screenWidth);
       setScreenSizes({ smScreen, mdScreen, lgScreen, xlScreen, xxlScreen });
     };
@@ -33,5 +35,5 @@ export const useMediaChecker = () => {
     return () => window.removeEventListener("resize", updateScreenSizes);
   }, []);
 
-  return {screenSizes, screenWidth};
+  return { screenSizes, screenWidth };
 };

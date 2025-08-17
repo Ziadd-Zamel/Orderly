@@ -11,7 +11,7 @@ export default function AddressPage() {
   ];
 
   return (
-    <section aria-labelledby="address-page-title" className="max-w-[800px]">
+    <div aria-labelledby="address-page-title" className="max-w-[800px]">
       <h3 id="address-page-title" className="font-medium text-2xl">
         My Addresses
       </h3>
@@ -43,6 +43,6 @@ export default function AddressPage() {
       </RadioGroup>
 
       <AddAddressDialog />
-    </section>
+    </div>
   );
 }
