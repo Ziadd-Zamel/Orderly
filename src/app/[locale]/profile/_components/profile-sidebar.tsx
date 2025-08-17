@@ -3,12 +3,11 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { RiLogoutBoxFill } from "react-icons/ri";
 import { BiSolidUser } from "react-icons/bi";
 import { FaClipboardList, FaStar } from "react-icons/fa";
 import { HiMiniMapPin } from "react-icons/hi2";
 import { MdPeopleOutline } from "react-icons/md";
-import { IoSettingsSharp } from "react-icons/io5";
+import { IoLogOutOutline, IoSettingsSharp } from "react-icons/io5";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useMediaChecker } from "@/hooks/use-media-checker";
@@ -193,7 +192,7 @@ export default function ProfileSidebar() {
           className="flex items-center justify-start gap-3 text-red-600 hover:text-red-700 transition-colors bg-[#FBFBFB] py-4 px-4 md:px-2 md:sm:px-8 rounded-2xl w-full"
           aria-label={t("profile.logout")}
         >
-          <RiLogoutBoxFill size={18} aria-hidden="true" focusable="false" />
+          <IoLogOutOutline size={20} className="rotate-180" aria-hidden="true" focusable="false" />
           <span className="block">{t("profile.logout")}</span>
         </Link>
       </motion.div>
