@@ -29,7 +29,7 @@ const SIDEBAR_LINKS: MenuItem[] = [
   { label: "profile.myAddresses", icon: HiMiniMapPin, path: "/addresses" },
   { label: "profile.referEarn", icon: MdPeopleOutline, path: "/refer" },
   { divider: true },
-  { label: "profile.accountSettings", icon: IoSettingsSharp, path: "/settings" },
+  { label: "profile.accountSettings", icon: IoSettingsSharp, path: "/account-settings" },
   { label: "profile.termsConditions", icon: BsFillShieldLockFill, path: "/terms" },
 ];
 

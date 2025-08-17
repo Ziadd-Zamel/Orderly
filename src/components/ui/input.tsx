@@ -40,7 +40,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           type={type}
           className={cn(
             inputVariants({ variant, inputSize, state, className }),
-            "w-full",
             type === "search" && "ps-10",
           )}
           ref={ref}

@@ -199,5 +199,12 @@
   "cash-on-delivery": "Cash On Delivery",
   "pay-with": "Pay With",
   "shipping-in": "Shipping in",
-  "delivery-address": "Delivery Address"
+  "delivery-address": "Delivery Address",
+  "share-link": "Share Link",
+  "communication-in": "Receive Communications In",
+  "language": "Language",
+  "notifications": "Notifications",
+  "allow-notifications": "Allow Notifications",
+  "allow-notifications-rings": "Allow the Notification Rings",
+  "delete-account": "Delete Account"
 }

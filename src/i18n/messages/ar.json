@@ -199,5 +199,11 @@
   "cash-on-delivery": "الدفـع نقـداَ عـند الاستــلام",
   "pay-with": "الـدفــع بــ",
   "shipping-in": "الشحــن فـي",
-  "delivery-address": "عنــوان الشحـــن"
+  "delivery-address": "عنــوان الشحـــن",
+  "share-link": "مشـاركـة الرابــط",
+  "communication-in": " اختــر لغــة التـواصل",
+  "language": "اللــغة",
+  "notifications": "الإشـعـــارات",
+  "allow-notifications": "السمــاح بتفعــيل الإشعــارات",
+  "allow-notifications-rings": "تفعـيــل جــرس الإشـعـــارات"
 }
