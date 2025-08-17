@@ -13,7 +13,7 @@ const productsImages = Array(9).fill("/assets/Images/test-product.png");
 
 export default function CheckoutPage() {
   return (
-    <div className="box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
+    <div className="relative z-20 box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
       {/* Left Column */}
       <div className="md:col-span-2 grid gap-6">
         <Card className="py-3 px-4 rounded-xl bg-gray-50">

@@ -1,3 +1,4 @@
+"use client";
 import { useMediaChecker } from "@/hooks/use-media-checker";
 import Image from "next/image";
 

@@ -7,7 +7,7 @@ import MyCart from "./my-cart";
 
 export default function CartPage() {
   return (
-    <main className="box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
+    <main className="relative z-20 box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
       {/* Left Column: Restaurant Info and Orders */}
       <section className="md:col-span-2 grid gap-6">
         {/* Restaurant Info */}
