@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Locale, useLocale } from "next-intl";
+import { type Locale, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils/tailwind-merge";
@@ -37,23 +37,25 @@ export function SwitchLocale({ className }: { className?: string }) {
   return (
     <DropdownMenu>
       {/* Trigger */}
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className={cn("gap-1 px-2", className)}>
-          {/* Icon */}
-          <Globe className="h-4 w-4" />
+      <DropdownMenuTrigger asChild className="w-full">
+        <Button variant="ghost" size="sm" className={cn("gap-1 px-2 w-full", className)}>
+          <div className="flex items-center gap-2">
+            {/* Icon */}
+            <Globe className="h-4 w-4" />
 
-          {/* Name */}
-          <span className="hidden sm:inline-block">
-            {languages.find((lang) => lang.code === locale)?.name}
-          </span>
+            {/* Name */}
+            <span className="text-sm font-medium">
+              {languages.find((lang) => lang.code === locale)?.name}
+            </span>
+          </div>
 
           {/* Icon */}
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown size={18} />
         </Button>
       </DropdownMenuTrigger>
 
       {/* Dropdown */}
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent className="w-full min-w-full" align="start">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}

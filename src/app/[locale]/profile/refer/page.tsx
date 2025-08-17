@@ -1,9 +1,9 @@
-import ReferralCodeComponent from "./_components/refer-page";
+import ReferralCode from "./_components/referral-code";
 
 export default function Page() {
   return (
     <>
-      <ReferralCodeComponent />
+      <ReferralCode />
     </>
   );
 }
