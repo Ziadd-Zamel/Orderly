@@ -1,10 +1,15 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@radix-ui/react-separator";
 import { FilterIcon } from "lucide-react";
 import Image from "next/image";
+import { DualRangeSlider } from "@/components/ui/dual-range-slider";
+import { useState } from "react";
 
 function FilterContent() {
+  const [values, setValues] = useState([0, 100]);
+
   const placeTypes = [
     { id: "Restaurant", label: "Restaurant", icon: "/assets/icons/food.svg" },
     { id: "Coffee shop", label: "Coffee shop", icon: "/assets/icons/coffee.svg" },
@@ -54,6 +59,14 @@ function FilterContent() {
       {/* Average Prices */}
       <div className="mb-8">
         <h3 className="text-lg mb-6">Average prices</h3>
+        <DualRangeSlider
+          label={(value) => <span>{value}℃</span>}
+          value={values}
+          onValueChange={setValues}
+          min={0}
+          max={100}
+          step={1}
+        />{" "}
       </div>
 
       {/* Services Provided */}
