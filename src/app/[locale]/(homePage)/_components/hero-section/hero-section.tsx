@@ -75,7 +75,7 @@ export default function HeroSection() {
   const headingText = t("heroSection.heading");
 
   return (
-    <section className="box-container mb-10 lg:mt-28 lg:py-6">
+    <section className="box-container mb-20 lg:mb-10 mt-36 lg:py-6">
       {/* Vectors */}
       <BackgroundVectors />
 
@@ -118,7 +118,7 @@ export default function HeroSection() {
             aria-label={t("search-input")}
           >
             <Input
-              className="bg-background border-none w-4/5 h-10"
+              className="bg-background border-none  h-10"
               placeholder={t("search-input-placeholder") || "Search..."}
             />
             {/* Search Button */}

@@ -28,7 +28,7 @@ export default function HomeSlider() {
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api);
 
   return (
-    <div className="box-container my-14 lg:my-20">
+    <div className="relative z-20 box-container my-14 lg:my-20">
       {/* Carousel component */}
       <Carousel className="w-full" setApi={setApi}>
         <CarouselHeader className="text-center text-zinc-800 font-semibold text-2xl sm:text-3xl py-4 lg:py-6 xl:py-8">
