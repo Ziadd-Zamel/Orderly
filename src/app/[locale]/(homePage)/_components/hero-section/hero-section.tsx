@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const BackgroundVectors = dynamic(() => import("./hero-vectors"), {
   ssr: false,
@@ -71,82 +72,96 @@ export default function HeroSection() {
   // Translation
   const t = useTranslations();
 
+  // Theme
+  const { theme } = useTheme();
+
+  const image = theme === "genz" ? "/assets/Images/genz-hero.png" : "/assets/Images/hero-image.png";
+
+  console.log("Theme is: ", image);
+  console.log("Theme is: ", theme);
+
   // Variables
   const headingText = t("heroSection.heading");
 
   return (
-    <section className="box-container mb-20 lg:mb-10 mt-36 lg:py-6">
-      {/* Vectors */}
-      <BackgroundVectors />
+    <section className="genz:hero-bg mb-20">
+      <div className="box-container pt-28 lg:py-36 pb-16">
+        <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
+          <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
+            {/* Heading */}
+            <h2 className="max-w-[90%] text-[37px] md:text-5xl lg:text-[54px] xl:text-[68px] text-main genz:text-gradient font-poppins font-bold lg:leading-20 lg:mb-10">
+              {headingText.split("").map((char, i) => (
+                <motion.span
+                  key={`${char}-${i}`} // Unique key
+                  variants={letterVariants}
+                  initial="hidden"
+                  animate="visible"
+                  custom={i} // Pass index as custom prop
+                  style={{ display: "inline-block" }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </h2>
 
-      <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
-        <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
-          {/* Heading */}
-          <h2 className="text-[32px] md:text-5xl lg:text-[54px] xl:text-[68px] text-main font-poppins font-bold leading-20 lg:mb-10">
-            {headingText.split("").map((char, i) => (
-              <motion.span
-                key={`${char}-${i}`} // Unique key
-                variants={letterVariants}
-                initial="hidden"
-                animate="visible"
-                custom={i} // Pass index as custom prop
-                style={{ display: "inline-block" }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </h2>
+            {/* Hero Description */}
+            <motion.div
+              variants={descriptionVariants}
+              initial="hidden"
+              animate="visible"
+              className="relative before:w-1.5 before:h-full before:absolute before:start-0 before:top-0 before:rounded-t-full before:rounded-b-full ps-4 before:bg-main genz:before:bg-purple-500"
+            >
+              <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800 font-poppins">
+                {t("heroSection.description")}
+              </p>
+            </motion.div>
 
-          {/* Hero Description */}
-          <motion.div
-            variants={descriptionVariants}
-            initial="hidden"
-            animate="visible"
-            className="relative before:w-1 before:h-full before:absolute before:start-0 before:top-0 before:rounded-t-full before:rounded-b-full ps-4 before:bg-[#A259FF]"
-          >
-            <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800 font-poppins">
-              {t("heroSection.description")}
-            </p>
-          </motion.div>
+            {/* Search Component */}
+            <motion.div
+              variants={searchInputVariants}
+              initial="initial"
+              animate="visible"
+              className="w-full lg:w-4/5 relative p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
+              aria-label={t("search-input")}
+            >
+              <Input
+                className="bg-background border-none  h-10"
+                placeholder={t("search-input-placeholder") || "Search..."}
+              />
+              {/* Search Button */}
+              <Button className="rounded-full w-[30%]" aria-label={t("search-button")}>
+                {t("search") || "Search"}
+              </Button>
+            </motion.div>
+          </div>
 
-          {/* Search Component */}
-          <motion.div
-            variants={searchInputVariants}
-            initial="initial"
-            animate="visible"
-            className="w-full lg:w-4/5 relative p-1.5 bg-main/10 flex gap-2 rounded-full"
-            aria-label={t("search-input")}
-          >
-            <Input
-              className="bg-background border-none  h-10"
-              placeholder={t("search-input-placeholder") || "Search..."}
-            />
-            {/* Search Button */}
-            <Button className="rounded-full w-[30%]" aria-label={t("search-button")}>
-              {t("search") || "Search"}
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Hero Image */}
-        <div className="w-full lg:w-2/5 flex-center h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
-          <motion.div
-            className="relative w-full h-full"
-            variants={imageVariants}
-            initial="initial"
-            whileHover="hover"
-          >
-            <Image
-              src="/assets/Images/hero-image.png"
-              alt="Hero Image"
-              fill
-              priority
-              sizes="100%"
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
+          {/* Hero Image */}
+          <div className="w-full lg:w-2/5 flex-center h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
+            <motion.div
+              key={theme === "genz" ? "genz-hero" : "hero-image"}
+              className="relative w-full h-full"
+              variants={imageVariants}
+              initial="initial"
+              whileHover="hover"
+            >
+              <Image
+                src={
+                  theme === "genz"
+                    ? "/assets/Images/genz-hero.png"
+                    : "/assets/Images/hero-image.png"
+                }
+                alt="Hero Image"
+                fill
+                priority
+                sizes="100%"
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
+      {/* Vectors */}
+      <BackgroundVectors />
     </section>
   );
 }

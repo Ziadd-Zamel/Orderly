@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 py-6 z-50 bg-white shadow-md">
+      <header className="fixed top-0 left-0 right-0 py-6 z-50 bg-white genz:bg-background shadow-md genz:shadow-none">
         <nav className="box-container flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
@@ -36,9 +36,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition-colors ${
-                  link.active
-                    ? "text-main hover:text-teal-600"
-                    : "text-gray-600 hover:text-gray-900"
+                  link.active ? "text-main genz:text-gradient" : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 {link.label}

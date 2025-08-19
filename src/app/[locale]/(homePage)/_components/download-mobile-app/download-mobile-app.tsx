@@ -1,20 +1,27 @@
+"use client";
+
 import AppButtons from "@/components/layout/footer/components/app-buttons";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import React from "react";
 
 export default function DownloadMobileApp() {
+  // Theme
+  const { theme } = useTheme();
+  const image = theme === "genz" ? "/assets/Images/genz-mobile.png" : "/assets/Images/mobile.png";
+
   return (
-    <div className="bg-main relative md:mt-28">
+    <div className="bg-main genz:footer-bg relative md:mt-28">
       <div className=" box-container flex gap-8 py-6 md:py-10 lg:py-16 border-b">
         {/* Mobile Logo Section */}
         <div className="relative md:w-1/3 hidden md:flex-center">
           <Image
-            src={"/assets/Images/mobile.png"}
+            src={image}
             alt="Mobile Application image"
             width={200}
             height={0}
             loading="lazy"
-            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[40%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite]"
+            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite]"
           />
 
           <Image
@@ -29,10 +36,10 @@ export default function DownloadMobileApp() {
 
         {/* Download App Content */}
         <div className="flex flex-col gap-6">
-          <h2 className="text-white text-xl md:text-3xl lg:text-4xl font-poppins italic">
+          <h2 className="text-white genz:text-zinc-800 text-xl md:text-3xl lg:text-4xl font-poppins italic">
             Let’s start your order or table reservation easily!
           </h2>
-          <p className="text-white text-base md:text-lg font-poppins font-light">
+          <p className="text-white genz:text-zinc-800 text-base md:text-lg font-poppins font-light">
             Download Orderly and join our growing community of happy users
           </p>
           <AppButtons />

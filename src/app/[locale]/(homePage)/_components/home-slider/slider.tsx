@@ -57,9 +57,9 @@ export default function HomeSlider() {
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
-            className={"embla__dot w-4 h-2 rounded-sm border-2 transition-all duration-200 cursor-pointer".concat(
+            className={"embla__dot w-4 h-3 rounded-sm cursor-pointer transition-all duration-200 ".concat(
               index === selectedIndex
-                ? " embla__dot--selected bg-custom-orange w-16 "
+                ? " embla__dot--selected bg-custom-orange  genz:bg-gradient w-16"
                 : " bg-gray-300 hover:border-main",
             )}
           />
