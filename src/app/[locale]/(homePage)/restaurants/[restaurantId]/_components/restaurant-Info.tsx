@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
@@ -15,7 +17,12 @@ export default function RestaurantInfo() {
             <ChevronRight size={25} className="flex-shrink-0" />
           </h2>
           <div className="flex items-center gap-1 justify-center">
-            <Star fill="#FF9C00" className="size-6 text-custom-orange flex-shrink-0" />
+            <Star
+              fill={"#FF9C00"}
+              className="size-5 text-custom-orange genz:hidden flex-shrink-0"
+            />
+
+            <Star fill={"#A259FF"} className="size-5 hidden genz:block flex-shrink-0" />
             <span className="text-sm font-medium">4.8</span>
             <span className="text-gray-400 text-sm">(324 reviews)</span>
           </div>
@@ -55,7 +62,15 @@ export default function RestaurantInfo() {
             <ChevronRight size={25} className="flex-shrink-0" />
           </Link>
           <div className="flex items-center gap-1 justify-center mt-3">
-            <Star fill="#FF9C00" className="size-6 text-custom-orange " />
+            <Star
+              fill={"#FF9C00"}
+              className="size-5 text-custom-orange genz:hidden flex-shrink-0"
+            />
+
+            <Star
+              fill={"#A259FF"}
+              className="size-5 hidden text-[#A259FF] genz:block flex-shrink-0"
+            />
             <span className="font-medium">4.8</span>
             <span className="text-gray-400">(324 reviews)</span>
           </div>
@@ -63,14 +78,21 @@ export default function RestaurantInfo() {
 
         <Button
           variant="outline"
-          className="flex items-center gap-2 bg-transparent rounded-full px-12 py-4 whitespace-nowrap flex-shrink-0"
+          className="flex items-center gap-2 bg-transparent genz:text-purple-500 border-2 rounded-full px-12 py-4 whitespace-nowrap flex-shrink-0"
         >
           <Image
             src={"/assets/icons/bill.svg"}
             alt="bill icon"
             width={20}
             height={20}
-            className="flex-shrink-0"
+            className="flex-shrink-0 genz:hidden"
+          />
+          <Image
+            src={"/assets/icons/bill-genz.svg"}
+            alt="bill icon"
+            width={20}
+            height={20}
+            className="flex-shrink-0 hidden genz:block"
           />
           Need help? Call a waiter
         </Button>

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Share } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { FaShareAlt } from "react-icons/fa";
@@ -20,12 +20,12 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
   return (
     <>
       {disableAnimation ? (
-        <div className="size-16 flex-center bg-main rounded-full">
+        <div className="size-16 flex-center bg-main genz:!bg-gradient circle">
           <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
         </div>
       ) : (
         <motion.div
-          className="bg-main rounded-full flex items-center flex-shrink-0 overflow-hidden border-4 border-main"
+          className="bg-main genz:bg-gradient circle flex items-center flex-shrink-0 overflow-hidden border-4 border-main"
           initial={{ width: 64, height: 64 }}
           animate={{
             width: [64, 200, 64],
@@ -38,11 +38,11 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
             ease: "easeInOut",
           }}
         >
-          <div className="size-16 flex-center bg-main rounded-full flex-shrink-0">
+          <div className="size-16 flex-center bg-main circle flex-shrink-0">
             <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
           </div>
           <motion.span
-            className="text-white font-medium whitespace-nowrap pr-4 bg-main"
+            className="text-white font-medium whitespace-nowrap pr-4"
             transition={{
               duration: 3,
               times: [0, 0.2, 1],
@@ -66,7 +66,7 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Trigger */}
       <DialogTrigger asChild>
-        <Button className="bg-transparent hover:bg-transparent cursor-pointer border-none outline-none">
+        <Button className="bg-transparent hover:bg-transparent genz:bg-transparent cursor-pointer border-none outline-none">
           <GroupTrigger disableAnimation={disableAnimation} />
         </Button>
       </DialogTrigger>
