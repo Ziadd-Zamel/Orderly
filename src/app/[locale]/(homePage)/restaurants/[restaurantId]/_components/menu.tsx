@@ -50,9 +50,7 @@ export default function Menu() {
 
         {TabsData.map((tab) => (
           <TabsContent key={tab} value={tab}>
-            <div className="box-container grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center">
-              <MealCard />
-              <MealCard />
+            <div className="box-container grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 justify-items-center">
               <MealCard />
               <MealCard />
               <MealCard />

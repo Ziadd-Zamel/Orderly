@@ -10,19 +10,19 @@ export default function MealCard() {
 
   return (
     <div>
-      <Card className="relative w-[250px] bg-slate-100 rounded-3xl mt-32">
+      <Card className="group relative w-[250px] bg-slate-100 rounded-3xl mt-32 hover:!scale-105 transition-all duration-300 hover:bg-main genz:hover:bg-purple-500 cursor-pointer">
         <CardContent className="px-5 pb-0 pt-12">
           <Image
             src={"/assets/images/test-product.svg"}
             alt="Meal Name"
-            width={180}
+            width={150}
             height={0}
             className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10"
           />
 
           <div className="flex flex-col justify-center mb-6">
             {/* Product Name */}
-            <h2 className="text-base text-zinc-700 text-center font-medium font-poppins truncate">
+            <h2 className="group-hover:text-white transition-all duration-300  text-base text-zinc-700 text-center font-medium font-poppins truncate">
               {t("meal-name") + " " + "Test Demmmmmo"}
             </h2>
 
@@ -34,7 +34,7 @@ export default function MealCard() {
                 width={25}
                 height={0}
               />
-              <p className="text-zinc-500 text-sm font-popins self-end">
+              <p className="text-zinc-500 group-hover:text-white transition-all duration-300  text-sm font-popins self-end">
                 {`${format.number(10)}-${format.number(15)} ${t("minute")}`}
               </p>
             </div>
@@ -43,7 +43,7 @@ export default function MealCard() {
           {/* Price & Favorite Button */}
           <div className="flex gap-2 items-center justify-between mb-6">
             {/* Price */}
-            <p className="text-2xl text-zinc-800">
+            <p className="text-2xl text-zinc-800 group-hover:text-white transition-all duration-300">
               {format.number(215)} <small>{t("currency")}</small>
             </p>
 
@@ -51,7 +51,11 @@ export default function MealCard() {
             <FavoriteButton bgTheme={"light"} />
           </div>
 
-          <Button type="button" routable className="w-full rounded-xl">
+          <Button
+            type="button"
+            routable
+            className="genz:bg-purple-500 w-full rounded-xl group-hover:bg-white group-hover:text-main genz:group-hover:bg-white genz:group-hover:text-purple-500 transition-all duration-300"
+          >
             {t("viwe details")}
           </Button>
         </CardContent>

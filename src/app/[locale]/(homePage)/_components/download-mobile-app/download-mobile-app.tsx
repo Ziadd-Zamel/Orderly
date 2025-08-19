@@ -21,7 +21,16 @@ export default function DownloadMobileApp() {
             width={200}
             height={0}
             loading="lazy"
-            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite]"
+            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite] genz:hidden"
+          />
+
+          <Image
+            src={image}
+            alt="Mobile Application image"
+            width={180}
+            height={0}
+            loading="lazy"
+            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite] hidden genz:block"
           />
 
           <Image
