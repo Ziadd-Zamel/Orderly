@@ -10,18 +10,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-main text-white hover:bg-pink-dark rounded-[10px] disabled:bg-gray-400",
+        default:
+          "bg-main genz:bg-gradient text-white hover:bg-pink-dark rounded-[10px] disabled:bg-gray-400",
         outline:
-          "border border-main bg-background text-main hover:bg-main/10 disabled:bg-zinc-700/10 disabled:border-zinc-700 disabled:text-zinc-700",
+          "border border-main genz:border-gradient bg-background text-main hover:bg-main/10 disabled:bg-zinc-700/10 disabled:border-zinc-700 disabled:text-zinc-700",
         destructive:
           "bg-red-500 text-white hover:bg-red-600 disabled:bg-gray-400 disabled:border-zinc-700",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-gray-200 border border-storm-100 disabled:bg-gray-100 disabled:border-gray-200 disabled:text-zinc-500",
-        main: " bg-bink-900 text-white px-[8px] py-[20px] rounded-[30px] hover:bg-[#FEEDF7] hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        dailog:
-          "border border-gray-200 text-blue-500 hover:bg-blue-900/10 disabled:bg-blue-700/10 disabled:border-blue-700 disabled:text-blue-700 ",
-        icon: " bg-tra",
       },
       size: {
         default: "px-4 py-2.5",

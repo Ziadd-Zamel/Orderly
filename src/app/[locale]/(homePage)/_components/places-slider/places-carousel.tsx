@@ -17,7 +17,7 @@ type Place = {
 export default function PlacesCarousel({ places, title }: { places: Place[]; title: string }) {
   return (
     <div className="box-container w-full my-10">
-      <Carousel className="w-full mx-auto">
+      <Carousel className="w-full mx-auto" opts={{ align: "start" }}>
         <div className="relative z-20 bg-[#F1F1F199]/50 px-4 sm:px-8 xl:px-20 rounded-4xl pb-8">
           <CarouselHeader className="text-center text-zinc-800 font-semibold text-2xl sm:text-3xl py-8 ">
             {title}

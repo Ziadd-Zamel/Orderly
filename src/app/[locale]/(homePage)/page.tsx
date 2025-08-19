@@ -63,3 +63,13 @@ export default function Home() {
     </>
   );
 }
+
+// import ThemeSwitcher from "@/components/custom/theme-switcher";
+// export default function page() {
+//   return (
+//     <main className="min-h-screen flex items-center justify-center">
+//       <h1 className="text-4xl font-bold bg-main text-white genz:bg-gradient">Hello World</h1>
+//       <ThemeSwitcher />
+//     </main>
+//   );
+// }

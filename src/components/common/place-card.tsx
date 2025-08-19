@@ -12,7 +12,7 @@ type Place = {
 
 export default function PlaceCard({ place }: { place: Place }) {
   return (
-    <Link href={"/restaurants/id"} className="w-full max-w-[300px] mx-auto mt-10">
+    <Link href={"/restaurants/id"} className="w-full max-w-[300px] mx-auto">
       <Card className="relative h-[260px] rounded-[30px]">
         <CardContent className="h-full p-0">
           <Image

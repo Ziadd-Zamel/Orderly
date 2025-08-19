@@ -28,7 +28,7 @@ export default function HomeSlider() {
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api);
 
   return (
-    <div className="box-container my-14 lg:my-20">
+    <div className="relative z-20 box-container my-14 lg:my-20">
       {/* Carousel component */}
       <Carousel className="w-full" setApi={setApi}>
         <CarouselHeader className="text-center text-zinc-800 font-semibold text-2xl sm:text-3xl py-4 lg:py-6 xl:py-8">
@@ -57,9 +57,9 @@ export default function HomeSlider() {
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
-            className={"embla__dot w-4 h-2 rounded-sm border-2 transition-all duration-200 cursor-pointer".concat(
+            className={"embla__dot w-4 h-3 rounded-sm cursor-pointer transition-all duration-200 ".concat(
               index === selectedIndex
-                ? " embla__dot--selected bg-custom-orange w-16 "
+                ? " embla__dot--selected bg-custom-orange  genz:bg-gradient w-16"
                 : " bg-gray-300 hover:border-main",
             )}
           />

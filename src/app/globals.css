@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant genz (&:is([data-theme=genz] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -45,7 +46,7 @@
   --color-second: var(--second);
   --color-custom-orange: hsla(37, 100%, 50%, 1);
   --color-custom-gray: rgba(251, 251, 251, 1);
-  --color-gradient: var(--gradient-hero);
+  --bg-main: var(--bg-main);
 }
 
 :root {
@@ -81,7 +82,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --gradient-hero: linear-gradient(131.11deg, #a259ff 16.54%, #00f0b5 84.99%);
+  --bg-main: hsla(166, 79%, 33%, 1);
+  --hero-bg: #ffffff;
+  --footer-bg: #ffffff;
 }
 
 .dark {
@@ -118,6 +121,40 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+/* Gen-Z mode */
+[data-theme="genz"] {
+  --color-gradient: linear-gradient(135deg, #a259ff, #00f0b5);
+  --text-gradient: linear-gradient(135deg, #a259ff, #00f0b5);
+  --hero-bg: linear-gradient(
+    to bottom left,
+    rgba(0, 240, 181, 0.3) 0%,
+    rgba(162, 89, 255, 0.3) 50%,
+    rgba(0, 240, 181, 0.3) 100%
+  );
+  --footer-bg: linear-gradient(to right, rgba(162, 89, 255, 0.3) 40%, rgba(0, 240, 181, 0.3));
+}
+
+@utility hero-bg {
+  background: var(--hero-bg);
+}
+
+@utility footer-bg {
+  background: var(--footer-bg);
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: var(--text-gradient);
+}
+
+@utility bg-gradient {
+  background-image: var(--color-gradient);
+}
+
+@utility bg-hero-gradient {
+  background: var(--hero-bg);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,6 +163,7 @@
     @apply bg-background text-foreground;
   }
 }
+
 @layer utilities {
   .bg-hero-gradient {
     background: linear-gradient(131.11deg, #a259ff 16.54%, #00f0b5 84.99%);
