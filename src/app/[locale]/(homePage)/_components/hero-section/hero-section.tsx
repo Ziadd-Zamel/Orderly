@@ -73,12 +73,7 @@ export default function HeroSection() {
   const t = useTranslations();
 
   // Theme
-  const { theme } = useTheme();
-
-  const image = theme === "genz" ? "/assets/Images/genz-hero.png" : "/assets/Images/hero-image.png";
-
-  console.log("Theme is: ", image);
-  console.log("Theme is: ", theme);
+  const { resolvedTheme } = useTheme();
 
   // Variables
   const headingText = t("heroSection.heading");
@@ -138,23 +133,28 @@ export default function HeroSection() {
           {/* Hero Image */}
           <div className="w-full lg:w-2/5 flex-center h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
             <motion.div
-              key={theme === "genz" ? "genz-hero" : "hero-image"}
+              key={resolvedTheme === "genz" ? "genz-hero" : "hero-image"}
               className="relative w-full h-full"
               variants={imageVariants}
               initial="initial"
               whileHover="hover"
             >
               <Image
-                src={
-                  theme === "genz"
-                    ? "/assets/Images/genz-hero.png"
-                    : "/assets/Images/hero-image.png"
-                }
+                src={"/assets/Images/hero-image.png"}
                 alt="Hero Image"
                 fill
                 priority
                 sizes="100%"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain genz:hidden"
+              />
+
+              <Image
+                src={"/assets/Images/genz-hero.png"}
+                alt="Hero Image"
+                fill
+                priority
+                sizes="100%"
+                className="w-full h-full object-contain hidden genz:block"
               />
             </motion.div>
           </div>
