@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
@@ -15,6 +17,12 @@ export default function RestaurantInfo() {
             <ChevronRight size={25} className="flex-shrink-0" />
           </h2>
           <div className="flex items-center gap-1 justify-center">
+            <Star
+              fill={"#FF9C00"}
+              className="size-5 text-custom-orange genz:hidden flex-shrink-0"
+            />
+
+            <Star fill={"#A259FF"} className="size-5 hidden genz:block flex-shrink-0" />
             <Star
               fill="#FF9C00"
               className="size-6 text-custom-orange genz:text-purple-500 flex-shrink-0"
@@ -59,6 +67,15 @@ export default function RestaurantInfo() {
           </Link>
           <div className="flex items-center gap-1 justify-center mt-3">
             <Star
+              fill={"#FF9C00"}
+              className="size-5 text-custom-orange genz:hidden flex-shrink-0"
+            />
+
+            <Star
+              fill={"#A259FF"}
+              className="size-5 hidden text-[#A259FF] genz:block flex-shrink-0"
+            />
+            <Star
               fill="#FF9C00"
               className="size-6 text-custom-orange genz:text-purple-500 flex-shrink-0"
             />
@@ -76,7 +93,14 @@ export default function RestaurantInfo() {
             alt="bill icon"
             width={20}
             height={20}
-            className="flex-shrink-0"
+            className="flex-shrink-0 genz:hidden"
+          />
+          <Image
+            src={"/assets/icons/bill-genz.svg"}
+            alt="bill icon"
+            width={20}
+            height={20}
+            className="flex-shrink-0 hidden genz:block"
           />
           Need help? Call a waiter
         </Button>

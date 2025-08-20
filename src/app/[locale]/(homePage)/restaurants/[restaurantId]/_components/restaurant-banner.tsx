@@ -18,7 +18,7 @@ export default function RestaurantBanner({ active }: { active?: boolean }) {
           active && "border-[#FF0000] border-1 genz:border-none ",
         )}
       >
-        <div className="bg-white rounded-full size-36 sm:size-60 flex-center shadow-xl relative genz:border-gradient">
+        <div className="bg-white rounded-full size-36 sm:size-60 flex-center shadow-xl relative genz:border-[3px] genz:border-gradient">
           <Image
             src={"/assets/Images/restaurant-logo.svg"}
             alt="Restaurant Name"

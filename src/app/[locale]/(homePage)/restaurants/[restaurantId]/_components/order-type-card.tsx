@@ -46,7 +46,7 @@ function OrderTypeCard({
         </div>
       ) : (
         <motion.div
-          className="p-1 bg-custom-orange rounded-lg -ml-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          className="p-1 bg-custom-orange genz:bg-gradient rounded-lg -ml-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
           animate={{ x: [-5, 10, -5] }}
           transition={{
             delay: 1,
