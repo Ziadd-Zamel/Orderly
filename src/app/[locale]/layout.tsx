@@ -3,6 +3,15 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import Providers from "@/components/providers";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // حدد الأوزان اللي هتستخدمها
+  display: "swap",
+  variable: "--font-poppins", // اختياري لو هتستخدمه كـ CSS variable
+});
 
 //Metadata
 export const metadata: Metadata = {
@@ -24,10 +33,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body>
+      <body className={`${poppins.className}`}>
         {/* Providers */}
-        {/* Main children  */}
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

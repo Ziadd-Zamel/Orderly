@@ -1,7 +1,7 @@
 declare type ErrorResponse = {
   error: string;
   code?: string;
-  message?: string;
+  message: string;
 };
 
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
