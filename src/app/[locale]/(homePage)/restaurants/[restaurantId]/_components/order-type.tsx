@@ -4,6 +4,7 @@ import React, { useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import OrderTypeCard from "./order-type-card";
+import { useTheme } from "next-themes";
 
 export default function OrderTypes() {
   // Translation
@@ -15,14 +16,18 @@ export default function OrderTypes() {
   // States
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
+  const { resolvedTheme } = useTheme();
+
   // Variables
   const orderTypes = [
     {
       id: "dine-in",
-      icon: "/assets/icons/dine-in.svg",
+      icon:
+        resolvedTheme === "genz" ? "/assets/icons/dine-in-genz.svg" : "/assets/icons/dine-in.svg",
       title: t("orderType.dineIn"),
       description: t("orderType.dineInDescription"),
       isRoute: true,
+      theme: "general",
     },
     {
       id: "takeaway",
@@ -30,6 +35,7 @@ export default function OrderTypes() {
       title: t("orderType.takeaway"),
       description: t("orderType.takeawayDescription"),
       isRoute: false,
+      theme: "general",
     },
     {
       id: "delivery",
@@ -37,8 +43,35 @@ export default function OrderTypes() {
       title: t("orderType.delivery"),
       description: t("orderType.deliveryDescription"),
       isRoute: false,
+      theme: "general",
+    },
+    {
+      id: "dine-in-genz",
+      icon: "/assets/icons/dine-in-genz.svg",
+      title: t("orderType.dineIn"),
+      description: t("orderType.dineInDescription"),
+      isRoute: true,
+      theme: "genz",
+    },
+    {
+      id: "takeaway-genz",
+      icon: "/assets/icons/takeaway-genz.svg",
+      title: t("orderType.takeaway"),
+      description: t("orderType.takeawayDescription"),
+      isRoute: false,
+      theme: "genz",
+    },
+    {
+      id: "delivery-genz",
+      icon: "/assets/icons/delivery-genz.svg",
+      title: t("orderType.delivery"),
+      description: t("orderType.deliveryDescription"),
+      isRoute: false,
+      theme: "genz",
     },
   ];
+
+  const filteredOrderTypes = orderTypes.filter((type) => type.theme === resolvedTheme);
 
   // Functions
   const handleOrderTypeClick = useCallback(
@@ -61,7 +94,7 @@ export default function OrderTypes() {
 
       {/* Types [Dine In - Takeaway - Delivery] */}
       <div className="flex items-center justify-center lg:justify-between w-full gap-5 flex-wrap">
-        {orderTypes.map((type) => (
+        {filteredOrderTypes.map((type) => (
           <OrderTypeCard
             key={type.id}
             id={type.id}
