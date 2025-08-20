@@ -12,7 +12,7 @@ export default function FavouritePage() {
         <div className="flex justify-center mb-10">
           <TabsList className="bg-transparent gap-5 w-full max-w-md">
             <TabsTrigger
-              className="flex items-center gap-2 h-12 w-1/2 cursor-pointer hover:bg-main hover:text-white data-[state=active]:bg-main data-[state=active]:text-white"
+              className="flex items-center genz:border-purple-500 gap-2 h-12 w-1/2 cursor-pointer hover:bg-main genz:hover:bg-gradient hover:text-white data-[state=active]:bg-main genz:data-[state=active]:bg-gradient genz:data-[state=active]:border-none data-[state=active]:text-white"
               value="places"
               aria-label="View favorite places"
             >
@@ -27,7 +27,7 @@ export default function FavouritePage() {
             </TabsTrigger>
 
             <TabsTrigger
-              className="flex items-center gap-2 h-12 w-1/2 cursor-pointer hover:bg-main hover:text-white data-[state=active]:bg-main data-[state=active]:text-white"
+              className="flex items-center genz:border-purple-500 gap-2 h-12 w-1/2 cursor-pointer hover:bg-main genz:hover:bg-gradient hover:text-white data-[state=active]:bg-main genz:data-[state=active]:bg-gradient genz:data-[state=active]:border-none data-[state=active]:text-white"
               value="items"
               aria-label="View favorite items"
             >

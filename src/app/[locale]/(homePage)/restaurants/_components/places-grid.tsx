@@ -26,7 +26,7 @@ export default function PlacesGrid({ places }: PlacesGridProps) {
   }
 
   return (
-    <div className="flex-1">
+    <div className="flex-1 mt-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-y-14 justify-items-center">
         {places.map((place) => (
           <PlaceCard key={place.id} place={place} />

@@ -23,8 +23,8 @@ export default function Branches() {
               >
                 <AccordionTrigger className="py-4 flex items-center gap-4 text-left hover:no-underline cursor-pointer">
                   <div className="flex items-center gap-4">
-                    <span className="bg-[#FF9C001A] p-2 rounded-lg">
-                      <FaLocationDot className="text-2xl text-custom-orange" />
+                    <span className="bg-[#FF9C001A] genz:bg-[#A259FF1A] p-2 rounded-lg">
+                      <FaLocationDot className="text-2xl text-custom-orange genz:text-purple-500" />
                     </span>
                     <span className="text-black font-medium text-lg sm:text-xl">{branch.name}</span>
                   </div>
@@ -38,7 +38,10 @@ export default function Branches() {
         </div>
         <div>
           <div className="flex w-full justify-end pb-5">
-            <Link href={"#"} className="text-main font-medium underline text-xl text-right">
+            <Link
+              href={"#"}
+              className="text-main genz:text-purple-500 font-medium underline text-xl text-right"
+            >
               View on map
             </Link>
           </div>

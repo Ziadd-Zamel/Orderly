@@ -71,11 +71,11 @@ export default function MyCart() {
         {/* Add Members Link */}
         <Link
           href="#"
-          className="text-main font-medium flex items-center gap-1 mt-5 self-end hover:underline"
+          className="text-main genz:text-gradient font-medium flex items-center gap-1 mt-5 self-end hover:underline"
           prefetch={false}
         >
           Add Members
-          <ChevronRight size={16} aria-hidden />
+          <ChevronRight size={16} aria-hidden className="genz:text-purple-500" />
         </Link>
       </CardContent>
     </Card>

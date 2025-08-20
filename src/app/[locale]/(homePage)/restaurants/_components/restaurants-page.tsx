@@ -16,17 +16,22 @@ export default function RestaurantsPage() {
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Filter Sidebar - Hidden on mobile, shown on large screens */}
           <div className="">
-            <h3 className="lg:block hidden text-2xl text-main font-medium mb-16">Filter Options</h3>
+            <h3 className="lg:block hidden text-2xl text-main genz:text-gradient font-medium mb-16">
+              Filter Options
+            </h3>
             <Filter />
           </div>
 
           <div className="flex-1 min-w-0">
             {/* Search Bar */}
             <div
-              className="w-full relative max-w-xl p-1.5 bg-main/10 flex gap-2 rounded-full mx-auto mb-2"
+              className="w-full relative max-w-xl p-1.5 bg-main/10 genz:bg-gray-100 flex gap-2 rounded-full mx-auto mb-10"
               aria-label="Serach"
             >
-              <Input className="bg-background border-none w-4/5 h-10" placeholder={"Search..."} />
+              <Input
+                className="bg-background genz:bg-gray-100 border-none w-4/5 h-10"
+                placeholder={"Search..."}
+              />
               {/* Search Button */}
               <Button className="rounded-full w-[30%]" aria-label={""}>
                 {t("search") || "Search"}
@@ -36,12 +41,12 @@ export default function RestaurantsPage() {
             {/* Places Grid */}
             <PlacesGrid places={places} />
             <PlacesGrid places={places} />
+            <div className=" mt-32">
+              <PaginationComp currentPage={1} totalPages={4} />
+            </div>
           </div>
         </div>
       </section>
-      <div className="my-20">
-        <PaginationComp currentPage={1} totalPages={4} />
-      </div>
     </>
   );
 }

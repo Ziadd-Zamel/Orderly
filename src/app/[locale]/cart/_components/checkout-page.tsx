@@ -18,18 +18,18 @@ export default function CheckoutPage() {
       <div className="md:col-span-2 grid gap-6">
         <Card className="py-3 px-4 rounded-xl bg-gray-50">
           <CardHeader className="flex items-center gap-4">
-            <div className="bg-[#DCEDEAE5] p-3 rounded-full">
-              <CiCreditCard1 className="h-6 w-6 text-main" />
+            <div className="bg-[#DCEDEAE5] genz:bg-purple-50 p-3 rounded-full">
+              <CiCreditCard1 className="h-6 w-6 text-main genz:text-purple-500" />
             </div>
             <CardTitle>
               <h2 className="text-lg font-medium">Vinny&apos;s</h2>
               <p className="text-sm text-gray-500">
-                Order Type: <span className="text-main">Delivery</span>
+                Order Type: <span className="text-main genz:text-gradient">Delivery</span>
               </p>
             </CardTitle>
           </CardHeader>
 
-          <CardContent className="p-0 overflow-y-auto h-fit max-h-screen no-scrollbar">
+          <CardContent className="p-0 ">
             <div className="space-y-4">
               {/* Address */}
               <CustomAccordion
@@ -39,8 +39,10 @@ export default function CheckoutPage() {
                   <div className="flex-center justify-start gap-2">
                     <p className="text-gray-400 font-medium text-xs">Take it By</p>
                     <div className="flex-center gap-1">
-                      <CiLocationOn className="text-main" />
-                      <p className="text-main text-xs font-medium">Mon 14 June, 08:05 PM</p>
+                      <CiLocationOn className="text-main genz:text-purple-500" />
+                      <p className="text-main genz:text-gradient text-xs font-medium">
+                        Mon 14 June, 08:05 PM
+                      </p>
                     </div>
                   </div>
                 }
@@ -68,19 +70,21 @@ export default function CheckoutPage() {
               />
 
               {/* Review Order */}
-              <CustomAccordion
-                title="Review Order"
-                triggerContent={<CollapsedOrdersList productsImages={productsImages} />}
-                accordionContent={
-                  <div className="flex flex-col gap-3 mt-5">
-                    {Array(6)
-                      .fill(null)
-                      .map((_, i) => (
-                        <OrderCard key={i} />
-                      ))}
-                  </div>
-                }
-              />
+              <div className="overflow-y-auto h-fit max-h-[500px] no-scrollbar">
+                <CustomAccordion
+                  title="Review Order"
+                  triggerContent={<CollapsedOrdersList productsImages={productsImages} />}
+                  accordionContent={
+                    <div className="flex flex-col gap-3 mt-5">
+                      {Array(6)
+                        .fill(null)
+                        .map((_, i) => (
+                          <OrderCard key={i} />
+                        ))}
+                    </div>
+                  }
+                />
+              </div>
             </div>
           </CardContent>
         </Card>

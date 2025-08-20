@@ -3,6 +3,7 @@ import RestaurantBanner from "./restaurant-banner";
 import { ChevronRight, Star } from "lucide-react";
 import OpeningHours from "./opening-hour";
 import Branches from "./branches";
+import CustomersCarousel from "./customers-carousel";
 
 export default function DetailsPage() {
   return (
@@ -30,6 +31,9 @@ export default function DetailsPage() {
 
       {/** All branches */}
       <Branches />
+
+      {/** Customers carousel*/}
+      <CustomersCarousel />
     </div>
   );
 }
