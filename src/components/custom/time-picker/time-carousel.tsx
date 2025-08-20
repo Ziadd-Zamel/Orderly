@@ -58,13 +58,10 @@ const TimeWheelPicker: React.FC<PropType> = (props) => {
     [onMinutesChange, setSelectedTime],
   );
 
-  const handlePeriodButtonClick = useCallback(
-    (period: "AM" | "PM") => {
-      onPeriodChange?.(period);
-      setSelectedTime((prev) => ({ ...prev, period }));
-    },
-    [onPeriodChange, setSelectedTime],
-  );
+  const handlePeriodButtonClick = (period: "AM" | "PM") => {
+    onPeriodChange?.(period);
+    setSelectedTime((prev) => ({ ...prev, period }));
+  };
 
   // For hours, if initialHours is 12, it should map to index 0. Otherwise, it's initialHours.
   const initialHoursIndex = initialHours === 12 ? 0 : initialHours;
@@ -95,28 +92,26 @@ const TimeWheelPicker: React.FC<PropType> = (props) => {
           />
         </div>
 
-        {/* New AM/PM buttons */}
-        <div className="w-1/3 flex flex-col justify-center items-center">
-          <button
-            type="button"
+        {/* AM/PM buttons */}
+        <div className="w-1/3 flex flex-col justify-center items-center gap-2">
+          <div
+            // type="button"
             onClick={() => handlePeriodButtonClick("AM")}
             className={cn(
-              "w-[75px] h-[40px] flex items-center justify-center text-xl font-medium transition-colors duration-200 cursor-pointer",
-              initialPeriod === "AM"
-                ? "bg-[#129575]/15 text-[#129575] rounded-md"
-                : "opacity-80 text-[rgb(150,150,150)]",
+              "w-[75px] h-10 flex items-center justify-center text-xl font-medium transition-colors duration-200 cursor-pointer rounded-md",
+              initialPeriod === "AM" ? "genz:text-gradient " : "text-[rgb(150,150,150)] opacity-80",
             )}
           >
             {t("am")}
-          </button>
+          </div>
           <button
             type="button"
             onClick={() => handlePeriodButtonClick("PM")}
             className={cn(
-              "w-[75px] h-[40px] flex items-center justify-center text-xl font-medium transition-colors duration-200 cursor-pointer",
+              "w-[75px] h-10 flex items-center justify-center text-xl font-medium transition-colors duration-200 cursor-pointer rounded-md",
               initialPeriod === "PM"
-                ? "bg-[#129575]/15 text-[#129575] rounded-md"
-                : "opacity-80 text-[rgb(150,150,150)]",
+                ? "text-main genz:text-gradient"
+                : "text-[rgb(150,150,150)] opacity-80",
             )}
           >
             {t("pm")}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React from "react";
@@ -13,18 +14,9 @@ const BackgroundVectors = dynamic(() => import("./hero-vectors"), {
   ssr: false,
 });
 
-// Animation variants for the heading (letter-by-letter)
-const letterVariants: Variants = {
+const wordVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: Number.isFinite(i) ? i * 0.05 : 0, // Simplified delay with strict check
-      duration: 0.3,
-      ease: "easeOut" as const,
-    },
-  }),
+  visible: { opacity: 1, y: 0 },
 };
 
 // Animation variants for the description
@@ -72,11 +64,15 @@ export default function HeroSection() {
   // Translation
   const t = useTranslations();
 
+  // Refs
+  const h1Ref = React.useRef<HTMLHeadingElement>(null);
+
   // Theme
   const { resolvedTheme } = useTheme();
 
   // Variables
-  const headingText = t("heroSection.heading");
+  const headingText = t("heroSection.heading") || "Lorem ipsum dolor sit amet consectetur.";
+  const words = headingText.split(" ");
 
   return (
     <section className="genz:hero-bg mb-20">
@@ -84,20 +80,24 @@ export default function HeroSection() {
         <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
           <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
             {/* Heading */}
-            <h2 className="max-w-[90%] text-[37px] md:text-5xl lg:text-[54px] xl:text-[68px] text-main genz:text-gradient font-poppins font-bold lg:leading-20 lg:mb-10">
-              {headingText.split("").map((char, i) => (
-                <motion.span
-                  key={`${char}-${i}`} // Unique key
-                  variants={letterVariants}
-                  initial="hidden"
-                  animate="visible"
-                  custom={i} // Pass index as custom prop
-                  style={{ display: "inline-block" }}
-                >
-                  {char === " " ? "\u00A0" : char}
+            <motion.h1
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {}, // parent starts in hidden state
+                visible: {
+                  transition: { staggerChildren: 0.2 },
+                },
+              }}
+              className="max-w-[90%] text-[37px] md:text-5xl lg:text-5xl xl:text-[68px] 
+             text-main genz:text-gradient font-poppins font-bold lg:leading-20 lg:mb-10"
+            >
+              {words.map((word, i) => (
+                <motion.span key={i} variants={wordVariants} className="inline-block mr-2">
+                  {word}
                 </motion.span>
               ))}
-            </h2>
+            </motion.h1>
 
             {/* Hero Description */}
             <motion.div
@@ -131,7 +131,7 @@ export default function HeroSection() {
           </div>
 
           {/* Hero Image */}
-          <div className="w-full lg:w-2/5 flex-center h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
+          <div className="w-full lg:w-2/5 flex-center h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
             <motion.div
               key={resolvedTheme === "genz" ? "genz-hero" : "hero-image"}
               className="relative w-full h-full"
@@ -165,3 +165,18 @@ export default function HeroSection() {
     </section>
   );
 }
+
+// {
+//   headingText.split("").map((char, i) => (
+//     <motion.span
+//       key={`${char}-${i}`} // Unique key
+//       variants={letterVariants}
+//       initial="hidden"
+//       animate="visible"
+//       custom={i} // Pass index as custom prop
+//       style={{ display: "inline-block" }}
+//     >
+//       {char === " " ? "\u00A0" : char}
+//     </motion.span>
+//   ));
+// }
