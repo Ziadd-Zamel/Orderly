@@ -12,7 +12,7 @@ export default function CustomAccordion({ title, triggerContent, accordionConten
     <Accordion className="w-full" type="single" collapsible>
       <AccordionItem
         value="item-1"
-        className="border-gray-200 bg-white border-1 rounded-2xl px-6 py-4"
+        className="border-gray-200 genz:border-gradient bg-white border-1 border-b   rounded-2xl px-6 py-5"
       >
         <AccordionTrigger className="cursor-pointer w-full group transition-all duration-500 ease-in-out p-0 hover:no-underline">
           <div>

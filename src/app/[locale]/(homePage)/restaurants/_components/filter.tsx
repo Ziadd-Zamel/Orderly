@@ -27,7 +27,7 @@ function FilterContent() {
             <Button
               key={type.id}
               variant="outline"
-              className="flex items-center gap-2 px-4 py-3 rounded-lg text-base bg-white hover:bg-gray-50 border-gray-200"
+              className="flex items-center gap-2 px-4 py-3 rounded-lg text-base genz:bg-gradient genz:text-white bg-white hover:bg-gray-50 border-gray-200"
             >
               <Image src={type.icon} alt="Icon" width={25} height={0} />
               {type.label}
@@ -47,7 +47,7 @@ function FilterContent() {
               key={category}
               variant="outline"
               size="sm"
-              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
+              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 genz:bg-gradient genz:text-white hover:bg-gray-50"
             >
               {category}
             </Button>
@@ -59,15 +59,17 @@ function FilterContent() {
       {/* Average Prices */}
       <div className="mb-8">
         <h3 className="text-lg mb-6">Average prices</h3>
-        <DualRangeSlider
-          label={(value) => <span>{value}℃</span>}
-          value={values}
-          onValueChange={setValues}
-          min={0}
-          max={100}
-          step={1}
-        />{" "}
+        <DualRangeSlider value={values} onValueChange={setValues} min={0} max={100} step={1} />
+        <div className="flex items-center justify-between mt-8">
+          <span className="text-gray-400">
+            From: <span className="text-black font-medium">{values[0]} EGP</span>
+          </span>
+          <span className="text-gray-400">
+            To: <span className="text-black font-medium">{values[1]} EGP</span>
+          </span>
+        </div>
       </div>
+      <Separator className="w-full h-px bg-[#EEEEEE] mb-10" />
 
       {/* Services Provided */}
       <div className="mb-8">
@@ -78,7 +80,7 @@ function FilterContent() {
               key={service}
               variant="outline"
               size="sm"
-              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
+              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 genz:bg-gradient genz:text-white hover:bg-gray-50"
             >
               {service}
             </Button>
@@ -89,7 +91,7 @@ function FilterContent() {
       {/* Clear All */}
       <Button
         variant="ghost"
-        className="w-full text-custom-orange hover:bg-orange-50 font-medium text-base"
+        className="w-full text-custom-orange genz:text-red-400 hover:bg-orange-50 font-medium text-base"
       >
         Clear All
       </Button>
@@ -111,7 +113,7 @@ export default function Filter() {
           <SheetTrigger asChild>
             <Button
               variant="outline"
-              className="flex items-center justify-self-end gap-2 px-4 py-2 rounded-full bg-white text-main border-gray-200 hover:bg-gray-50"
+              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 genz:bg-gradient genz:text-white hover:bg-gray-50"
             >
               <FilterIcon className="text-main text-lg" />
               Filters

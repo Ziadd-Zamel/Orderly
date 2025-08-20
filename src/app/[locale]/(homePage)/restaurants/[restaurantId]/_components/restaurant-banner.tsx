@@ -15,7 +15,7 @@ export default function RestaurantBanner({ active }: { active?: boolean }) {
       <div
         className={cn(
           "rounded-full size-40 sm:size-64 flex-center absolute -bottom-[15%] sm:-bottom-[25%] left-1/2 transform -translate-x-1/2 ",
-          active && "border-[#FF0000] border-1 ",
+          active && "border-[#FF0000] border-1 genz:border-none ",
         )}
       >
         <div className="bg-white rounded-full size-36 sm:size-60 flex-center shadow-xl relative genz:border-gradient">
@@ -32,7 +32,7 @@ export default function RestaurantBanner({ active }: { active?: boolean }) {
               alt="Fire Icon"
               width={50}
               height={0}
-              className="absolute bottom-1 right-1"
+              className="absolute bottom-1 right-1 genz:hidden"
             />
           )}
         </div>

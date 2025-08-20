@@ -26,7 +26,7 @@ export default function Menu() {
               <TabsTrigger
                 key={tab}
                 value={tab}
-                className="bg-transparent capitalize text-black data-[state=active]:bg-main data-[state=active]:text-white p-3 rounded-lg"
+                className="bg-transparent border-none capitalize text-black data-[state=active]:bg-main genz:data-[state=active]:bg-gradient data-[state=active]:text-white p-3 rounded-lg"
               >
                 {tab}
               </TabsTrigger>

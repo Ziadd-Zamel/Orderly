@@ -21,7 +21,7 @@ export default function OpeningHours() {
             className={cn(
               " w-full sm:min-w-1/7 sm:w-fit p-2 text-sm sm:p-3 flex-center rounded-xl",
               activeDay === hour.day
-                ? "bg-[#12957514] text-main 00 hover:text-main"
+                ? "bg-[#12957514] genz:bg-[#A259FF1A] text-main 00 genz:text-gradient hover:text-main genz:hover:text-gradient"
                 : "bg-[#EEEEEE4F] text-zinc-950 ",
             )}
           >

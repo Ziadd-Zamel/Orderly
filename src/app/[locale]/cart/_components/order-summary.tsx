@@ -41,14 +41,14 @@ export default function OrderSummary({
   return (
     <Card className="rounded-xl border-none shadow-none bg-gray-50">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold">Order Summary</CardTitle>
+        <CardTitle className="text-xl font-semibold genz:text-gradient">Order Summary</CardTitle>
       </CardHeader>
 
       <CardContent className="grid gap-4">
         {/* Split bills toggle */}
         {splitBills && (
           <div className="flex items-center justify-between">
-            <Label htmlFor="split-bills" className="text-xs font-normal">
+            <Label htmlFor="split-bills" className="text-sm font-normal">
               Do you want to split the bills?
             </Label>
             <Switch id="split-bills" className="h-4" />
@@ -78,7 +78,7 @@ export default function OrderSummary({
         )}
 
         {/* Bill details */}
-        <div className="space-y-2 px-8 py-3 text-sm bg-custom-orange/20 relative">
+        <div className="space-y-2 px-8 py-3 text-sm bg-custom-orange/20 genz:bg-purple-50 relative">
           {/* Decorative waves */}
           <Image
             src={"/assets/Images/wave.svg"}
@@ -105,9 +105,11 @@ export default function OrderSummary({
 
           {/* Total */}
           {onlyTotal && <p className="text-sm font-semibold mb-2">Your Bill</p>}
-          <div className="flex justify-between pt-2 border-t border-dashed border-[#FF9C00AB] font-semibold text-lg">
-            <span className="text-main md:text-sm lg:text-base">Total</span>
-            <span className="text-main md:text-sm lg:text-base">{total} EGP</span>
+          <div className="flex justify-between pt-2 border-t border-dashed border-[#FF9C00AB] genz:border-none font-semibold text-lg">
+            <span className="text-main md:text-sm lg:text-base genz:text-gradient">Total</span>
+            <span className="text-main md:text-sm lg:text-base genz:text-gradient">
+              {total} EGP
+            </span>
           </div>
         </div>
 

@@ -15,7 +15,10 @@ export default function RestaurantInfo() {
             <ChevronRight size={25} className="flex-shrink-0" />
           </h2>
           <div className="flex items-center gap-1 justify-center">
-            <Star fill="#FF9C00" className="size-6 text-custom-orange flex-shrink-0" />
+            <Star
+              fill="#FF9C00"
+              className="size-6 text-custom-orange genz:text-purple-500 flex-shrink-0"
+            />
             <span className="text-sm font-medium">4.8</span>
             <span className="text-gray-400 text-sm">(324 reviews)</span>
           </div>
@@ -55,7 +58,10 @@ export default function RestaurantInfo() {
             <ChevronRight size={25} className="flex-shrink-0" />
           </Link>
           <div className="flex items-center gap-1 justify-center mt-3">
-            <Star fill="#FF9C00" className="size-6 text-custom-orange " />
+            <Star
+              fill="#FF9C00"
+              className="size-6 text-custom-orange genz:text-purple-500 flex-shrink-0"
+            />
             <span className="font-medium">4.8</span>
             <span className="text-gray-400">(324 reviews)</span>
           </div>
@@ -63,7 +69,7 @@ export default function RestaurantInfo() {
 
         <Button
           variant="outline"
-          className="flex items-center gap-2 bg-transparent rounded-full px-12 py-4 whitespace-nowrap flex-shrink-0"
+          className="flex items-center gap-2 bg-transparent rounded-full px-12 py-4 whitespace-nowrap flex-shrink-0 genz:text-purple-500 genz:border-purple-500"
         >
           <Image
             src={"/assets/icons/bill.svg"}

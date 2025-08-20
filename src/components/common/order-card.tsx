@@ -22,7 +22,7 @@ export default function OrderCard({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative bg-white rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
+        "relative bg-white  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
         className,
       )}
     >
@@ -49,7 +49,7 @@ export default function OrderCard({ className }: { className?: string }) {
           ) : (
             <Counter number={number} setNumber={setNumber} className="h-10" />
           )}
-          <p className=" text-base sm:text-xl text-main font-semibold">
+          <p className=" text-base sm:text-xl text-main font-semibold genz:text-gradient">
             {format.number(215)} {t("currency")}
           </p>
         </div>
