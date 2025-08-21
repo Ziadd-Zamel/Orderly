@@ -29,25 +29,20 @@ const FavoriteButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 FavoriteButton.displayName = "FavoriteButton";
 
-const DeleteButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ audience = "general", ...props }, ref) => {
-    return (
-      <button
-        ref={ref}
-        {...props}
-        className={cn(
-          "size-8 flex-center !circle shrink-0 cursor-pointer",
-          audience !== "gen-z"
-            ? "bg-transparent hover:bg-transparent text-white"
-            : "bg-white hover:bg-white text-zinc-900",
-          props.className,
-        )}
-      >
-        <Trash2 size={20} />
-      </button>
-    );
-  },
-);
+const DeleteButton = React.forwardRef<HTMLButtonElement, ButtonProps>(({ ...props }, ref) => {
+  return (
+    <button
+      ref={ref}
+      {...props}
+      className={cn(
+        "size-8 flex-center !circle shrink-0 cursor-pointer bg-transparent hover:bg-transparent text-white genz:bg-white genz:hover:bg-white genz:text-zinc-900",
+        props.className,
+      )}
+    >
+      <Trash2 size={20} />
+    </button>
+  );
+});
 
 DeleteButton.displayName = "DeleteButton";
 
