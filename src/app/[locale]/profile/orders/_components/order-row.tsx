@@ -7,7 +7,10 @@ import { TbReceipt } from "react-icons/tb";
 
 export const STATUS_BADGES: Record<Order["status"], JSX.Element> = {
   completed: (
-    <Badge className="capitalize min-w-32 py-1.5 px-5 rounded-xl" variant={"completed"}>
+    <Badge
+      className="capitalize min-w-32 py-1.5 px-5 rounded-xl  genz:text-purple-500 genz:border-purple-500 genz:bg-purple-50"
+      variant={"completed"}
+    >
       <p className="text-sm font-medium">Completed</p>
     </Badge>
   ),
@@ -58,8 +61,11 @@ export default function OrderRow({ order }: { order: Order }) {
         <div className="w-full lg:w-2/4 grid grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* Price & Payment Method */}
           <div className="flex items-center gap-2 lg:justify-center">
-            <span className="flex-center size-10 md:size-12 circle bg-gray-50 shrink-0">
-              <RiMoneyDollarCircleLine size={16} className="md:w-[18px] md:h-[18px]" />
+            <span className="flex-center size-10 md:size-12 circle bg-gray-50 genz:bg-purple-100 shrink-0">
+              <RiMoneyDollarCircleLine
+                size={16}
+                className="md:w-[18px] md:h-[18px] genz:text-purple-500"
+              />
             </span>
             <div className="min-w-0 flex-1 lg:flex-initial">
               <h3 className="text-sm md:text-lg font-medium text-zinc-800 truncate lg:truncate-none">
@@ -79,8 +85,8 @@ export default function OrderRow({ order }: { order: Order }) {
 
           {/* Items */}
           <div className="flex items-center gap-2 lg:justify-center">
-            <span className="flex-center size-10 md:size-12 circle bg-gray-50 shrink-0">
-              <TbReceipt size={16} className="md:w-[18px] md:h-[18px]" />
+            <span className="flex-center size-10 md:size-12 circle bg-gray-50 genz:bg-purple-100  shrink-0">
+              <TbReceipt size={16} className="md:w-[18px] md:h-[18px]  genz:text-purple-500" />
             </span>
             <div className="min-w-0 flex-1 lg:flex-initial">
               <h3 className="text-sm md:text-lg font-medium text-zinc-800">Items</h3>

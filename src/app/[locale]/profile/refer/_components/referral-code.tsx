@@ -33,11 +33,11 @@ export default function ReferralCode() {
           <h3 className="text-lg font-medium w-fit shrink-0">Referral Code</h3>
           <div className="relative flex-1">
             {/* Referral Code Input */}
-            <Input className="p-3 rounded-lg" value={"Jaida2025"} readOnly />
+            <Input className="p-3 rounded-lg " value={"Jaida2025"} readOnly />
             <CopyButton
               content="Jaida2025"
               size="md"
-              className="bg-transparent text-main hover:bg-transparent shadow-none absolute top-1/2 -translate-y-1/2 right-1.5"
+              className="bg-transparent text-main genz:text-purple-500 hover:bg-transparent shadow-none absolute top-1/2 -translate-y-1/2 right-1.5"
             />
           </div>
 

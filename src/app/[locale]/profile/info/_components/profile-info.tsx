@@ -75,7 +75,7 @@ export default function ProfileInfo() {
           <Avatar className="size-16">
             <AvatarFallback>Ha</AvatarFallback>
           </Avatar>
-          <span className="font-medium">Change Photo</span>
+          <span className="font-medium genz:text-purple-500">Change Photo</span>
         </div>
 
         <FormField
@@ -117,7 +117,7 @@ export default function ProfileInfo() {
                   placeholder="Email Address"
                   type="email"
                   {...field}
-                  disabled={true} // Always disabled
+                  disabled={true}
                 />
               </FormControl>
               <FormMessage />
@@ -163,7 +163,7 @@ export default function ProfileInfo() {
                     variant="outline"
                     placeholder="your password"
                     {...field}
-                    disabled={true} // Always disabled
+                    disabled={true}
                     type="password"
                   />
                 </FormControl>
@@ -178,7 +178,11 @@ export default function ProfileInfo() {
           )}
         />
 
-        <Button type="submit" className="py-4 rounded-2xl" disabled={!isAnyFieldEnabled}>
+        <Button
+          type="submit"
+          className="py-4 rounded-2xl genz:bg-purple-500"
+          disabled={!isAnyFieldEnabled}
+        >
           Save Changes
         </Button>
       </form>

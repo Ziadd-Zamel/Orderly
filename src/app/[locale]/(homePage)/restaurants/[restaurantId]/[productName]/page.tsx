@@ -8,6 +8,7 @@ import Image from "next/image";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 export default function ProductPage() {
   // Translation
@@ -19,6 +20,7 @@ export default function ProductPage() {
   const [activeDish, setActiveDish] = React.useState<number | null>(null);
   const [activeSubDish, setActiveSubDish] = React.useState<Record<number, number | null>>({});
 
+  // variabals
   const extraDishes = [
     {
       id: 1,
@@ -101,14 +103,14 @@ export default function ProductPage() {
             <Counter
               number={number}
               setNumber={setNumber}
-              className="w-fit bg-main/10 !text-main"
+              className="w-fit bg-main/10 !text-main "
               slidingNumberProps={{ className: "text-main" }}
               buttonProps={{ className: "text-main" }}
             />
           </div>
 
           {/* Product image & Add to cart button */}
-          <div className="w-[40%]">
+          <div className="w-2/5 flex flex-col items-center">
             <Image
               src="/assets/Images/test-product.svg"
               alt="Product Image"
@@ -116,14 +118,18 @@ export default function ProductPage() {
               height={0}
               className="rounded-lg"
             />
-            <Button className="flex w-4/5 mx-auto rounded-2xl text-[22px] py-3 items-center gap-4 mt-4">
+            <Button className="flex w-3/5  rounded-2xl text-[22px] py-3 items-center gap-4 mt-4 genz:bg-purple-500 genz:rounded-full">
               <span>
                 {format.number(250)}{" "}
                 <small className="text-[13px] font-normal">{t("currency")}</small>
               </span>
 
-              <span className="flex items-center">
+              <span className="flex items-center genz:hidden">
                 {t("add-to-cart")}
+                <ChevronRight />
+              </span>
+              <span className="genz:flex items-center hidden">
+                {t("order")}
                 <ChevronRight />
               </span>
             </Button>
@@ -139,16 +145,16 @@ export default function ProductPage() {
                   animate={{
                     width: activeDish === dish.id ? "500px" : "280px",
                   }}
-                  style={{
-                    backgroundColor: activeDish === dish.id ? "var(--main)" : "#ffffff",
-                  }}
                   whileTap={{ scale: 0.95 }}
                   transition={{
                     duration: 0.4,
                     ease: [0.25, 0.46, 0.45, 0.94],
                     scale: { duration: 0.15 },
                   }}
-                  className="flex items-center gap-3 rounded-tl-full !rounded-bl-full p-4 cursor-pointer min-h-[160px] shadow overflow-hidden"
+                  className={cn(
+                    "flex items-center gap-3 rounded-tl-full !rounded-bl-full p-4 cursor-pointer min-h-[160px] shadow overflow-hidden",
+                    activeDish === dish.id ? "bg-main genz:bg-purple-500" : "bg-white",
+                  )}
                   onClick={() => handleDishClick(dish.id)}
                 >
                   <Image src={dish.image} alt="Extra Icon" width={80} height={0} loading="lazy" />
@@ -158,7 +164,7 @@ export default function ProductPage() {
                         color: activeDish === dish.id ? "#ffffff" : "var(--main)",
                       }}
                       transition={{ duration: 0.3 }}
-                      className="text-2xl font-semibold mb-2"
+                      className="text-2xl font-semibold mb-2  genz:text-purple-500"
                     >
                       {dish.name}
                     </motion.h3>
@@ -232,7 +238,11 @@ export default function ProductPage() {
                                       <span
                                         className={`
                                   transition-all duration-300 ease-in-out
-                                  ${isActive ? "text-main text-lg" : "text-white text-2xl"}
+                                  ${
+                                    isActive
+                                      ? "text-main genz:text-purple-500 text-lg"
+                                      : "text-white text-2xl"
+                                  }
                                 `}
                                       >
                                         {subDish.name}
@@ -240,7 +250,11 @@ export default function ProductPage() {
                                       <span
                                         className={`
                                   transition-all duration-300 ease-in-out
-                                  ${isActive ? "text-main text-base" : "text-custom-orange text-lg"}
+                                  ${
+                                    isActive
+                                      ? "text-main genz:text-purple-500 text-base"
+                                      : "text-custom-orange text-lg"
+                                  }
                                 `}
                                       >
                                         {format.number(subDish.price)} {t("currency")}

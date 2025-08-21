@@ -21,7 +21,7 @@ export default function AddressPage() {
           {addresses.map((addr) => (
             <div
               key={addr.id}
-              className="flex w-full justify-between items-center gap-4 border border-gray-300 rounded-3xl px-5 py-3"
+              className="flex w-full justify-between items-center gap-4 border border-gray-300 genz:border-gradient rounded-3xl px-5 py-3"
               aria-label={`${addr.label}, ${addr.address}`}
             >
               <div className="flex items-center gap-5">

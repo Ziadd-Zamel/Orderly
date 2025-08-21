@@ -81,9 +81,9 @@ export default function AddAddressDialog() {
       <DialogTrigger asChild>
         <Button
           variant="ghost"
-          className="flex items-center gap-2 text-custom-orange hover:text-custom-orange/80 hover:bg-custom-orange/5 mt-5 text-lg"
+          className="flex items-center gap-2 text-custom-orange genz:text-gradient genz:hover:text-gradient :hover:text-custom-orange/80 hover:bg-custom-orange/5 mt-5 text-lg"
         >
-          <Plus aria-hidden="true" />
+          <Plus aria-hidden="true" className="genz:text-purple-500" />
           Add address
         </Button>
       </DialogTrigger>
@@ -101,7 +101,7 @@ export default function AddAddressDialog() {
                 control={form.control}
                 name="governorate"
                 render={({ field }) => (
-                  <FormItem className="w-1/2">
+                  <FormItem className="w-1/2 ">
                     <FormControl>
                       <Select
                         onValueChange={(value) => {
@@ -175,8 +175,10 @@ export default function AddAddressDialog() {
                               type="button"
                               onClick={() => field.onChange(type.value)}
                               className={cn(
-                                "flex items-center gap-2 px-4 py-3 rounded-full hover:bg-main hover:text-white",
-                                isSelected ? "bg-main text-white " : "bg-gray-200 text-zinc-600 ",
+                                "flex items-center gap-2 px-4 py-3 rounded-full genz:bg-transparent genz:hover:bg-gradient hover:bg-main hover:text-white",
+                                isSelected
+                                  ? "bg-main text-white genz:bg-gradient "
+                                  : "bg-gray-200 text-zinc-600 ",
                               )}
                             >
                               <Icon className="w-4 h-4" />
@@ -207,7 +209,7 @@ export default function AddAddressDialog() {
 
             <Button
               type="submit"
-              className="h-12 bg-main hover:bg-main/70 font-medium w-fit px-10 self-end"
+              className="h-12 bg-main hover:bg-main/70 genz:bg-purple-500 genz:hover:bg-purple-600 font-medium w-fit px-10 self-end"
             >
               Confirm Location
             </Button>

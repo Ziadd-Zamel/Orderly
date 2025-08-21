@@ -169,8 +169,9 @@
 
 /* Gen-Z mode */
 [data-theme="genz"] {
-  --color-gradient: linear-gradient(to bottom right, #a259ff, #00f0b5);
-  --text-gradient: linear-gradient(to bottom right, #a259ff, #00f0b5);
+  --main: #a259ff;
+  --color-gradient: linear-gradient(135deg, #a259ff, #00f0b5);
+  --text-gradient: linear-gradient(135deg, #a259ff, #00f0b5);
   --hero-bg: linear-gradient(
     to bottom left,
     rgba(0, 240, 181, 0.3) 0%,

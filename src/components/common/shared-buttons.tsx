@@ -58,7 +58,7 @@ const ActionButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
         className={cn(
-          "text-main size-8 bg-[#1295751A] rounded-lg flex-center shrink-0 cursor-pointer transition-colors",
+          "text-main genz:text-purple-500 genz:bg-purple-100 size-8 bg-[#1295751A] rounded-lg flex-center shrink-0 cursor-pointer transition-colors",
           className,
         )}
       >
@@ -77,7 +77,7 @@ const TrashButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
         className={cn(
-          "text-custom-orange size-8 bg-[#FF9C001A] rounded-lg flex-center shrink-0 cursor-pointer transition-colors",
+          "text-custom-orange genz:bg-red-100 genz:text-red-500  size-8 bg-[#FF9C001A] rounded-lg flex-center shrink-0 cursor-pointer transition-colors",
           className,
         )}
       >

@@ -43,7 +43,7 @@ export default function AccountSettings() {
       </div>
 
       {/* Danger Zone | Account Deletion Button */}
-      <Button className="bg-transparent hover:bg-transparent text-custom-orange text-xl font-medium hover:underline">
+      <Button className="bg-transparent hover:bg-transparent text-custom-orange genz:text-red-400 genz:bg-transparent text-xl font-medium hover:underline">
         {t("delete-account")}
       </Button>
     </>
