@@ -88,12 +88,12 @@ export default function ProductPage() {
                 width={25}
                 height={0}
               />
-              <p className="text-zinc-600 text-base font-popins font-medium self-end leading-4">
+              <p className="text-zinc-600 text-base font-medium self-end leading-4">
                 {`${format.number(10)}-${format.number(15)} ${t("minute")}`}
               </p>
             </div>
 
-            <p className="text-base text-zinc-400 font-poppins mt-4 mb-16">
+            <p className="text-base text-zinc-400 mt-4 mb-16">
               A fresh coleslaw with cabbage, carrots, and creamy dressing, topped with roasted nuts
               for extra crunch and flavor.
             </p>

@@ -79,9 +79,7 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
               <ChevronLeft size={20} />
             </Button>
           </div>
-          <DialogTitle className="text-2xl w-2/3 ps-5 leading-10 font-poppins">
-            {t("group-order")}
-          </DialogTitle>
+          <DialogTitle className="text-2xl w-2/3 ps-5 leading-10">{t("group-order")}</DialogTitle>
         </DialogHeader>
 
         <div className="p-5">
@@ -96,17 +94,14 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
           </div>
 
           <div className="relative">
-            <span className="block w-full text-center text-zinc-300 font-poppins text-base before:w-[47%] before:h-[1px] before:bg-zinc-300 before:absolute before:top-1/2 before:left-0 before:-translate-y-1/2 after:w-[47%] after:h-[1px] after:bg-zinc-300 after:absolute after:top-1/2 after:right-0 after:-translate-y-1/2">
+            <span className="block w-full text-center text-zinc-300 text-base before:w-[47%] before:h-[1px] before:bg-zinc-300 before:absolute before:top-1/2 before:left-0 before:-translate-y-1/2 after:w-[47%] after:h-[1px] after:bg-zinc-300 after:absolute after:top-1/2 after:right-0 after:-translate-y-1/2">
               Or
             </span>
           </div>
 
           {/* Share Link Input */}
           <div className="relative mt-6 mb-10">
-            <Label
-              htmlFor="invitation-link"
-              className="text-lg text-zinc-800 font-poppins font-normal mb-1"
-            >
+            <Label htmlFor="invitation-link" className="text-lg text-zinc-800 font-normal mb-1">
               {t("invitation-link")}
             </Label>
             <div className="relative">

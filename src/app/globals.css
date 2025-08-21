@@ -4,6 +4,49 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant genz (&:is([data-theme=genz] *));
 
+@font-face {
+  font-family: "Chillax";
+  src: url("/fonts/Chillax-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chillax";
+  src: url("/fonts/Chillax-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chillax";
+  src: url("/fonts/Chillax-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chillax";
+  src: url("/fonts/Chillax-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chillax";
+  src: url("/fonts/Chillax-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* لو عايز تستخدم النسخة المتغيرة (variable font) */
+@font-face {
+  font-family: "ChillaxVariable";
+  src: url("/fonts/Chillax-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -47,6 +90,8 @@
   --color-custom-orange: hsla(37, 100%, 50%, 1);
   --color-custom-gray: rgba(251, 251, 251, 1);
   --bg-main: var(--bg-main);
+  --font-poppins: "Poppins", sans-serif;
+  --font-chillax: "Chillax", sans-serif;
 }
 
 :root {
@@ -136,6 +181,14 @@
   --border-gradient: linear-gradient(135deg, #a259ff, #00f0b5);
 }
 
+@utility font-poppins {
+  font-family: var(--font-poppins);
+}
+
+@utility font-chillax {
+  font-family: var(--font-chillax);
+}
+
 @utility hero-bg {
   background: var(--hero-bg);
 }
@@ -162,22 +215,18 @@
   background: var(--hero-bg);
 }
 
-@utility mask-gradient {
-  background-image: linear-gradient(135deg, #a259ff, #00f0b5);
-  -webkit-mask: var(--svg);
-  --webkit-mask-repeat: no-repeat;
-  --webkit-mask-position: center;
-  --webkit-mask-size: contain;
-  mask: var(--svg);
+@layer base {
+  body {
+    @apply bg-background text-foreground font-poppins genz:font-chillax;
+  }
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.font-chillax {
+  font-family: var(--font-chillax);
+}
+
+@utility font-chillax {
+  font-family: "Chillax", sans-serif;
 }
 
 @layer utilities {
@@ -198,15 +247,6 @@
   );
 }
 
-.bg-hero-gradient {
-  background: #e659ff;
-  background: radial-gradient(
-    circle,
-    rgba(162, 89, 255, 0.3) 16.54%,
-    rgba(0, 240, 181, 0.3) 84.99%
-  );
-}
-
 @utility flex-center {
   @apply flex justify-center items-center;
 }
@@ -220,6 +260,14 @@
 
 @utility hero-content-box {
   @apply w-full lg:w-1/2;
+}
+
+header.scrolled {
+  @apply bg-white/20 backdrop-blur-sm shadow-md;
+}
+
+.genz header.scrolled {
+  @apply bg-black/20 backdrop-blur-sm;
 }
 
 .hide-scrollbar {

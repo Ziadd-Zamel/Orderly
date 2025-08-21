@@ -2,7 +2,7 @@ import { Circles } from "@/components/common/decorations";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import { IoIosCheckmarkCircle } from "react-icons/io";
+import { FiCheck } from "react-icons/fi";
 import { TiLocation } from "react-icons/ti";
 
 export default function PaymentSummary() {
@@ -25,7 +25,9 @@ export default function PaymentSummary() {
         <div className="relative h-full flex flex-col gap-5 bg-white p-5 pb-10 rounded-t-2xl">
           {/* Check Icon on Top */}
           <span className="flex-center size-14 circle bg-white drop-shadow-lg absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2">
-            <IoIosCheckmarkCircle size={32} className="text-custom-orange" />
+            <span className="flex-center size-7 circle bg-main genz:bg-gradient">
+              <FiCheck size={20} className=" text-white" />
+            </span>
           </span>
 
           {/* Amount Details */}
@@ -39,7 +41,7 @@ export default function PaymentSummary() {
           {/* Total Payment  */}
           <div className="text-center">
             <h4 className="text-sm font-normal text-zinc-600 mb-1">{t("total-payment")}</h4>
-            <p className="text-xl font-semibold text-zinc-800">
+            <p className="text-2xl font-semibold text-zinc-800 genz:text-gradient">
               {format.number(totalAmount, {
                 style: "currency",
                 currency: "EGP",
@@ -54,8 +56,8 @@ export default function PaymentSummary() {
           <ul className="flex flex-col gap-3">
             {paymentList.map((item) => (
               <li key={item.id} className="flex justify-between items-center">
-                <span className="text-sm text-zinc-400">{item.title}</span>
-                <span className="text-sm text-zinc-800">
+                <span className="text-sm text-zinc-400 font-medium">{item.title}</span>
+                <span className="text-sm text-zinc-800 font-medium">
                   {format.number(item.price, {
                     numberingSystem: locale === "ar" ? "arab" : "latn",
                     minimumFractionDigits: 0,
@@ -66,8 +68,10 @@ export default function PaymentSummary() {
             ))}
 
             <li className="flex justify-between items-center border-t border-dashed border-zinc-300 pt-6">
-              <span className="text-sm text-zinc-400">{t("total-payment")}</span>
-              <span className="text-xl text-zinc-800 font-semibold">
+              <span className="text-sm text-zinc-400 genz:text-purple-500 font-medium">
+                {t("total-payment")}
+              </span>
+              <span className="text-xl text-zinc-800 genz:text-purple-500 font-semibold">
                 {format.number(totalAmount, {
                   numberingSystem: locale === "ar" ? "arab" : "latn",
                   minimumFractionDigits: 0,
@@ -86,7 +90,7 @@ export default function PaymentSummary() {
       <div className="flex-1 space-y-6">
         {/* Payment Method */}
         <div className="w-full bg-gray-50 rounded-4xl p-5 space-y-3">
-          <h4 className="text-base text-zinc-800 font-poppins font-medium">{t("pay-with")}</h4>
+          <h4 className="text-base text-zinc-800 font-medium">{t("pay-with")}</h4>
 
           <div className="flex items-center gap-2">
             <Image
@@ -96,19 +100,19 @@ export default function PaymentSummary() {
               height={0}
               className="rounded-md shadow"
             />
-            <p className="text-base text-main font-poppins font-medium">{t("cash-on-delivery")}</p>
+            <p className="text-base text-main genz:text-purple-500 font-medium">
+              {t("cash-on-delivery")}
+            </p>
           </div>
         </div>
 
         {/* Delivery Address */}
         <div className="w-full bg-gray-50 rounded-4xl p-5 space-y-3">
-          <h4 className="text-base text-zinc-800 font-poppins font-medium">
-            {t("delivery-address")}
-          </h4>
+          <h4 className="text-base text-zinc-800 font-medium">{t("delivery-address")}</h4>
 
-          <div className="flex items-center gap-2 text-main">
+          <div className="flex items-center gap-2 text-main genz:text-purple-500">
             <TiLocation size={22} />
-            <p className="text-base text-main font-poppins font-medium underline">
+            <p className="text-base text-main genz:text-purple-500 font-medium underline">
               {t("shipping-in")} {"17110"}
             </p>
           </div>

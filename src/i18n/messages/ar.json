@@ -205,5 +205,9 @@
   "language": "اللــغة",
   "notifications": "الإشـعـــارات",
   "allow-notifications": "السمــاح بتفعــيل الإشعــارات",
-  "allow-notifications-rings": "تفعـيــل جــرس الإشـعـــارات"
+  "allow-notifications-rings": "تفعـيــل جــرس الإشـعـــارات",
+  "my-account": "حـســابـــي",
+  "my-profile": "المــلف الشخــصـي",
+  "settings": "الإعـــدادات",
+  "log-out": "تسـجيــل الخــروج"
 }

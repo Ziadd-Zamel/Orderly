@@ -8,13 +8,11 @@ export default function HowToWork() {
   return (
     <section className="my-20">
       <div className="box-container">
-        <h2 className="text-xl text-custom-orange genz:text-purple-500 font-poppins font-medium text-center mb-4">
+        <h2 className="text-xl text-custom-orange genz:text-purple-500 font-medium text-center mb-4">
           {t("how-to-work")}
         </h2>
 
-        <p className="text-center text-2xl font-poppins font-bold text-zinc-800 mb-8">
-          {t("food-us")}
-        </p>
+        <p className="text-center text-2xl font-bold text-zinc-800 mb-8">{t("food-us")}</p>
 
         <div className="relative flex gap-4">
           {/* Step 1 */}
@@ -44,9 +42,7 @@ export default function HowToWork() {
                   className=""
                   loading="lazy"
                 />
-                <p className="text-lg font-poppins font-medium text-zinc-800 font-poppins">
-                  {t("for-dine-in")}
-                </p>
+                <p className="text-lg font-medium text-zinc-800">{t("for-dine-in")}</p>
               </li>
 
               <li className="flex items-center gap-6">
@@ -58,9 +54,7 @@ export default function HowToWork() {
                   className=""
                   loading="lazy"
                 />
-                <p className="text-lg font-poppins font-medium text-zinc-800 font-poppins">
-                  {t("delivery")}
-                </p>
+                <p className="text-lg font-medium text-zinc-800">{t("delivery")}</p>
               </li>
 
               <li className="flex items-center gap-6">
@@ -72,9 +66,7 @@ export default function HowToWork() {
                   className=""
                   loading="lazy"
                 />
-                <p className="text-lg font-poppins font-medium text-zinc-800 font-poppins">
-                  {t("and-take-away")}
-                </p>
+                <p className="text-lg font-medium text-zinc-800">{t("and-take-away")}</p>
               </li>
             </ul>
             <div></div>

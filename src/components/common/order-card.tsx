@@ -22,7 +22,7 @@ export default function OrderCard({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative bg-white  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
+        "relative bg-white border  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
         className,
       )}
     >
@@ -43,7 +43,7 @@ export default function OrderCard({ className }: { className?: string }) {
         <p className=" text-base sm:text-2xl font-medium text-zinc-700">Classic Greek Salad</p>
         <div className="flex items-center gap-6">
           {isOrderPage ? (
-            <span className="flex-center size-6 md:size-8 rounded-md bg-main text-white text-sm md:text-[15px] font-medium">
+            <span className="flex-center size-6 md:size-8 rounded-md bg-main genz:bg-purple-500 text-white text-sm md:text-[15px] font-medium">
               01
             </span>
           ) : (
