@@ -12,13 +12,15 @@ export default function MealCard() {
     <div>
       <Card className="group relative w-[250px] bg-slate-100 rounded-3xl mt-32 hover:!scale-105 transition-all duration-300 hover:bg-main genz:hover:bg-purple-500 cursor-pointer">
         <CardContent className="px-5 pb-0 pt-12">
-          <Image
-            src={"/assets/images/test-product.svg"}
-            alt="Meal Name"
-            width={150}
-            height={0}
-            className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10"
-          />
+          <div className="w-[140px] h-[140px] absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10 genz:border-[3px] genz:border-gradient circle overflow-hidden">
+            <Image
+              src={"/assets/images/test-product.svg"}
+              alt="Meal Name"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+            />
+          </div>
 
           <div className="flex flex-col justify-center mb-6">
             {/* Product Name */}

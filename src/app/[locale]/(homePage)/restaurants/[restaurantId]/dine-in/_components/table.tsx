@@ -56,7 +56,7 @@ const Table = ({
         aria-label="Decrease chairs"
         title="Decrease"
         className={cn(
-          "bg-custom-orange flex-center text-white rounded-lg size-10 text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+          "bg-custom-orange genz:bg-[#FF6F61] flex-center text-white rounded-lg size-10 text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
         )}
         onClick={decrease}
         disabled={isDecrementDisabled}
@@ -89,8 +89,7 @@ const Table = ({
           />
 
           {/* Table Box */}
-          <div className="w-full flex-1 flex-center bg-[#EBEBEB] border-2 border-custom-orange rounded-lg">
-            {/* i18n-able label */}
+          <div className="w-full flex-1 flex-center bg-[#EBEBEB] border-2 border-custom-orange genz:border-[#FF6F61] rounded-lg">
             <span className="text-base sm:text-lg text-zinc-600 font-medium">
               {chairsCount} {chairsCount === 1 ? t("chair") : t("chairs")}
             </span>
@@ -128,7 +127,7 @@ const Table = ({
         aria-label="Increase chairs"
         title="Increase"
         className={cn(
-          "bg-custom-orange flex-center text-white rounded-lg size-10 text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+          "bg-custom-orange genz:bg-[#FF6F61] flex-center text-white rounded-lg size-10 text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
         )}
         onClick={increase}
         disabled={isIncrementDisabled}

@@ -72,14 +72,20 @@ export default function DineInClient() {
             />
           </div>
 
-          <div className="w-full lg:w-1/2 flex flex-col items-center gap-6 bg-gray-100 rounded-4xl min-h-44 p-8">
-            <h3 className="text-zinc-800 text-xl font-semibold">{t("date-time")}</h3>
-            <DateSelector selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-            <TimePickerForm selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+          <div className="w-full lg:w-1/2 flex flex-col items-center gap-16">
+            <div className="w-full flex flex-col items-center gap-6 bg-gray-100 rounded-4xl min-h-44 p-8">
+              <h3 className="text-zinc-800 text-xl font-semibold">{t("date-time")}</h3>
+              <DateSelector selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+              <TimePickerForm selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+            </div>
+
+            <Button onClick={handleReservation} className="w-full text-lg hidden genz:block">
+              Reserve
+            </Button>
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex justify-center genz:justify-end genz:hidden">
           <Button onClick={handleReservation} className="w-full sm:max-w-sm text-lg">
             Reserve
           </Button>

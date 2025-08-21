@@ -21,12 +21,12 @@ export default function Menu() {
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <HeadLine title="Menu">
           {/* Desktop Tabs */}
-          <TabsList className="bg-white gap-10 h-12 self-end hidden md:flex">
+          <TabsList className="bg-background gap-10 h-12 self-end hidden md:flex">
             {TabsData.map((tab) => (
               <TabsTrigger
                 key={tab}
                 value={tab}
-                className="bg-transparent border-none capitalize text-black data-[state=active]:bg-main genz:data-[state=active]:bg-gradient data-[state=active]:text-white p-3 rounded-lg"
+                className="md:min-w-20 bg-transparent border-none outline-none capitalize text-black data-[state=active]:bg-main genz:data-[state=active]:bg-gradient data-[state=active]:text-white p-3 rounded-xl cursor-pointer"
               >
                 {tab}
               </TabsTrigger>
