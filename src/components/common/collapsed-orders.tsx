@@ -20,7 +20,7 @@ export default function CollapsedOrdersList({ productsImages }: { productsImages
         </div>
       ))}
       {collapsed && (
-        <div className="bg-white flex-center p-2 rounded-lg w-16 h-16 text-xl text-shadow-zinc-400">
+        <div className="bg-white font-medium genz:text-purple-500 flex-center p-2 rounded-lg w-16 h-16 text-xl text-shadow-zinc-400">
           +{productsImages.length - displayImages.length}
         </div>
       )}

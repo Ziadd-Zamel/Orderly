@@ -26,7 +26,7 @@ export default function PointsActivity() {
           </div>
 
           <Badge
-            className="text-custom-orange bg-[#FF9C001A] py-2.5 px-2 text-xl rounded-2xl mt-5 sm:mt-0"
+            className="text-custom-orange genz:text-red-500 bg-[#FF9C001A] genz:bg-red-100 py-2.5 px-2 text-xl rounded-2xl mt-5 sm:mt-0"
             aria-label="15 points"
           >
             15 Points

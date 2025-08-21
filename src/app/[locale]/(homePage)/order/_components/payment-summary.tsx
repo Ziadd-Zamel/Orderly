@@ -24,8 +24,8 @@ export default function PaymentSummary() {
       <div className="w-full md:w-3/5 lg:w-full bg-gray-50 rounded-4xl p-8">
         <div className="relative h-full flex flex-col gap-5 bg-white p-5 pb-10 rounded-t-2xl">
           {/* Check Icon on Top */}
-          <span className="flex-center size-14 circle bg-white drop-shadow-lg absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2">
-            <IoIosCheckmarkCircle size={32} className="text-custom-orange" />
+          <span className="flex-center size-14 circle bg-white drop-shadow-lg absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 genz:bg-gradient">
+            <IoIosCheckmarkCircle size={32} className="text-custom-orange genz:text-white " />
           </span>
 
           {/* Amount Details */}
@@ -39,7 +39,7 @@ export default function PaymentSummary() {
           {/* Total Payment  */}
           <div className="text-center">
             <h4 className="text-sm font-normal text-zinc-600 mb-1">{t("total-payment")}</h4>
-            <p className="text-xl font-semibold text-zinc-800">
+            <p className="text-xl font-semibold text-zinc-800 genz:text-gradient">
               {format.number(totalAmount, {
                 style: "currency",
                 currency: "EGP",
@@ -66,8 +66,10 @@ export default function PaymentSummary() {
             ))}
 
             <li className="flex justify-between items-center border-t border-dashed border-zinc-300 pt-6">
-              <span className="text-sm text-zinc-400">{t("total-payment")}</span>
-              <span className="text-xl text-zinc-800 font-semibold">
+              <span className="text-sm text-zinc-400 genz:text-purple-500">
+                {t("total-payment")}
+              </span>
+              <span className="text-xl text-zinc-800 font-semibold genz:text-purple-500">
                 {format.number(totalAmount, {
                   numberingSystem: locale === "ar" ? "arab" : "latn",
                   minimumFractionDigits: 0,
@@ -96,7 +98,9 @@ export default function PaymentSummary() {
               height={0}
               className="rounded-md shadow"
             />
-            <p className="text-base text-main font-poppins font-medium">{t("cash-on-delivery")}</p>
+            <p className="text-base text-main genz:text-purple-500 font-poppins font-medium">
+              {t("cash-on-delivery")}
+            </p>
           </div>
         </div>
 
@@ -106,9 +110,9 @@ export default function PaymentSummary() {
             {t("delivery-address")}
           </h4>
 
-          <div className="flex items-center gap-2 text-main">
-            <TiLocation size={22} />
-            <p className="text-base text-main font-poppins font-medium underline">
+          <div className="flex items-center gap-2 text-main genz:text-purple-500">
+            <TiLocation className="genz:text-purple-500" size={22} />
+            <p className="text-base text-main font-poppins font-medium underline genz:text-purple-500">
               {t("shipping-in")} {"17110"}
             </p>
           </div>

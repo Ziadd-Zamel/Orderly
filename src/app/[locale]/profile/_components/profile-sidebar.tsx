@@ -169,7 +169,9 @@ export default function ProfileSidebar() {
                   href={`/profile${link.path}`}
                   className={cn(
                     "flex items-center gap-4 font-medium transition-colors w-full",
-                    isActive ? "text-main" : "text-gray-400 hover:text-main",
+                    isActive
+                      ? "text-main genz:text-purple-500"
+                      : "text-gray-400 hover:text-main genz:hover:!text-purple-500",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >

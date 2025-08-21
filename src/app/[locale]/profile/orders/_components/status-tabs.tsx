@@ -25,8 +25,10 @@ export default function StatusTabs() {
           <Button
             key={tab}
             className={cn("min-w-16 md:min-w-20 border-2 rounded-2xl", {
-              "text-main border-main bg-second": activeTab === tab,
-              "bg-gray-50 hover:bg-gray-100 border-zinc-400 text-zinc-400": activeTab !== tab,
+              "text-main genz:text-purple-500 border-main genz:border-purple-500 bg-second genz:bg-purple-100":
+                activeTab === tab,
+              "bg-gray-50 genz:bg-gray-50 hover:bg-gray-100 border-zinc-400 text-zinc-400":
+                activeTab !== tab,
             })}
             onClick={() => setActiveTab(tab as Tab)}
           >
