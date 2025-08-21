@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Counter } from "../animate-ui/components/counter";
 import { RiStarFill } from "react-icons/ri";
+import { useTheme } from "next-themes";
 
 export default function OrderCard({ className }: { className?: string }) {
   // Translation
@@ -16,8 +17,13 @@ export default function OrderCard({ className }: { className?: string }) {
   const pathname = usePathname();
   const isOrderPage = pathname.includes("/order/");
 
+  // Hooks
+  const { resolvedTheme } = useTheme();
+
   // States
   const [number, setNumber] = useState(1);
+
+  if (!resolvedTheme) return;
 
   return (
     <div
@@ -47,7 +53,12 @@ export default function OrderCard({ className }: { className?: string }) {
               01
             </span>
           ) : (
-            <Counter number={number} setNumber={setNumber} className="h-10" />
+            <Counter
+              number={number}
+              setNumber={setNumber}
+              audience={resolvedTheme}
+              className="h-10"
+            />
           )}
           <p className=" text-base sm:text-xl text-main font-semibold genz:text-gradient">
             {format.number(215)} {t("currency")}
