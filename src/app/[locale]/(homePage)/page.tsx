@@ -3,7 +3,7 @@ import Navbar from "@/components/layout/header";
 import HeroSection from "./_components/hero-section/hero-section";
 import { places } from "@/lib/constants/data.constant";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
+import HomeSlidersVectors from "./_components/home-slider/home-sliders-vectors";
 
 const PlacesCarousel = dynamic(
   () => import("@/app/[locale]/(homePage)/_components/places-slider/places-carousel"),
@@ -40,14 +40,7 @@ export default function Home() {
       {/* Home Slider */}
       <section className="relative">
         <HomeSlider />
-        <Image
-          src={"/assets/vectors/garlic-vector.svg"}
-          width={80}
-          height={0}
-          alt="Garlic vector"
-          className="absolute top-0 start-[35%] -translate-y-1/2 z-10 opacity-"
-          loading={"lazy"}
-        />
+        <HomeSlidersVectors />
       </section>
 
       {/* Top Rated Places */}

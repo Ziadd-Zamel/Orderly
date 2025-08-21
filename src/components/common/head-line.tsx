@@ -12,10 +12,14 @@ export default function HeadLine({ children, title }: { children?: ReactNode; ti
     genz: "/assets/vectors/headline-vectors-genz.svg",
   };
 
+  if (!resolvedTheme || !images[resolvedTheme as keyof typeof images]) {
+    return null;
+  }
+
   return (
     <div className="relative min-h-20 flex items-center justify-between w-full ">
       <Image
-        src={images[resolvedTheme as keyof typeof images]}
+        src={images[resolvedTheme as keyof typeof images]!}
         alt="Frame"
         fill
         priority
