@@ -25,6 +25,7 @@ import {
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Plus, Home, Briefcase, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 const formSchema = z.object({
   governorate: z.string().min(1, "Please select a governorate"),
   city: z.string().min(1, "Please select a city"),
@@ -50,7 +51,12 @@ const cities = {
   Giza: ["6th of October", "Sheikh Zayed", "Dokki", "Mohandessin"],
   Alexandria: ["Smouha", "Gleem", "Stanley", "Montaza"],
 };
+
 export default function AddAddressDialog() {
+  // Translation
+  const t = useTranslations();
+
+  // States
   const [open, setOpen] = useState(false);
 
   const form = useForm<FormData>({
@@ -71,9 +77,9 @@ export default function AddAddressDialog() {
   };
 
   const addressTypes = [
-    { value: "home", label: "Home", icon: Home },
-    { value: "work", label: "Work", icon: Briefcase },
-    { value: "other", label: "Other", icon: MapPin },
+    { value: "home", label: t("home"), icon: Home },
+    { value: "work", label: t("work"), icon: Briefcase },
+    { value: "other", label: t("other"), icon: MapPin },
   ];
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -81,17 +87,17 @@ export default function AddAddressDialog() {
       <DialogTrigger asChild>
         <Button
           variant="ghost"
-          className="flex items-center gap-2 text-custom-orange genz:text-gradient genz:hover:text-gradient :hover:text-custom-orange/80 hover:bg-custom-orange/5 mt-5 text-lg"
+          className="flex items-center gap-2 text-custom-orange genz:text-gradient genz:hover:text-gradient hover:text-custom-orange/80 hover:bg-custom-orange/5 mt-5 text-lg"
         >
           <Plus aria-hidden="true" className="genz:text-purple-500" />
-          Add address
+          {t("add-new-address")}
         </Button>
       </DialogTrigger>
 
       {/* Content */}
       <DialogContent className="!max-w-2xl w-full bg-white rounded-3xl py-10">
         <DialogHeader>
-          <DialogTitle className="text-xl text-center">Add New Address</DialogTitle>
+          <DialogTitle className="text-xl text-center">{t("add-new-address")}</DialogTitle>
         </DialogHeader>
 
         <Form {...form}>
@@ -111,7 +117,7 @@ export default function AddAddressDialog() {
                         value={field.value}
                       >
                         <SelectTrigger className="h-12 w-full py-6">
-                          <SelectValue placeholder="Governorate" />
+                          <SelectValue placeholder={t("governrate")} />
                         </SelectTrigger>
                         <SelectContent>
                           {governorates.map((gov) => (
@@ -139,7 +145,7 @@ export default function AddAddressDialog() {
                         disabled={!selectedGovernorate}
                       >
                         <SelectTrigger className="h-12 w-full py-6">
-                          <SelectValue placeholder="City" />
+                          <SelectValue placeholder={t("city")} />
                         </SelectTrigger>
                         <SelectContent>
                           {selectedGovernorate &&
@@ -158,7 +164,7 @@ export default function AddAddressDialog() {
             </div>
 
             <div>
-              <Label className="font-medium text-zinc-900 mb-3 text-lg">Select Address type</Label>
+              <Label className="font-medium text-zinc-900 mb-3 text-lg">{t("address-type")}</Label>
               <FormField
                 control={form.control}
                 name="addressType"
@@ -200,7 +206,7 @@ export default function AddAddressDialog() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input variant={"outline"} {...field} placeholder="Address" />
+                    <Input variant={"outline"} {...field} placeholder={t("address")} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -211,7 +217,7 @@ export default function AddAddressDialog() {
               type="submit"
               className="h-12 bg-main hover:bg-main/70 genz:bg-purple-500 genz:hover:bg-purple-600 font-medium w-fit px-10 self-end"
             >
-              Confirm Location
+              {t("confirm-location")}
             </Button>
           </form>
         </Form>

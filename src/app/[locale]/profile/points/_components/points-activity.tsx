@@ -1,11 +1,15 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "next-intl";
 
 export default function PointsActivity() {
+  // Translation
+  const t = useTranslations();
+
   return (
     <section className="mt-16 w-full" aria-labelledby="points-activity-title">
       <h3 id="points-activity-title" className="font-medium text-2xl">
-        Points Activity
+        {t("points-activity")}
       </h3>
 
       <div className="flex flex-col gap-5 mt-10">
@@ -18,7 +22,7 @@ export default function PointsActivity() {
               <AvatarFallback>Ha</AvatarFallback>
             </Avatar>
             <div>
-              <p className="font-medium text-xl">Order</p>
+              <p className="font-medium text-xl">{t("the-order")}</p>
               <time dateTime="2025-01-15" className="font-medium text-lg text-zinc-600">
                 EXP: 15-01-2025
               </time>

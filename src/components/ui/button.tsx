@@ -62,7 +62,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
         {children}
         {loading && <Loader2 size={18} className="animate-spin" />}
-        {routable && <HiArrowLongRight size={25} />}
+        {routable && <HiArrowLongRight size={25} className="rtl:rotate-180" />}
       </Comp>
     );
   },

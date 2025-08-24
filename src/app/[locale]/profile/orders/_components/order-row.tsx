@@ -1,46 +1,20 @@
 import CollapsedOrdersList from "@/components/common/collapsed-orders";
-import { Badge } from "@/components/ui/badge";
-import { useFormatter, useLocale } from "next-intl";
-import React, { JSX } from "react";
+import StatusBadge from "@/components/common/status-badge";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { TbReceipt } from "react-icons/tb";
 
-export const STATUS_BADGES: Record<Order["status"], JSX.Element> = {
-  completed: (
-    <Badge
-      className="capitalize min-w-32 py-1.5 px-5 rounded-xl  genz:text-purple-500 genz:border-purple-500 genz:bg-purple-50"
-      variant={"completed"}
-    >
-      <p className="text-sm font-medium">Completed</p>
-    </Badge>
-  ),
-  pending: (
-    <Badge className="capitalize min-w-32 py-1.5 px-5 rounded-xl" variant={"pending"}>
-      <p className="text-sm font-medium">Pending</p>
-    </Badge>
-  ),
-  canceled: (
-    <Badge className="capitalize min-w-32 py-1.5 px-5 rounded-xl" variant={"canceled"}>
-      <p className="text-sm font-medium">Canceled</p>
-    </Badge>
-  ),
-};
-
 export default function OrderRow({ order }: { order: Order }) {
   // Translation
+  const t = useTranslations();
   const locale = useLocale();
   const format = useFormatter();
 
   // Variables
   const statusText = {
-    completed: "Order Delivered",
-    pending: "Order Pending",
-    canceled: "Order Canceled",
-  };
-
-  // Functions
-  const renderStatusBadge = (status: Order["status"]) => {
-    return STATUS_BADGES[status];
+    completed: t("order-delivered"),
+    pending: t("order-pending"),
+    canceled: t("order-canceled"),
   };
 
   return (
@@ -54,7 +28,7 @@ export default function OrderRow({ order }: { order: Order }) {
             </h3>
             <p className="text-sm font-normal text-zinc-500">{order.date}</p>
           </div>
-          <div className="lg:hidden">{renderStatusBadge(order.status)}</div>
+          <div className="lg:hidden">{<StatusBadge status={order.status} />}</div>
         </div>
 
         {/* Price & Payment Method + Items (Mobile Grid) / Separate columns (Desktop) */}
@@ -89,7 +63,7 @@ export default function OrderRow({ order }: { order: Order }) {
               <TbReceipt size={16} className="md:w-[18px] md:h-[18px]  genz:text-purple-500" />
             </span>
             <div className="min-w-0 flex-1 lg:flex-initial">
-              <h3 className="text-sm md:text-lg font-medium text-zinc-800">Items</h3>
+              <h3 className="text-sm md:text-lg font-medium text-zinc-800">{t("items")}</h3>
               <p className="text-xs md:text-sm font-normal text-zinc-500">{order.totalPrice}x</p>
             </div>
           </div>
@@ -97,7 +71,7 @@ export default function OrderRow({ order }: { order: Order }) {
 
         {/* Status Badge - Desktop Only */}
         <div className="hidden lg:block lg:w-1/4 lg:text-end">
-          {renderStatusBadge(order.status)}
+          {<StatusBadge status={order.status} />}
         </div>
       </div>
 

@@ -18,8 +18,12 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ProfileFields, useProfileSchema } from "@/lib/schemas/auth.schema";
 import { ActionButton } from "@/components/common/shared-buttons";
 import PasswordDialog from "./rest-password-dialog";
+import { useTranslations } from "next-intl";
 
 export default function ProfileInfo() {
+  // Translation
+  const t = useTranslations();
+
   // State to track which fields are enabled
   const [enabledFields, setEnabledFields] = useState<Set<string>>(new Set());
   const [isPasswordDialogOpen, setIsPasswordDialogOpen] = useState(false);
@@ -70,25 +74,25 @@ export default function ProfileInfo() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl">
-        <h2 className="text-shadow-zinc-950 font-medium text-2xl">My Information</h2>
+        <h2 className="text-shadow-zinc-950 font-medium text-2xl">{t("my-info")}</h2>
         <div className="mb-8 flex items-center gap-3">
           <Avatar className="size-16">
             <AvatarFallback>Ha</AvatarFallback>
           </Avatar>
-          <span className="font-medium genz:text-purple-500">Change Photo</span>
+          <span className="font-medium genz:text-purple-500">{t("change-photo")}</span>
         </div>
 
         <FormField
           control={form.control}
           name="fullName"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Full Name</FormLabel>
+            <FormItem className="gap-2">
+              <FormLabel>{t("full-name")}</FormLabel>
               <div className="relative">
                 <FormControl>
                   <Input
                     variant="outline"
-                    placeholder="Your Name"
+                    placeholder="e.g John Doe"
                     type="text"
                     {...field}
                     disabled={!enabledFields.has("fullName")}
@@ -96,7 +100,7 @@ export default function ProfileInfo() {
                 </FormControl>
                 <ActionButton
                   type="button"
-                  className="absolute top-4 right-3"
+                  className="absolute top-4 end-3"
                   onClick={() => toggleFieldEnabled("fullName")}
                 />
               </div>
@@ -109,12 +113,12 @@ export default function ProfileInfo() {
           control={form.control}
           name="emial"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email Address</FormLabel>
+            <FormItem className="gap-2">
+              <FormLabel>{t("email-address")}</FormLabel>
               <FormControl>
                 <Input
                   variant="outline"
-                  placeholder="Email Address"
+                  placeholder="example@email.com"
                   type="email"
                   {...field}
                   disabled={true}
@@ -129,20 +133,20 @@ export default function ProfileInfo() {
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone</FormLabel>
+            <FormItem className="gap-2">
+              <FormLabel>{t("phone")}</FormLabel>
               <div className="relative">
                 <FormControl>
                   <Input
                     variant="outline"
-                    placeholder="Phone Number"
+                    placeholder="+201234567890"
                     {...field}
                     disabled={!enabledFields.has("phone")}
                   />
                 </FormControl>
                 <ActionButton
                   type="button"
-                  className="absolute top-4 right-3"
+                  className="absolute top-4 end-3"
                   onClick={() => toggleFieldEnabled("phone")}
                 />
               </div>
@@ -155,13 +159,13 @@ export default function ProfileInfo() {
           control={form.control}
           name="password"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
+            <FormItem className="gap-2">
+              <FormLabel>{t("password")}</FormLabel>
               <div className="relative">
                 <FormControl className="relative">
                   <Input
                     variant="outline"
-                    placeholder="your password"
+                    placeholder="••••••••"
                     {...field}
                     disabled={true}
                     type="password"
@@ -169,7 +173,7 @@ export default function ProfileInfo() {
                 </FormControl>
                 <ActionButton
                   type="button"
-                  className="absolute top-4 right-3"
+                  className="absolute top-4 end-3"
                   onClick={handlePasswordAction}
                 />
               </div>
@@ -183,7 +187,7 @@ export default function ProfileInfo() {
           className="py-4 rounded-2xl genz:bg-purple-500"
           disabled={!isAnyFieldEnabled}
         >
-          Save Changes
+          {t("save-changes")}
         </Button>
       </form>
 
