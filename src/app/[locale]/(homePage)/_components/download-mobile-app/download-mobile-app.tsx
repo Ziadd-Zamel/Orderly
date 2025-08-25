@@ -2,11 +2,14 @@
 
 import AppButtons from "@/components/layout/footer/components/app-buttons";
 import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import React from "react";
 
 export default function DownloadMobileApp() {
+  const t = useTranslations();
+
   // translation
   const t = useTranslations("footer");
 
@@ -50,9 +53,11 @@ export default function DownloadMobileApp() {
         {/* Download App Content */}
         <div className="flex flex-col gap-6">
           <h2 className="max-w-3xl text-white genz:text-zinc-800 text-xl md:text-3xl lg:text-4xl italic">
+            {t("lets-start-your-order")}
             {t("DownloadApp-title")}
           </h2>
           <p className="text-white genz:text-zinc-800 text-base md:text-lg font-light">
+            {t("download-orderly")}
             {t("DownloadApp-description")}
           </p>
           <AppButtons />

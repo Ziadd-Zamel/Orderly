@@ -408,3 +408,22 @@ header.scrolled {
     transform: rotate(0deg);
   }
 }
+
+.morphing-shape {
+  width: 200px;
+  height: 200px;
+  background: #4f46e5;
+  animation: morph 6s infinite ease-in-out;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 90% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; /* دائرة */
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* يرجع تاني */
+  }
+}

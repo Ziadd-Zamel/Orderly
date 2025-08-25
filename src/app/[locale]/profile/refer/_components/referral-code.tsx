@@ -12,12 +12,12 @@ export default function ReferralCode() {
   return (
     <>
       {/* Section Heading */}
-      <h2 className="text-2xl font-medium text-zinc-800 mb-4">Refer & Earn</h2>
+      <h2 className="text-2xl font-medium text-zinc-800 mb-4">{t("profile.referEarn")}</h2>
 
       {/* Referral Code Container */}
       <div className="w-full flex-center flex-col gap-10 bg-gray-50 rounded-4xl p-5 md:p-6 lg:p-8">
-        <p className="text-base text-center font-normal text-zinc-800">
-          Share this code with your friends to earn rewards when they make their first purchase!
+        <p className="text-base text-center font-normal rtl:font-bold text-zinc-800">
+          {t("share-this-code")}
         </p>
 
         <Image
@@ -29,20 +29,20 @@ export default function ReferralCode() {
           className="rounded-2xl"
         />
 
-        <div className="w-3/5 flex-center gap-2">
-          <h3 className="text-lg font-medium w-fit shrink-0">Referral Code</h3>
+        <div className="w-full sm:w-3/5 md:w-full max-w-2xl flex flex-col md:flex-row md:items-center gap-2">
+          <h3 className="text-lg font-medium w-fit shrink-0">{t("referral-code")}</h3>
           <div className="relative flex-1">
             {/* Referral Code Input */}
-            <Input className="p-3 rounded-lg " value={"Jaida2025"} readOnly />
+            <Input className="p-3 rounded-lg" value={"Jaida2025"} readOnly />
             <CopyButton
               content="Jaida2025"
               size="md"
-              className="bg-transparent text-main genz:text-purple-500 hover:bg-transparent shadow-none absolute top-1/2 -translate-y-1/2 right-1.5"
+              className="bg-transparent text-main genz:text-purple-500 hover:bg-transparent shadow-none absolute top-1/2 -translate-y-1/2 end-1.5 rtl:left-1.5"
             />
           </div>
 
           {/* Share Link Button */}
-          <Button routable className="p-2.5 w-1/4 ">
+          <Button routable className="p-2.5 w-full md:w-1/4">
             {t("share-link")}
           </Button>
         </div>

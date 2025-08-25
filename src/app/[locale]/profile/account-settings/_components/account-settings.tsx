@@ -11,14 +11,14 @@ export default function AccountSettings() {
   return (
     <>
       {/* Section Heading */}
-      <h2 className="text-2xl font-medium text-zinc-800 mb-4">Refer & Earn</h2>
+      <h2 className="text-2xl font-medium text-zinc-800 mb-4">{t("profile.accountSettings")}</h2>
 
       {/* Language Selection Container */}
       <div className="w-full flex flex-col gap-4 bg-gray-50 rounded-4xl p-5 mb-6">
         <h3 className="text-lg font-medium text-zinc-800">{t("communication-in")}</h3>
 
         <div className="flex flex-col gap-2">
-          <h4 className="text-base text-zinc-600">{t("language")}</h4>
+          <h4 className="text-base text-zinc-600 rtl:font-bold">{t("language")}</h4>
           <SwitchLocale className="w-1/2 justify-between border p-4 rounded-2xl" />
         </div>
       </div>

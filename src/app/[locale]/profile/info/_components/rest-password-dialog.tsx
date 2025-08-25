@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
 import { PasswordInput } from "../../../auth/_components/password-input";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function PasswordDialog({
   isOpen,
@@ -13,31 +14,34 @@ export default function PasswordDialog({
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }) {
+  // Translation
+  const t = useTranslations();
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-md p-8 bg-white rounded-4xl">
         <DialogHeader className="text-center mb-8">
           <DialogTitle className="text-2xl font-medium text-black text-center">
-            Change Password
+            {t("change-password")}
           </DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
-          <FormItem>
-            <FormLabel>Old Password</FormLabel>
+          <FormItem className="gap-2">
+            <FormLabel>{t("current-password")}</FormLabel>
             <FormControl className="relative">
-              <PasswordInput variant="outline" placeholder="your password" type="password" />
+              <PasswordInput variant="outline" placeholder="••••••••" type="password" />
             </FormControl>
           </FormItem>
-          <FormItem>
-            <FormLabel>New Password</FormLabel>
+          <FormItem className="gap-2">
+            <FormLabel>{t("new-password")}</FormLabel>
             <FormControl className="relative">
-              <PasswordInput variant="outline" placeholder="your password" type="password" />
+              <PasswordInput variant="outline" placeholder="••••••••" type="password" />
             </FormControl>
           </FormItem>
-          <FormItem>
-            <FormLabel>Confirm Password</FormLabel>
+          <FormItem className="gap-2">
+            <FormLabel>{t("confirm-password")}</FormLabel>
             <FormControl className="relative">
-              <PasswordInput variant="outline" placeholder="your password" type="password" />
+              <PasswordInput variant="outline" placeholder="••••••••" type="password" />
             </FormControl>
           </FormItem>
           <Button

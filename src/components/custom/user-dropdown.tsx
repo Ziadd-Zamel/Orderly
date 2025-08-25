@@ -24,7 +24,7 @@ export function UserDropdown() {
 
   return (
     <DropdownMenu dir={isRTL ? "rtl" : "ltr"}>
-      <DropdownMenuTrigger asChild className="cursor-pointer">
+      <DropdownMenuTrigger asChild>
         <Avatar className="h-7 w-7 sm:size-10 lg:block hidden cursor-pointer">
           <AvatarImage src="/abstract-profile.png" alt="User avatar" />
           <AvatarFallback>U</AvatarFallback>
@@ -38,7 +38,7 @@ export function UserDropdown() {
             {t("my-profile")}
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push("/profile/settings")}
+            onClick={() => router.push("/profile/account-settings")}
             className="cursor-pointer"
           >
             {t("settings")}

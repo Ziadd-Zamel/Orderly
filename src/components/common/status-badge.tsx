@@ -1,5 +1,11 @@
 import React, { JSX } from "react";
 import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "next-intl";
+
+const TranslatedStatus = ({ status }: { status: "completed" | "pending" | "canceled" }) => {
+  const t = useTranslations();
+  return <p className="text-sm font-medium">{t(status)}</p>;
+};
 
 const STATUS_BADGES: Record<Order["status"], JSX.Element> = {
   completed: (
@@ -7,7 +13,7 @@ const STATUS_BADGES: Record<Order["status"], JSX.Element> = {
       className="capitalize min-w-24 md:min-w-32 py-1.5 px-3 md:px-5 rounded-xl genz:text-purple-500 genz:border-purple-500 genz:bg-purple-50"
       variant={"completed"}
     >
-      <p className="text-sm font-medium">Completed</p>
+      <TranslatedStatus status="completed" />
     </Badge>
   ),
   pending: (
@@ -15,7 +21,7 @@ const STATUS_BADGES: Record<Order["status"], JSX.Element> = {
       className="capitalize min-w-24 md:min-w-32 py-1.5 px-3 md:px-5 rounded-xl genz:text-purple-500 genz:border-purple-500 genz:bg-purple-50"
       variant={"pending"}
     >
-      <p className="text-sm font-medium">Pending</p>
+      <TranslatedStatus status="pending" />
     </Badge>
   ),
   canceled: (
@@ -23,7 +29,7 @@ const STATUS_BADGES: Record<Order["status"], JSX.Element> = {
       className="capitalize min-w-24 md:min-w-32 py-1.5 px-3 md:px-5 rounded-xl genz:text-purple-500 genz:border-purple-500 genz:bg-purple-50"
       variant={"canceled"}
     >
-      <p className="text-sm font-medium">Canceled</p>
+      <TranslatedStatus status="canceled" />
     </Badge>
   ),
 };
