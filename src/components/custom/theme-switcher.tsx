@@ -5,66 +5,116 @@ import { useTheme } from "next-themes";
 import { useState } from "react";
 
 export default function ThemeSwitcher() {
+  // States
+  const [showContent, setShowContent] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Hooks
   const { theme, setTheme } = useTheme();
   const controls = useAnimation();
-  const [showContent, setShowContent] = useState(false);
 
+  // Functions
   const handleSwitch = async () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     // expand animation
     await controls.start({
-      scale: 35,
+      scale: 50,
       transition: { duration: 1.5, ease: "easeInOut" },
     });
 
-    // show content
+    // switch theme
     setTheme(theme === "general" ? "genz" : "general");
     setShowContent(true);
 
-    // wait 7s for content animation
-    await new Promise((resolve) => setTimeout(resolve, 7000));
-
-    // shrink + move back
+    setTimeout(() => setShowContent(false), 5000);
+    // shrink + move to left
     await controls.start({
       scale: 1,
       x: theme === "general" ? -window.innerWidth - 50 : 0,
-      transition: { duration: 0.6, ease: "easeInOut" },
+      transition: { duration: 1.5, ease: "easeInOut", delay: 4 },
     });
-
-    setShowContent(false);
+    setIsAnimating(false);
   };
 
   return (
     <>
-      {/* button */}
       <motion.div
-        className="fixed top-1/2 right-0 translate-x-2/3 size-16 rounded-full z-50 cursor-pointer"
-        style={{
-          background: "linear-gradient(135deg, #A259FF, #00F0B5)",
-        }}
-        initial={{scale: 1}}
-        animate={{scale: 20}}
+        className="fixed top-1/2 right-0 translate-x-2/3 size-44 rounded-full bg-gradient-to-br from-fuchsia-600 to-blue-400 z-50 cursor-pointer overflow-hidden"
+        animate={controls}
         onClick={handleSwitch}
       />
 
-      {/* fullscreen content */}
       {showContent && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-50 overflow-hidden">
-          <h1 className="text-5xl font-bold mb-12">GEN Z MODE</h1>
-
-          {/* yellow bouncing ball */}
+        <motion.div
+          className="fixed inset-0 flex flex-col items-center justify-center text-white z-[999] pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Main title */}
           <motion.div
-            className="w-16 h-16 rounded-full bg-yellow-400"
-            initial={{ y: -300 }}
-            animate={{ y: 0 }}
+            className="text-4xl md:text-5xl font-semibold mb-16 text-center"
+            initial={{ opacity: 0, scale: 0.5, y: -30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 100,
+            }}
+          >
+            <h1 className="">{theme === "genz" ? "GEN Z" : "GENERAL"}</h1>
+
+            <p className="">MODE</p>
+          </motion.div>
+
+          {/* Bouncing yellow ball */}
+          <motion.div
+            className="w-7 h-7 rounded-full bg-custom-orange drop-shadow-2xl"
+            initial={{
+              y: -200,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              scale: 1,
+            }}
             transition={{
               type: "spring",
               stiffness: 200,
-              damping: 12,
-              mass: 0.6,
-              duration: 3,
+              damping: 8,
+              mass: 2,
+              delay: 0.8,
             }}
           />
-        </div>
+
+          {/* Enhanced sparkle effects */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className={`absolute w-${(i % 2) + 2} h-${(i % 2) + 2} rounded-full bg-white`}
+              style={{
+                top: `${20 + i * 15}%`,
+                left: `${15 + i * 12}%`,
+              }}
+              initial={{ opacity: 0, scale: 0, rotate: 0 }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0, 1.5, 0],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                delay: 1.2 + i * 0.2,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </motion.div>
       )}
     </>
   );
