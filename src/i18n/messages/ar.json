@@ -206,5 +206,7 @@
   "notifications": "الإشـعـــارات",
   "allow-notifications": "السمــاح بتفعــيل الإشعــارات",
   "allow-notifications-rings": "تفعـيــل جــرس الإشـعـــارات",
-  "order": "اطلب"
+  "order": "اطلب",
+  "extra-dishes": "اطباق اضافية",
+  "selected-extras": "الاطباق المختارة"
 }
