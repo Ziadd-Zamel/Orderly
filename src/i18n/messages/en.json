@@ -207,5 +207,7 @@
   "allow-notifications": "Allow Notifications",
   "allow-notifications-rings": "Allow the Notification Rings",
   "delete-account": "Delete Account",
-  "order": "Order"
+  "order": "Order",
+  "extra-dishes": "Extra Dishes",
+  "selected-extras": "Selected Extras"
 }
