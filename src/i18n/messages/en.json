@@ -18,6 +18,30 @@
       "nextTierValue": "Next tier: 3500"
     }
   },
+
+  "footer": {
+    "DownloadApp-title": "Let’s start your order or table reservation easily!",
+    "DownloadApp-description": "Download Orderly and join our growing community of happy users",
+    "home": "Home",
+    "restaurants": "Restaurants",
+    "coffeeShops": "Coffee Shops",
+    "favourite": "Favourite",
+
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookies Policy",
+
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "youtube": "YouTube",
+
+    "brandDescription": "We growing up your business to the international scale.",
+    "linksTitle": "Links",
+    "legalTitle": "Legal",
+    "contactTitle": "Contact Us",
+
+    "copyright": "© {year} Orderly Inc. All rights reserved."
+  },
   "auth": {
     "register": {
       "title": "Sign up",
@@ -206,11 +230,10 @@
   "notifications": "Notifications",
   "allow-notifications": "Allow Notifications",
   "allow-notifications-rings": "Allow the Notification Rings",
-  "delete-account": "Delete Account",
   "my-account": "My Account",
   "my-profile": "Profile",
   "settings": "Settings",
-  "log-out": "Log out"
+  "log-out": "Log out",
   "delete-account": "Delete Account",
   "order": "Order"
 }

@@ -1,11 +1,15 @@
 "use client";
 
 import AppButtons from "@/components/layout/footer/components/app-buttons";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import React from "react";
 
 export default function DownloadMobileApp() {
+  // translation
+  const t = useTranslations("footer");
+
   // Theme
   const { theme } = useTheme();
   const image = theme === "genz" ? "/assets/Images/genz-mobile.png" : "/assets/Images/mobile.png";
@@ -30,7 +34,7 @@ export default function DownloadMobileApp() {
             width={180}
             height={0}
             loading="lazy"
-            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite] hidden genz:block"
+            className="mb-4 absolute top-0 rtl:end-1/2 ltr:start-1/2  -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite] hidden genz:block"
           />
 
           <Image
@@ -39,17 +43,17 @@ export default function DownloadMobileApp() {
             width={230}
             height={0}
             loading="lazy"
-            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-1/4 z-10"
+            className="mb-4 absolute top-0 rtl:end-1/2 ltr:start-1/2 -translate-x-1/2 -translate-y-1/4 z-10"
           />
         </div>
 
         {/* Download App Content */}
         <div className="flex flex-col gap-6">
           <h2 className="max-w-3xl text-white genz:text-zinc-800 text-xl md:text-3xl lg:text-4xl italic">
-            Let’s start your order or table reservation easily!
+            {t("DownloadApp-title")}
           </h2>
           <p className="text-white genz:text-zinc-800 text-base md:text-lg font-light">
-            Download Orderly and join our growing community of happy users
+            {t("DownloadApp-description")}
           </p>
           <AppButtons />
         </div>

@@ -34,8 +34,8 @@ export default function PlacesCarousel({ places, title }: { places: Place[]; tit
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className="start-0 -translate-x-1/2 size-10 md:size-12 xl:size-16" />
-          <CarouselNext className="end-0 translate-x-1/2 size-10 md:size-12 xl:size-16" />
+          <CarouselPrevious className=" rtl:end-0 ltr:start-0 -translate-x-1/2 size-10 md:size-12 xl:size-16" />
+          <CarouselNext className="rtl:-start-0 ltr:end-0  translate-x-1/2 size-10 md:size-12 xl:size-16" />
         </div>
       </Carousel>
     </div>

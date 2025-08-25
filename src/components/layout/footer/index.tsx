@@ -1,28 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
-  // Get the current year for copyright
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   const navigationLinks = [
-    { href: "/", label: "Home" },
-    { href: "/restaurants", label: "Restaurants" },
-    { href: "/coffee-shops", label: "Coffee Shops" },
-    { href: "/favourite", label: "Favourite" },
+    { href: "/", label: t("home") },
+    { href: "/restaurants", label: t("restaurants") },
+    { href: "/coffee-shops", label: t("coffeeShops") },
+    { href: "/favourite", label: t("favourite") },
   ];
 
   const legalLinks = [
-    { href: "/terms", label: "Terms of Service" },
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/cookies", label: "Cookies Policy" },
+    { href: "/terms", label: t("terms") },
+    { href: "/privacy", label: t("privacy") },
+    { href: "/cookies", label: t("cookies") },
   ];
 
   const socialLinks = [
-    { href: "https://instagram.com", icon: "/assets/icons/Instagram.svg", label: "Instagram" },
-    { href: "https://facebook.com", icon: "/assets/icons/Facebook.svg", label: "Facebook" },
-    { href: "https://youtube.com", icon: "/assets/icons/Youtube.svg", label: "YouTube" },
+    { href: "https://instagram.com", icon: "/assets/icons/Instagram.svg", label: t("instagram") },
+    { href: "https://facebook.com", icon: "/assets/icons/Facebook.svg", label: t("facebook") },
+    { href: "https://youtube.com", icon: "/assets/icons/Youtube.svg", label: t("youtube") },
   ];
 
   return (
@@ -40,33 +43,31 @@ export default function Footer() {
                 className="mb-4"
               />
               <p className="text-teal-100 genz:text-zinc-800 leading-relaxed">
-                We growing up your business to the international scale.
+                {t("brandDescription")}
               </p>
             </div>
 
             {/* Social Media Icons */}
             <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                return (
-                  <Link
-                    key={social.label}
-                    href={social.href}
-                    className="w-10 h-10 hover:bg-teal-400 genz:bg-gradient rounded-lg flex items-center justify-center transition-colors duration-200"
-                    aria-label={social.label}
-                  >
-                    <Image src={social.icon} alt={social.label} width={40} height={0} />
-                  </Link>
-                );
-              })}
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  className="w-10 h-10 hover:bg-teal-400 genz:bg-gradient rounded-lg flex items-center justify-center transition-colors duration-200"
+                  aria-label={social.label}
+                >
+                  <Image src={social.icon} alt={social.label} width={40} height={0} />
+                </Link>
+              ))}
             </div>
           </div>
 
-          {/* Three Sections Grouped Together - Right Side */}
+          {/* Right Side Sections */}
           <div className="flex flex-col sm:flex-row justify-between gap-12 lg:gap-16 xl:gap-24 lg:mt-0">
             {/* Links Section */}
             <div>
               <h3 className="text-lg font-semibold text-white genz:text-zinc-800 mb-4 uppercase tracking-wider">
-                Links
+                {t("linksTitle")}
               </h3>
               <ul className="space-y-3">
                 {navigationLinks.map((link) => (
@@ -85,7 +86,7 @@ export default function Footer() {
             {/* Legal Section */}
             <div>
               <h3 className="text-lg font-semibold text-white genz:text-zinc-800 mb-4 uppercase tracking-wider">
-                Legal
+                {t("legalTitle")}
               </h3>
               <ul className="space-y-3">
                 {legalLinks.map((link) => (
@@ -104,7 +105,7 @@ export default function Footer() {
             {/* Contact Section */}
             <div>
               <h3 className="text-lg font-semibold text-white genz:text-zinc-800 mb-4 uppercase tracking-wider">
-                Contact Us
+                {t("contactTitle")}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -129,11 +130,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright Section */}
+        {/* Copyright */}
         <div className="border-t border-main genz:border-zinc-100">
           <div className="flex-center w-full py-5 ">
             <p className="text-center text-white genz:text-zinc-800">
-              © {currentYear} Orderly Inc. All rights reserved.
+              {t("copyright", { year: currentYear })}
             </p>
           </div>
         </div>

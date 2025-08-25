@@ -18,6 +18,29 @@
       "nextTierValue": "الدرجة التالية: 3500"
     }
   },
+  "footer": {
+    "DownloadApp-title": "لنبدأ طلبك أو حجز طاولتك بسهولة!",
+    "DownloadApp-description": "حمّل تطبيق Orderly وانضم إلى مجتمعنا المتنامي من المستخدمين السعداء",
+    "home": "الرئيسية",
+    "restaurants": "المطاعم",
+    "coffeeShops": "المقاهي",
+    "favourite": "المفضلة",
+
+    "terms": "شروط الخدمة",
+    "privacy": "سياسة الخصوصية",
+    "cookies": "سياسة الكوكيز",
+
+    "instagram": "إنستغرام",
+    "facebook": "فيسبوك",
+    "youtube": "يوتيوب",
+
+    "brandDescription": "نحن نطور عملك ليصل إلى المستوى الدولي.",
+    "linksTitle": "روابط",
+    "legalTitle": "القانونية",
+    "contactTitle": "تواصل معنا",
+
+    "copyright": "© {year} أوردرلي. جميع الحقوق محفوظة."
+  },
   "welcome_back": "مرحباً بعودتك!",
   "no_account": "ليس لديك حساب بعد؟",
   "create_account": "أنشئ واحداً الآن!",
@@ -206,8 +229,7 @@
   "notifications": "الإشـعـــارات",
   "allow-notifications": "السمــاح بتفعــيل الإشعــارات",
   "allow-notifications-rings": "تفعـيــل جــرس الإشـعـــارات",
-  "order": "اطلب"
-  "allow-notifications-rings": "تفعـيــل جــرس الإشـعـــارات",
+  "order": "اطلب",
   "my-account": "حـســابـــي",
   "my-profile": "المــلف الشخــصـي",
   "settings": "الإعـــدادات",
