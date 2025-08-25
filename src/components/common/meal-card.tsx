@@ -24,7 +24,7 @@ export default function MealCard() {
 
           <div className="flex flex-col justify-center mb-6">
             {/* Product Name */}
-            <h2 className="group-hover:text-white transition-all duration-300  text-base text-zinc-700 text-center font-medium font-poppins truncate">
+            <h2 className="group-hover:text-white transition-all duration-300  text-base text-zinc-700 text-center font-medium truncate">
               {t("meal-name") + " " + "Test Demmmmmo"}
             </h2>
 

@@ -51,7 +51,7 @@ const PaginationLink = ({
         variant: isActive ? "outline" : "default",
         size,
       }),
-      "size-8 font-poppins text-sm font-normal flex items-center justify-center rounded-full",
+      "size-8 text-sm font-normal flex items-center justify-center rounded-full",
       isActive ? "bg-main-yellow text-white" : "text-gray-700",
       disabled ? "bg-gray-200 opacity-50 cursor-not-allowed" : "hover:bg-gray-100",
       className,

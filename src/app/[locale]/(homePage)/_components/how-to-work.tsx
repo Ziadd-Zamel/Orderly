@@ -10,7 +10,7 @@ export default function HowToWork() {
   return (
     <section className="my-20 overflow-hidden">
       <div className="box-container">
-        <h2 className="text-xl text-custom-orange genz:text-purple-500 font-poppins font-medium text-center mb-4">
+        <h2 className="text-xl text-custom-orange genz:text-purple-500 font-medium text-center mb-4">
           {t("how-to-work")}
         </h2>
 

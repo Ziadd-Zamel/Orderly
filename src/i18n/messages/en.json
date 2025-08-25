@@ -207,6 +207,10 @@
   "allow-notifications": "Allow Notifications",
   "allow-notifications-rings": "Allow the Notification Rings",
   "delete-account": "Delete Account",
+  "my-account": "My Account",
+  "my-profile": "Profile",
+  "settings": "Settings",
+  "log-out": "Log out",
   "order": "Order",
   "extra-dishes": "Extra Dishes",
   "selected-extras": "Selected Extras"

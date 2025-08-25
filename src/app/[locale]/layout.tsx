@@ -5,12 +5,25 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/providers";
 import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // حدد الأوزان اللي هتستخدمها
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-poppins", // اختياري لو هتستخدمه كـ CSS variable
+  variable: "--font-poppins",
+});
+
+const chillax = localFont({
+  src: [
+    { path: "../../../public/fonts/Chillax-Light.woff2", weight: "300", style: "normal" },
+    { path: "../../../public/fonts/Chillax-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../../public/fonts/Chillax-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../../public/fonts/Chillax-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "../../../public/fonts/Chillax-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-chillax",
+  display: "swap",
 });
 
 //Metadata
@@ -33,8 +46,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={`${poppins.className}`}>
-        {/* Providers */}
+      <body className={`${poppins.variable} ${chillax.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -90,7 +90,7 @@ export default function HeroSection() {
                 },
               }}
               className="max-w-[90%] text-[37px] md:text-5xl lg:text-5xl xl:text-[68px] 
-             text-main genz:text-gradient font-poppins font-bold lg:leading-20 lg:mb-10"
+             text-main genz:text-gradient font-bold lg:leading-20 lg:mb-10"
             >
               {words.map((word, i) => (
                 <motion.span key={i} variants={wordVariants} className="inline-block mr-2">
@@ -106,7 +106,7 @@ export default function HeroSection() {
               animate="visible"
               className="relative before:w-1.5 before:h-full before:absolute before:start-0 before:top-0 before:rounded-t-full before:rounded-b-full ps-4 before:bg-main genz:before:bg-purple-500"
             >
-              <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800 font-poppins">
+              <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800">
                 {t("heroSection.description")}
               </p>
             </motion.div>

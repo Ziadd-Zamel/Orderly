@@ -64,7 +64,7 @@ const DateSelector: React.FC<DateSelectorProps> = ({ selectedDate, setSelectedDa
             }`}
           >
             <span
-              className={cn("text-xl font-medium font-poppins mb-1", {
+              className={cn("text-xl font-medium mb-1", {
                 "text-zinc-300": !selectedDate || selectedDate !== day.id,
                 "text-zinc-400": selectedDate === day.id,
               })}
@@ -72,7 +72,7 @@ const DateSelector: React.FC<DateSelectorProps> = ({ selectedDate, setSelectedDa
               {day.dayName}
             </span>
             <span
-              className={cn("text-xl font-medium font-poppins", {
+              className={cn("text-xl font-medium", {
                 "text-zinc-50": !selectedDate || selectedDate !== day.id,
                 "text-zinc-800": selectedDate === day.id,
               })}

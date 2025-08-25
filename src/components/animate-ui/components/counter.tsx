@@ -37,8 +37,7 @@ function Counter({
       layout
       transition={transition}
       className={cn(
-        "flex items-center gap-x-2",
-        audience !== "gen-z" ? "p-1 rounded-xl bg-main" : "rounded-full bg-gray-100 !p-1",
+        "flex items-center gap-x-2 p-1 rounded-xl bg-main genz:rounded-full genz:bg-gray-100 genz:!p-1",
         className,
       )}
       {...props}
@@ -51,10 +50,7 @@ function Counter({
             {...buttonProps}
             onClick={() => setNumber(number - 1)}
             className={cn(
-              "text-white text-2xl disabled:bg-transparent bg-transparent",
-              audience === "gen-z"
-                ? "bg-linear-to-br from-[#A259FF] to-[#00F0B5] size-8 !circle !text-white text-2xl mt-[1px]"
-                : "bg-transparent !hover:bg-transparent",
+              "text-white text-2xl disabled:bg-transparent bg-transparent !hover:bg-transparent genz:bg-gradient genz:size-8 genz:circle genz:!text-white genz:text-2xl genz:mt-[1px]",
               buttonProps?.className,
             )}
           >
@@ -69,11 +65,7 @@ function Counter({
       <SlidingNumber
         number={number}
         {...slidingNumberProps}
-        className={cn(
-          "text-lg pr-1",
-          { "text-white": audience !== "gen-z", "text-zinc-800": audience === "gen-z" },
-          slidingNumberProps?.className,
-        )}
+        className={cn("text-lg pr-1 text-white genz:text-zinc-800", slidingNumberProps?.className)}
       />
 
       {/* Increase Button */}
@@ -83,10 +75,7 @@ function Counter({
           {...buttonProps}
           onClick={() => setNumber(number + 1)}
           className={cn(
-            "text-white text-2xl disabled:bg-transparent bg-transparent",
-            audience === "gen-z"
-              ? "bg-linear-to-br from-[#A259FF] to-[#00F0B5] size-8 !circle !text-white text-2xl mt-[1px]"
-              : "bg-transparent !hover:bg-transparent",
+            "text-white text-2xl disabled:bg-transparent bg-transparent !hover:bg-transparent genz:bg-gradient genz:size-8 genz:circle genz:!text-white genz:text-2xl genz:mt-[1px]",
             buttonProps?.className,
           )}
         >

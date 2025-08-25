@@ -12,7 +12,7 @@ export default function DownloadMobileApp() {
 
   return (
     <div className="bg-main genz:footer-bg relative md:mt-28">
-      <div className=" box-container flex gap-8 py-6 md:py-10 lg:py-16 border-b">
+      <div className=" box-container flex gap-8 py-6 md:py-10 lg:py-16 border-b genz:border-b-white">
         {/* Mobile Logo Section */}
         <div className="relative md:w-1/3 hidden md:flex-center">
           <Image
@@ -45,10 +45,10 @@ export default function DownloadMobileApp() {
 
         {/* Download App Content */}
         <div className="flex flex-col gap-6">
-          <h2 className="text-white genz:text-zinc-800 text-xl md:text-3xl lg:text-4xl font-poppins italic">
+          <h2 className="max-w-3xl text-white genz:text-zinc-800 text-xl md:text-3xl lg:text-4xl italic">
             Let’s start your order or table reservation easily!
           </h2>
-          <p className="text-white genz:text-zinc-800 text-base md:text-lg font-poppins font-light">
+          <p className="text-white genz:text-zinc-800 text-base md:text-lg font-light">
             Download Orderly and join our growing community of happy users
           </p>
           <AppButtons />

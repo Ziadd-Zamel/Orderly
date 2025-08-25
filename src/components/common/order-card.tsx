@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Counter } from "../animate-ui/components/counter";
 import { RiStarFill } from "react-icons/ri";
+import { useTheme } from "next-themes";
 
 export default function OrderCard({ className }: { className?: string }) {
   // Translation
@@ -16,13 +17,18 @@ export default function OrderCard({ className }: { className?: string }) {
   const pathname = usePathname();
   const isOrderPage = pathname.includes("/order/");
 
+  // Hooks
+  const { resolvedTheme } = useTheme();
+
   // States
   const [number, setNumber] = useState(1);
+
+  if (!resolvedTheme) return;
 
   return (
     <div
       className={cn(
-        "relative bg-white  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
+        "relative bg-white border  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
         className,
       )}
     >
@@ -43,11 +49,16 @@ export default function OrderCard({ className }: { className?: string }) {
         <p className=" text-base sm:text-2xl font-medium text-zinc-700">Classic Greek Salad</p>
         <div className="flex items-center gap-6">
           {isOrderPage ? (
-            <span className="flex-center size-6 md:size-8 rounded-md bg-main text-white text-sm md:text-[15px] font-medium">
+            <span className="flex-center size-6 md:size-8 rounded-md bg-main genz:bg-purple-500 text-white text-sm md:text-[15px] font-medium">
               01
             </span>
           ) : (
-            <Counter number={number} setNumber={setNumber} className="h-10" />
+            <Counter
+              number={number}
+              setNumber={setNumber}
+              audience={resolvedTheme}
+              className="h-10"
+            />
           )}
           <p className=" text-base sm:text-xl text-main font-semibold genz:text-gradient">
             {format.number(215)} {t("currency")}

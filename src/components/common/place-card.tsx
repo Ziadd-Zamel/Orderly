@@ -36,7 +36,7 @@ export default function PlaceCard({ place }: { place: Place }) {
                   className="object-cover"
                 />
               </div>
-              <h2 className="text-base text-zinc-700 text-center font-medium font-poppins truncate">
+              <h2 className="text-base text-zinc-700 text-center font-medium truncate">
                 {place.name}
               </h2>
             </div>

@@ -44,6 +44,8 @@ export default function TrackingStatus() {
         <div className="flex gap-4 md:gap-8 items-center">
           <div className="w-1/3 h-2.5 rounded-full bg-main genz:bg-gradient"></div>
           <div className="w-1/3 h-2.5 rounded-full  bg-main genz:bg-gradient"></div>
+          <div className="w-1/3 h-2.5 rounded-full bg-main genz:bg-gradient"></div>
+          <div className="w-1/3 h-2.5 rounded-full  bg-main genz:bg-gradient"></div>
           <div className="w-1/3 h-2.5 rounded-full bg-gray-200"></div>
         </div>
 
@@ -51,7 +53,7 @@ export default function TrackingStatus() {
         <div className="flex gap-4 md:gap-8 items-center">
           {/* In progress date - time */}
           <div className="w-1/3 flex-center gap-2">
-            <span className="flex-center size-5 border circle bg-main genz:bg-gradient">
+            <span className="flex-center size-5  circle bg-main genz:bg-gradient">
               <FaCheck size={16} className="size-3 text-white" />
             </span>
             <span className="text-sm md:text-base font-normal text-zinc-500">
@@ -61,8 +63,8 @@ export default function TrackingStatus() {
 
           {/* Order preparation date - time */}
           <div className="w-1/3 flex-center gap-2">
-            <span className="flex-center size-5 border circle bg-main genz:bg-gradient">
-              <FaCheck size={16} className="size-3 text-white " />
+            <span className="flex-center size-5 circle bg-main genz:bg-gradient">
+              <FaCheck size={16} className="size-3 text-white" />
             </span>
             <span className="text-sm md:text-base font-normal text-zinc-500">
               Apr 5, 2022, 10:07 AM
@@ -71,10 +73,10 @@ export default function TrackingStatus() {
 
           {/* Order delivery date - time */}
           <div className="w-1/3 flex-center gap-2">
-            <span className="flex-center size-5 border border-zinc-400 circle bg-gray-200">
+            <span className="flex-center size-5 border border-zinc-300 circle bg-gray-100">
               {/* <FaCheck size={16} className="size-3 text-white" /> */}
             </span>
-            <span className="text-sm md:text-base font-normal text-zinc-500">
+            <span className="text-sm md:text-base font-normal text-zinc-300">
               Apr 5, 2022, 10:07 AM
             </span>
           </div>
