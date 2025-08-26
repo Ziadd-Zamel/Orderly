@@ -75,8 +75,8 @@ export default function HeroSection() {
   const words = headingText.split(" ");
 
   return (
-    <section className="genz:hero-bg mb-20">
-      <div className="box-container pt-28 lg:py-36 pb-16">
+    <section className="genz:hero-bg mb-20 overflow-hidden">
+      <div className="box-container pt-28 lg:py-36 pb-16 overflow-hidden">
         <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
           <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
             {/* Heading */}
@@ -161,7 +161,7 @@ export default function HeroSection() {
         </div>
       </div>
       {/* Vectors */}
-      <BackgroundVectors />
+      {/* <BackgroundVectors /> */}
     </section>
   );
 }

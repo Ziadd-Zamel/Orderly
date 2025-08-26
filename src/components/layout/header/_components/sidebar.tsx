@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+
 import { Menu, User, Settings, LogOut, Home, Coffee, Heart, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/
 import { Separator } from "@/components/ui/separator";
 import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +75,7 @@ export default function Sidebar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => handleOpenChange(false)}
-                    className={`flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200  ${
                       link.active
                         ? "bg-teal-50 text-teal-700 border-l-4 border-main"
                         : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"

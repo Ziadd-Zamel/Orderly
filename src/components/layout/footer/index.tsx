@@ -29,9 +29,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-main genz:footer-bg">
+    <footer className="bg-main genz:footer-bg overflow-x-hidden">
       <div className="box-container">
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-12 py-6 md:py-10 lg:py-16 border-b genz:border-b-white">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-12 py-6 md:py-10 lg:py-16 border-b border-b-white genz:border-b-white">
           {/* Brand Section - Left Side */}
           <div className="lg:max-w-sm">
             <div className="mb-4">

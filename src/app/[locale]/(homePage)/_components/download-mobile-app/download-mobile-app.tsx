@@ -1,15 +1,11 @@
 "use client";
-
 import AppButtons from "@/components/layout/footer/components/app-buttons";
-import { useTranslations } from "next-intl";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import React from "react";
 
 export default function DownloadMobileApp() {
-  const t = useTranslations();
-
   // translation
   const t = useTranslations("footer");
 
@@ -28,7 +24,7 @@ export default function DownloadMobileApp() {
             width={200}
             height={0}
             loading="lazy"
-            className="mb-4 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite] genz:hidden"
+            className="mb-4 absolute top-0  rtl:end-1/2 ltr:start-1/2  -translate-x-1/2 -translate-y-[35%] z-20 animate-[rotateAnimation_5s_ease-in-out_3s_infinite] genz:hidden"
           />
 
           <Image
@@ -53,11 +49,9 @@ export default function DownloadMobileApp() {
         {/* Download App Content */}
         <div className="flex flex-col gap-6">
           <h2 className="max-w-3xl text-white genz:text-zinc-800 text-xl md:text-3xl lg:text-4xl italic">
-            {t("lets-start-your-order")}
             {t("DownloadApp-title")}
           </h2>
           <p className="text-white genz:text-zinc-800 text-base md:text-lg font-light">
-            {t("download-orderly")}
             {t("DownloadApp-description")}
           </p>
           <AppButtons />

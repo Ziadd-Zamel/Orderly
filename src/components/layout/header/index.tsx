@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -8,7 +7,7 @@ import Sidebar from "./_components/sidebar";
 import { useTranslations } from "next-intl";
 import { HiMiniShoppingBag } from "react-icons/hi2";
 import { TbScan } from "react-icons/tb";
-import { useRouter } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { UserDropdown } from "@/components/custom/user-dropdown";
 import { useEffect, useRef } from "react";
 
@@ -57,7 +56,7 @@ export default function Navbar() {
         ref={headerRef}
         className="fixed top-0 left-0 right-0 py-6 z-50 genz:shadow-none transition-colors duration-300"
       >
-        <nav className="box-container flex items-center justify-between">
+        <nav className="box-container !backdrop-blur-none !shadow-none flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image src={"/assets/Images/logo.svg"} alt="logo" width={120} height={0} priority />
@@ -69,7 +68,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors ${
+                className={`font-medium transition-colors  ${
                   link.active ? "text-main genz:text-gradient" : "text-gray-600 hover:text-gray-900"
                 }`}
               >
