@@ -16,7 +16,15 @@ const BackgroundVectors = dynamic(() => import("./hero-vectors"), {
 
 const wordVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      type: "tween", // << ضيف دي
+    },
+  },
 };
 
 // Animation variants for the description
@@ -75,10 +83,10 @@ export default function HeroSection() {
   const words = headingText.split(" ");
 
   return (
-    <section className="genz:hero-bg mb-20 overflow-hidden">
-      <div className="box-container pt-28 lg:py-36 pb-16 overflow-hidden">
+    <section className="relative w-full genz:hero-bg mb-20 !overflow-x-hidden">
+      <div className="box-container pt-28 lg:py-36 pb-16">
         <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
-          <div className="w-full lg:w-3/5 flex flex-col items-start gap-10 ">
+          <div className="w-full lg:w-3/5 flex flex-col items-start justify-between gap-10 ">
             {/* Heading */}
             <motion.h1
               initial="hidden"
@@ -93,7 +101,7 @@ export default function HeroSection() {
              text-main genz:text-gradient font-bold lg:leading-20 lg:mb-10"
             >
               {words.map((word, i) => (
-                <motion.span key={i} variants={wordVariants} className="inline-block mr-2">
+                <motion.span key={i} variants={wordVariants} className="inline-block ms-3">
                   {word}
                 </motion.span>
               ))}
@@ -116,7 +124,7 @@ export default function HeroSection() {
               variants={searchInputVariants}
               initial="initial"
               animate="visible"
-              className="w-full lg:w-4/5 relative p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
+              className="w-full lg:w-4/5 relative z-40 p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
               aria-label={t("search-input")}
             >
               <Input
@@ -161,22 +169,7 @@ export default function HeroSection() {
         </div>
       </div>
       {/* Vectors */}
-      {/* <BackgroundVectors /> */}
+      <BackgroundVectors />
     </section>
   );
 }
-
-// {
-//   headingText.split("").map((char, i) => (
-//     <motion.span
-//       key={`${char}-${i}`} // Unique key
-//       variants={letterVariants}
-//       initial="hidden"
-//       animate="visible"
-//       custom={i} // Pass index as custom prop
-//       style={{ display: "inline-block" }}
-//     >
-//       {char === " " ? "\u00A0" : char}
-//     </motion.span>
-//   ));
-// }

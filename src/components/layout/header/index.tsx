@@ -19,7 +19,7 @@ export default function Navbar() {
   const router = useRouter();
 
   // Refs
-  const headerRef = useRef<HTMLHeadElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   // Variables
   const navigationLinks = [
@@ -40,9 +40,9 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!headerRef.current) return;
       if (window.scrollY > 50) {
-        headerRef.current.classList.add("scrolled");
+        headerRef.current.classList.add("bg-white", "shadow-md");
       } else {
-        headerRef.current.classList.remove("scrolled");
+        headerRef.current.classList.remove("bg-white", "shadow-md");
       }
     };
 
@@ -54,53 +54,57 @@ export default function Navbar() {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 py-6 z-50 genz:shadow-none transition-colors duration-300"
+        className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
       >
-        <nav className="box-container !backdrop-blur-none !shadow-none flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src={"/assets/Images/logo.svg"} alt="logo" width={120} height={0} priority />
-          </Link>
+        <div className="h-full genz:shadow-none py-6">
+          <nav className="box-container flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2">
+              <Image src={"/assets/Images/logo.svg"} alt="logo" width={120} height={0} priority />
+            </Link>
 
-          {/* Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navigationLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`font-medium transition-colors  ${
-                  link.active ? "text-main genz:text-gradient" : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+            {/* Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navigationLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-medium transition-colors  ${
+                    link.active
+                      ? "text-main genz:text-gradient"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-          {/* Navbar Icons */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {navbarIcons.map((icon, index) => (
-              <Button
-                onClick={() => {
-                  if (icon.href) router.push(icon.href);
-                }}
-                key={index}
-                variant="ghost"
-                size="icon"
-                className="text-zinc-800"
-              >
-                {icon.icon}
-                <span className="sr-only">{icon.label}</span>
-              </Button>
-            ))}
+            {/* Navbar Icons */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {navbarIcons.map((icon, index) => (
+                <Button
+                  onClick={() => {
+                    if (icon.href) router.push(icon.href);
+                  }}
+                  key={index}
+                  variant="ghost"
+                  size="icon"
+                  className="text-zinc-800"
+                >
+                  {icon.icon}
+                  <span className="sr-only">{icon.label}</span>
+                </Button>
+              ))}
 
-            {/* User Avatar */}
-            <UserDropdown />
+              {/* User Avatar */}
+              <UserDropdown />
 
-            {/* Sidebar for small screens */}
-            <Sidebar />
-          </div>
-        </nav>
+              {/* Sidebar for small screens */}
+              <Sidebar />
+            </div>
+          </nav>
+        </div>
       </header>
     </>
   );

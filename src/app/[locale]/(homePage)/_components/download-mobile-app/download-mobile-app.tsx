@@ -15,7 +15,7 @@ export default function DownloadMobileApp() {
 
   return (
     <div className="bg-main genz:footer-bg relative md:mt-28">
-      <div className=" box-container flex gap-8 py-6 md:py-10 lg:py-16 border-b genz:border-b-white">
+      <div className=" box-container flex gap-8 py-6 md:py-10 lg:py-16 border-b border-b-white">
         {/* Mobile Logo Section */}
         <div className="relative md:w-1/3 hidden md:flex-center">
           <Image
