@@ -20,12 +20,12 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
   return (
     <>
       {disableAnimation ? (
-        <div className="size-16 flex-center bg-main genz:!bg-gradient circle">
+        <div className="size-16 flex-center bg-main genz:bg-gradient bg-gradient circle">
           <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
         </div>
       ) : (
         <motion.div
-          className="bg-main genz:bg-gradient circle flex items-center flex-shrink-0 overflow-hidden border-4 border-main"
+          className="bg-main genz:bg-gradient circle flex items-center flex-shrink-0 overflow-hidden border-4 border-main genz:border-gradient"
           initial={{ width: 64, height: 64 }}
           animate={{
             width: [64, 200, 64],
@@ -38,7 +38,7 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
             ease: "easeInOut",
           }}
         >
-          <div className="size-16 flex-center bg-main circle flex-shrink-0">
+          <div className="size-16 flex-center bg-main genz:bg-gradient circle flex-shrink-0">
             <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
           </div>
           <motion.span
@@ -66,7 +66,7 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Trigger */}
       <DialogTrigger asChild>
-        <Button className="bg-transparent hover:bg-transparent genz:bg-transparent cursor-pointer border-none outline-none">
+        <Button className="bg-transparent hover:bg-transparent genz:bg-transparent cursor-pointer border-none outline-none ">
           <GroupTrigger disableAnimation={disableAnimation} />
         </Button>
       </DialogTrigger>

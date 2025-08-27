@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,9 +12,10 @@ import { useRouter } from "@/i18n/navigation";
 
 import CheckoutButton from "./checkout-button";
 import OrderButtons from "./order-buttons";
+import { useTranslations } from "next-intl";
 
 interface Item {
-  label: string;
+  label: string | any;
   price: number;
 }
 
@@ -37,11 +39,14 @@ export default function OrderSummary({
   sendOrder,
 }: OrderSummaryProps) {
   const router = useRouter();
+  const t = useTranslations();
 
   return (
     <Card className="rounded-xl border-none shadow-none bg-gray-50">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold genz:text-gradient">Order Summary</CardTitle>
+        <CardTitle className="text-xl font-semibold genz:text-gradient">
+          {t("order-summary")}
+        </CardTitle>
       </CardHeader>
 
       <CardContent className="grid gap-4">
@@ -49,7 +54,7 @@ export default function OrderSummary({
         {splitBills && (
           <div className="flex items-center justify-between">
             <Label htmlFor="split-bills" className="text-sm font-normal">
-              Do you want to split the bills?
+              {t("split-bill")}
             </Label>
             <Switch id="split-bills" className="h-4" />
           </div>
@@ -104,9 +109,11 @@ export default function OrderSummary({
             ))}
 
           {/* Total */}
-          {onlyTotal && <p className="text-sm font-semibold mb-2">Your Bill</p>}
+          {onlyTotal && <p className="text-sm font-semibold mb-2">{t("your-bill")}</p>}
           <div className="flex justify-between pt-2 border-t border-dashed border-[#FF9C00AB] genz:border-none font-semibold text-lg">
-            <span className="text-main md:text-sm lg:text-base genz:text-gradient">Total</span>
+            <span className="text-main md:text-sm lg:text-base genz:text-gradient">
+              {t("total")}
+            </span>
             <span className="text-main md:text-sm lg:text-base genz:text-gradient">
               {total} EGP
             </span>
@@ -123,8 +130,8 @@ export default function OrderSummary({
             onClick={() => router.push("/cart/checkout")}
           >
             <span className="flex items-center">
-              <CiCreditCard1 className="h-5 w-5 mr-2 text-white" />
-              Checkout
+              <CiCreditCard1 className="h-5 w-5 mr-2 rtl:ml-4 text-white" />
+              {t("checkout")}
             </span>
             {total} EGP
           </Button>

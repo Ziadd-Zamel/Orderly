@@ -16,6 +16,7 @@ import {
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Home, Briefcase, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 const formSchema = z.object({
   governorate: z.string().min(1, "Please select a governorate"),
   city: z.string().min(1, "Please select a city"),
@@ -42,6 +43,7 @@ const cities = {
   Alexandria: ["Smouha", "Gleem", "Stanley", "Montaza"],
 };
 export default function AddressForm() {
+  const t = useTranslations();
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -81,7 +83,7 @@ export default function AddressForm() {
                     value={field.value}
                   >
                     <SelectTrigger className="h-12 w-full py-6">
-                      <SelectValue placeholder="Governorate" />
+                      <SelectValue placeholder={t("governrate")} />
                     </SelectTrigger>
                     <SelectContent>
                       {governorates.map((gov) => (
@@ -109,7 +111,7 @@ export default function AddressForm() {
                     disabled={!selectedGovernorate}
                   >
                     <SelectTrigger className="h-12 w-full py-6">
-                      <SelectValue placeholder="City" />
+                      <SelectValue placeholder={t("city")} />
                     </SelectTrigger>
                     <SelectContent>
                       {selectedGovernorate &&
@@ -128,7 +130,7 @@ export default function AddressForm() {
         </div>
 
         <div>
-          <Label className="font-medium text-zinc-900 mb-3 text-lg">Select Address type</Label>
+          <Label className="font-medium text-zinc-900 mb-3 text-lg">{t("address-type")}</Label>
           <FormField
             control={form.control}
             name="addressType"
@@ -168,7 +170,7 @@ export default function AddressForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input variant={"outline"} {...field} placeholder="Address" />
+                <Input variant={"outline"} {...field} placeholder={t("address")} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -179,7 +181,7 @@ export default function AddressForm() {
           type="submit"
           className="h-12 bg-main hover:bg-main/70 font-medium w-fit px-10 self-end"
         >
-          Confirm Location
+          {t("confirm-location")}
         </Button>
       </form>
     </Form>

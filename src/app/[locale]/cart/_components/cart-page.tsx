@@ -4,8 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import OrderCard from "@/components/common/order-card";
 import OrderSummary from "./order-summary";
 import MyCart from "./my-cart";
+import { useTranslations } from "next-intl";
 
 export default function CartPage() {
+  const t = useTranslations();
   return (
     <main className="relative z-20 box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
       {/* Left Column: Restaurant Info and Orders */}
@@ -19,7 +21,7 @@ export default function CartPage() {
             <div>
               <h2 className="text-lg font-medium">Vinny&apos;s</h2>
               <p className="text-sm text-gray-500">
-                Order Type:{" "}
+                {t("order-type")}{" "}
                 <span className="text-main genz:text-purple-500 font-medium">Delivery</span>
               </p>
             </div>
@@ -32,7 +34,7 @@ export default function CartPage() {
           >
             <CalendarDays className="h-4 w-4 text-black genz:text-purple-400" aria-hidden />
             Wed 123
-            <ChevronRight className="h-4 w-4" aria-hidden />
+            <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
           </Button>
         </header>
 
@@ -55,10 +57,10 @@ export default function CartPage() {
         <OrderSummary
           splitBills
           items={[
-            { label: "Your Order", price: 100 },
-            { label: "Group Order", price: 50 },
-            { label: "Service Fee", price: 20 },
-            { label: "Taxes", price: 10 },
+            { label: t("Your-Order"), price: 100 },
+            { label: t("group-order"), price: 50 },
+            { label: t("service -fee"), price: 20 },
+            { label: t("taxes"), price: 10 },
           ]}
           total={180}
         />

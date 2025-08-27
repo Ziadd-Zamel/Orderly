@@ -26,8 +26,8 @@ export default function HeadLine({ children, title }: { children?: ReactNode; ti
         className="w-full h-full object-cover"
       />
       <div className="box-container flex flex-col md:flex-row gap-6 items-center justify-between w-full  relative z-10">
-        <h3 className="text-2xl md:text-3xl font-semibold text-zinc-800">{title}</h3>
         {children && children}
+        <h3 className="text-2xl md:text-3xl font-semibold text-zinc-800">{title}</h3>
       </div>
     </div>
   );

@@ -19,7 +19,8 @@ export default function DetailsPage() {
             <ChevronRight size={25} className="flex-shrink-0" />
           </Link>
           <div className="flex items-center gap-1 justify-center mt-3">
-            <Star fill="#FF9C00" className="size-6 text-custom-orange " />
+            <Star fill="#FF9C00" className="size-6 text-custom-orange genz:hidden " />
+            <Star fill="#ad46ff" className="size-6 text-purple-500 hidden genz:block" />
             <span className="font-medium">4.8</span>
             <span className="text-gray-400">(324 reviews)</span>
           </div>

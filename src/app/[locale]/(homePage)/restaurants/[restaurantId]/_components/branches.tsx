@@ -6,12 +6,15 @@ import {
 } from "@/components/ui/accordion";
 import { Link } from "@/i18n/routing";
 import { branches } from "@/lib/constants/data.constant";
+import { useTranslations } from "next-intl";
 import { FaLocationDot } from "react-icons/fa6";
 
 export default function Branches() {
+  const t = useTranslations();
+
   return (
     <div className="w-full box-container mt-20 pb-20">
-      <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-gray-900">All Branches</h2>
+      <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-gray-900">{t("all-branches")}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 lg:gap-40">
         <div className="space-y-5">
           <Accordion type="single" collapsible className="w-full">
@@ -19,7 +22,7 @@ export default function Branches() {
               <AccordionItem
                 key={index}
                 value={`branch-${index}`}
-                className="border-b last:border-b-0 pb-8 pt-5"
+                className="border-b !border-b-gray-500 last:border-b-0 pb-8 pt-5"
               >
                 <AccordionTrigger className="py-4 flex items-center gap-4 text-left hover:no-underline cursor-pointer">
                   <div className="flex items-center gap-4">
@@ -42,7 +45,7 @@ export default function Branches() {
               href={"#"}
               className="text-main genz:text-purple-500 font-medium underline text-xl text-right"
             >
-              View on map
+              {t("view-map")}
             </Link>
           </div>
           <div className="bg-gray-200 overflow-hidden h-[400px] relative rounded-3xl">

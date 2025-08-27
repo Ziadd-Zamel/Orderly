@@ -185,7 +185,7 @@ export function PaginationComponent({
               e.preventDefault();
               if (hasPrevious) handlePageChange(currentPage - 1);
             }}
-            className="bg-transparent hover:bg-transparent genz:bg-transparent genz:hover:bg-transparent text-zinc-700 border-none "
+            className="bg-transparent hover:bg-transparent genz:bg-transparent genz:hover:bg-transparent text-zinc-700 border-none rtl:rotate-180 "
           />
         </PaginationItem>
 
@@ -222,7 +222,7 @@ export function PaginationComponent({
               e.preventDefault();
               if (hasNext) handlePageChange(currentPage + 1);
             }}
-            className="bg-transparent hover:bg-transparent genz:bg-transparent genz:hover:bg-transparent text-zinc-700 border-none "
+            className="bg-transparent hover:bg-transparent genz:bg-transparent genz:hover:bg-transparent text-zinc-700 border-none rtl:rotate-180 "
           />
         </PaginationItem>
       </PaginationContent>

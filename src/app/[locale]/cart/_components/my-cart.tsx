@@ -3,13 +3,14 @@ import { ChevronLeft, User, ChevronRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const groupMembers = Array(10).fill("/placeholder.svg?height=32&width=32");
 
 export default function MyCart() {
   const visibleMembers = groupMembers.slice(0, 3);
   const extraCount = groupMembers.length - visibleMembers.length;
-
+  const t = useTranslations();
   return (
     <Card className="shadow-none bg-gray-50 border-none">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -19,10 +20,10 @@ export default function MyCart() {
           aria-label="Go back"
           className="p-1 hover:text-main transition-colors"
         >
-          <ChevronLeft />
+          <ChevronLeft className="rtl:rotate-180" />
         </button>
 
-        <CardTitle className="text-lg font-semibold text-zinc-900">My Cart</CardTitle>
+        <CardTitle className="text-lg font-semibold text-zinc-900">{t("my-cart")}</CardTitle>
 
         <Avatar className="size-16">
           <AvatarFallback>
@@ -42,7 +43,7 @@ export default function MyCart() {
               height={30}
               loading="lazy"
             />
-            <span className="font-medium text-zinc-800">Group Members</span>
+            <span className="font-medium text-zinc-800">{t("group-members")}</span>
           </div>
 
           {/* Member Avatars */}
@@ -74,8 +75,8 @@ export default function MyCart() {
           className="text-main genz:text-gradient font-medium flex items-center gap-1 mt-5 self-end hover:underline"
           prefetch={false}
         >
-          Add Members
-          <ChevronRight size={16} aria-hidden className="genz:text-purple-500" />
+          {t("add-members")}
+          <ChevronRight size={16} aria-hidden className="genz:text-purple-500 rtl:rotate-180" />
         </Link>
       </CardContent>
     </Card>

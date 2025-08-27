@@ -8,10 +8,12 @@ import PaymentMethod from "./payment-method";
 import AddressForm from "./address-form";
 import OrderCard from "@/components/common/order-card";
 import CollapsedOrdersList from "@/components/common/collapsed-orders";
+import { useTranslations } from "next-intl";
 
 const productsImages = Array(9).fill("/assets/Images/test-product.png");
 
 export default function CheckoutPage() {
+  const t = useTranslations("");
   return (
     <div className="relative z-20 box-container grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-32 mb-20">
       {/* Left Column */}
@@ -24,7 +26,8 @@ export default function CheckoutPage() {
             <CardTitle>
               <h2 className="text-lg font-medium">Vinny&apos;s</h2>
               <p className="text-sm text-gray-500">
-                Order Type: <span className="text-main genz:text-gradient">Delivery</span>
+                {t("order-type")}
+                <span className="text-main genz:text-gradient">Delivery</span>
               </p>
             </CardTitle>
           </CardHeader>
@@ -33,11 +36,11 @@ export default function CheckoutPage() {
             <div className="space-y-4">
               {/* Address */}
               <CustomAccordion
-                title="Delivery Info"
+                title={t("delivery-info")}
                 accordionContent={<AddressForm />}
                 triggerContent={
                   <div className="flex-center justify-start gap-2">
-                    <p className="text-gray-400 font-medium text-xs">Take it By</p>
+                    <p className="text-gray-400 font-medium text-xs">{t("take-it")}</p>
                     <div className="flex-center gap-1">
                       <CiLocationOn className="text-main genz:text-purple-500" />
                       <p className="text-main genz:text-gradient text-xs font-medium">
@@ -50,11 +53,11 @@ export default function CheckoutPage() {
 
               {/* Payment */}
               <CustomAccordion
-                title="Payment Method"
+                title={t("payment-method")}
                 accordionContent={<PaymentMethod />}
                 triggerContent={
                   <div className="flex items-center gap-2 -mt-2">
-                    <span className="text-gray-600 text-xs sm:text-sm">Pay With</span>
+                    <span className="text-gray-600 text-xs sm:text-sm">{t("pay-with")}</span>
                     <Image
                       src="/assets/icons/cash.svg"
                       alt="Cash with delivery"
@@ -72,7 +75,7 @@ export default function CheckoutPage() {
               {/* Review Order */}
               <div className="overflow-y-auto h-fit max-h-[500px] no-scrollbar">
                 <CustomAccordion
-                  title="Review Order"
+                  title={t("review-order")}
                   triggerContent={<CollapsedOrdersList productsImages={productsImages} />}
                   accordionContent={
                     <div className="flex flex-col gap-3 mt-5">

@@ -1,6 +1,7 @@
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const customerReviews = [
@@ -73,9 +74,11 @@ const StarRating = ({ rating }: { rating: number }) => {
 };
 
 export default function CustomersCarousel() {
+  const t = useTranslations();
+
   return (
     <div className="relative bg-gray-50 py-16">
-      <h3 className="text-center text-3xl font-medium text-zinc-800">Our Happy Customers</h3>
+      <h3 className="text-center text-3xl font-medium text-zinc-800">{t("happy-customers")}</h3>
       <div className="box-container">
         <Carousel
           className="w-full"

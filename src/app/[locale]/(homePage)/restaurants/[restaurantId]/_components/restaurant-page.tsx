@@ -4,8 +4,10 @@ import RestaurantInfo from "./restaurant-Info";
 import OrderTypes from "./order-type";
 import RestaurantBanner from "./restaurant-banner";
 import Menu from "./menu";
+import { useTranslations } from "next-intl";
 
 export default function RestaurantPage() {
+  const t = useTranslations();
   return (
     <>
       <div className="pb-20">
@@ -20,7 +22,7 @@ export default function RestaurantPage() {
 
         {/* Best seller */}
         <div className="mt-20">
-          <HeadLine title="Best Seller" />
+          <HeadLine title={t("best-seller")} />
           <div className="box-container grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 justify-items-center">
             <MealCard />
             <MealCard />

@@ -6,10 +6,11 @@ import { FilterIcon } from "lucide-react";
 import Image from "next/image";
 import { DualRangeSlider } from "@/components/ui/dual-range-slider";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 function FilterContent() {
   const [values, setValues] = useState([0, 100]);
-
+  const t = useTranslations();
   const placeTypes = [
     { id: "Restaurant", label: "Restaurant", icon: "/assets/icons/food.svg" },
     { id: "Coffee shop", label: "Coffee shop", icon: "/assets/icons/coffee.svg" },
@@ -21,7 +22,7 @@ function FilterContent() {
     <div className="w-full bg-[#FBFBFB] rounded-4xl px-6 py-9 h-full overflow-y-auto">
       {/* Place Type */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">Place Type</h3>
+        <h3 className="text-lg mb-6">{t("place-type")}</h3>
         <div className="flex flex-wrap gap-2 md:gap-3">
           {placeTypes.map((type) => (
             <Button
@@ -40,7 +41,7 @@ function FilterContent() {
 
       {/* Categories */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">Categories</h3>
+        <h3 className="text-lg mb-6">{t("categories")}</h3>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <Button
@@ -58,7 +59,7 @@ function FilterContent() {
 
       {/* Average Prices */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">Average prices</h3>
+        <h3 className="text-lg mb-6">{t("average-prices")}</h3>
         <DualRangeSlider value={values} onValueChange={setValues} min={0} max={100} step={1} />
         <div className="flex items-center justify-between mt-8">
           <span className="text-gray-400">
@@ -73,7 +74,7 @@ function FilterContent() {
 
       {/* Services Provided */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">Services Provided</h3>
+        <h3 className="text-lg mb-6">{t("services-provided")}</h3>
         <div className="flex flex-wrap gap-2">
           {services.map((service) => (
             <Button
@@ -93,7 +94,7 @@ function FilterContent() {
         variant="ghost"
         className="w-full text-custom-orange genz:text-red-400 hover:bg-orange-50 font-medium text-base"
       >
-        Clear All
+        {t("clear-all")}
       </Button>
     </div>
   );
