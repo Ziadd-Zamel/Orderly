@@ -9,7 +9,7 @@ import {
   CarouselHeader,
 } from "../../../../../components/ui/carousel";
 import { DotButton, useDotButton } from "./dots";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Images = [
   "/assets/Images/banner.png",
@@ -20,6 +20,7 @@ const Images = [
 export default function HomeSlider() {
   // Translation
   const t = useTranslations();
+  const locale = useLocale();
 
   // States
   const [api, setApi] = useState<CarouselApi>();
@@ -30,7 +31,11 @@ export default function HomeSlider() {
   return (
     <div className="relative z-20 box-container my-14 lg:my-20">
       {/* Carousel component */}
-      <Carousel className="w-full" setApi={setApi}>
+      <Carousel
+        className="w-full"
+        setApi={setApi}
+        opts={{ direction: locale === "ar" ? "rtl" : "ltr" }}
+      >
         <CarouselHeader className="text-center text-zinc-800 font-semibold text-2xl sm:text-3xl py-4 lg:py-6 xl:py-8">
           {t("offers-for-you")}
         </CarouselHeader>

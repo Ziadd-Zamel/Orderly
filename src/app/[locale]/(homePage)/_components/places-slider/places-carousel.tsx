@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useLocale } from "next-intl";
 type Place = {
   id: number;
   productImg: string;
@@ -15,10 +16,18 @@ type Place = {
 };
 
 export default function PlacesCarousel({ places, title }: { places: Place[]; title: string }) {
+  const locale = useLocale();
+
   return (
     <div className="box-container w-full my-10">
-      <Carousel className="w-full mx-auto" opts={{ align: "start" }}>
-        <div className="relative z-20 bg-[#F1F1F199]/50 px-4 sm:px-8 xl:px-20 rounded-4xl pb-8">
+      <Carousel
+        className="w-full mx-auto"
+        opts={{ align: "start", direction: locale === "ar" ? "rtl" : "ltr" }}
+      >
+        <div
+          dir={locale === "ar" ? "rtl" : "ltr"}
+          className="relative z-20 bg-[#F1F1F199]/50 px-4 sm:px-8 xl:px-20 rounded-4xl pb-8"
+        >
           <CarouselHeader className="text-center text-zinc-800 font-semibold text-2xl sm:text-3xl py-8 ">
             {title}
           </CarouselHeader>
@@ -34,8 +43,8 @@ export default function PlacesCarousel({ places, title }: { places: Place[]; tit
               );
             })}
           </CarouselContent>
-          <CarouselPrevious className=" rtl:end-0 ltr:start-0 -translate-x-1/2 size-10 md:size-12 xl:size-16" />
-          <CarouselNext className="rtl:-start-0 ltr:end-0  translate-x-1/2 size-10 md:size-12 xl:size-16" />
+          <CarouselPrevious className="left-0 right-auto rtl:right-0 rtl:left-auto -translate-x-1/2 rtl:translate-x-1/2 size-10 md:size-12 xl:size-16 rtl:rotate-180" />
+          <CarouselNext className="right-0 left-auto rtl:left-0 rtl:right-auto translate-x-1/2 rtl:-translate-x-1/2 size-10 md:size-12 xl:size-16 rtl:rotate-180" />
         </div>
       </Carousel>
     </div>

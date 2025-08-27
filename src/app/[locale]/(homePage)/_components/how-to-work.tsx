@@ -18,7 +18,7 @@ export default function HowToWork() {
           initial={{ scale: 0.5 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 1 }}
-          className="text-center text-2xl font-poppins font-bold text-zinc-800 mb-16"
+          className="text-center text-2xl font-bold text-zinc-800 mb-16"
         >
           {t("food-us")}
         </motion.p>
@@ -93,9 +93,7 @@ export default function HowToWork() {
                   className="w-10 2xl:w-16"
                   loading="lazy"
                 />
-                <p className=" font-poppins font-medium 2xl:text-lg text-zinc-800">
-                  {t("for-dine-in")}
-                </p>{" "}
+                <p className=" font-medium 2xl:text-lg text-zinc-800">{t("for-dine-in")}</p>{" "}
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, scale: 0.3 }}
@@ -114,9 +112,7 @@ export default function HowToWork() {
                   className="w-10 2xl:w-16"
                   loading="lazy"
                 />
-                <p className="font-poppins font-medium 2xl:text-lg text-zinc-900">
-                  {t("delivery")}
-                </p>
+                <p className="font-medium 2xl:text-lg text-zinc-900">{t("delivery")}</p>
               </motion.li>
 
               <motion.li
@@ -136,9 +132,7 @@ export default function HowToWork() {
                   className="w-10 2xl:w-16"
                   loading="lazy"
                 />
-                <p className=" font-poppins font-medium 2xl:text-lg text-zinc-800">
-                  {t("and-take-away")}
-                </p>
+                <p className=" font-medium 2xl:text-lg text-zinc-800">{t("and-take-away")}</p>
               </motion.li>
             </ul>
           </div>

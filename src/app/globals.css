@@ -52,6 +52,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-alexandria: var(--font-alexandria);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -167,6 +168,10 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+[lang="ar"] {
+  --font-family-base: var(--font-alexandria), sans-serif;
+}
+
 /* Gen-Z mode */
 [data-theme="genz"] {
   --main: #a259ff;
@@ -188,6 +193,10 @@
 
 @utility font-chillax {
   font-family: var(--font-chillax);
+}
+
+@utility font-alexandria {
+  font-family: var(--font-alexandria);
 }
 
 @utility hero-bg {
@@ -218,7 +227,12 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground font-poppins genz:font-chillax;
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins), var(--font-chillax), sans-serif;
+  }
+
+  [lang="ar"] body {
+    font-family: var(--font-alexandria), sans-serif;
   }
 }
 
@@ -407,13 +421,6 @@ header.scrolled {
   100% {
     transform: rotate(0deg);
   }
-}
-
-.morphing-shape {
-  width: 200px;
-  height: 200px;
-  background: #4f46e5;
-  animation: morph 6s infinite ease-in-out;
 }
 
 @keyframes morph {

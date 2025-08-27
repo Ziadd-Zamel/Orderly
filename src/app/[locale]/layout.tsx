@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/providers";
-import { Poppins } from "next/font/google";
+import { Poppins, Alexandria } from "next/font/google";
 import localFont from "next/font/local";
 
 const poppins = Poppins({
@@ -12,6 +12,13 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-poppins",
+});
+
+const alexandria = Alexandria({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-alexandria",
 });
 
 const chillax = localFont({
@@ -46,7 +53,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={`${poppins.variable} ${chillax.variable}`}>
+      <body className={`${poppins.variable} ${chillax.variable} ${alexandria.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

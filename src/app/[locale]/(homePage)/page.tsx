@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import Navbar from "@/components/layout/header";
 import HeroSection from "./_components/hero-section/hero-section";
 import { places } from "@/lib/constants/data.constant";
 import { useTranslations } from "next-intl";
@@ -27,7 +26,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
       {/* Hero Section */}
       <HeroSection />
 

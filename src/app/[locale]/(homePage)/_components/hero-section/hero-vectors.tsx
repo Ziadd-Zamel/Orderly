@@ -9,7 +9,7 @@ export default function BackgroundVectors() {
         width={60}
         height={0}
         alt="Cake vector"
-        className="absolute top-28 left-10 lg:top-1/3 lg:left-[30%] z-10 genz:hidden"
+        className="absolute top-28 left-10 lg:top-1/3 lg:left-[30%] rtl:right-10 rtl:lg:right-1/2 z-10 genz:hidden"
         loading={"lazy"}
       />
 
@@ -27,7 +27,7 @@ export default function BackgroundVectors() {
         width={40}
         height={0}
         alt="Paper vector"
-        className="absolute top-32 right-10 sm:top-44 sm:right-20 lg:top-1/2 lg:left-1/2 z-10 genz:hidden"
+        className="absolute top-32 right-10 sm:top-1/3 sm:right-20 lg:top-1/2 lg:right-1/4 z-10 genz:hidden"
         loading={"lazy"}
       />
 
