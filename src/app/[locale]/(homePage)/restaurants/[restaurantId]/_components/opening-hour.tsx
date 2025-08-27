@@ -4,14 +4,15 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { getCurrentDay } from "@/lib/utils/get-current-day";
 import { openingHours } from "@/lib/constants/data.constant";
+import { useTranslations } from "next-intl";
 
 export default function OpeningHours() {
   const [activeDay, setActiveDay] = useState(() => getCurrentDay());
-
+  const t = useTranslations();
   return (
     <div className="w-full box-container mt-20">
       <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-gray-900">
-        Opening hours
+        {t("opening-hours")}
       </h2>
 
       <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 sm:h-20 items-center justify-center">

@@ -5,8 +5,10 @@ import { ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
 import GroupButton from "./group-button";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function RestaurantInfo() {
+  const t = useTranslations();
   return (
     <div className="w-full box-container">
       {/* Mobile & Tablet Layout */}
@@ -63,7 +65,7 @@ export default function RestaurantInfo() {
             className="text-4xl font-semibold flex items-center gap-2 justify-center"
           >
             Vinny&apos;s Pizza
-            <ChevronRight size={25} className="flex-shrink-0" />
+            <ChevronRight size={25} className="flex-shrink-0 rtl:rotate-180" />
           </Link>
           <div className="flex items-center gap-1 justify-center mt-3">
             <Star
@@ -75,10 +77,7 @@ export default function RestaurantInfo() {
               fill={"#A259FF"}
               className="size-5 hidden text-[#A259FF] genz:block flex-shrink-0"
             />
-            <Star
-              fill="#FF9C00"
-              className="size-6 text-custom-orange genz:text-purple-500 flex-shrink-0"
-            />
+
             <span className="font-medium">4.8</span>
             <span className="text-gray-400">(324 reviews)</span>
           </div>
@@ -102,7 +101,7 @@ export default function RestaurantInfo() {
             height={20}
             className="flex-shrink-0 hidden genz:block"
           />
-          Need help? Call a waiter
+          {t("need-help")}
         </Button>
       </div>
     </div>

@@ -11,15 +11,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import HeadLine from "@/components/common/head-line";
+import { useTranslations } from "next-intl";
 
 export default function Menu() {
   const TabsData = ["all", "italian", "asian", "chinese", "fruit"];
   const [activeTab, setActiveTab] = useState("all");
-
+  const t = useTranslations();
   return (
     <div className="mt-40">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <HeadLine title="Menu">
+        <HeadLine title={t("menu")}>
           {/* Desktop Tabs */}
           <TabsList className="bg-background gap-10 h-12 self-end hidden md:flex">
             {TabsData.map((tab) => (
