@@ -17,7 +17,7 @@ export default function RestaurantsPage() {
           {/* Filter Sidebar - Hidden on mobile, shown on large screens */}
           <div className="">
             <h3 className="lg:block hidden text-2xl text-main genz:text-gradient font-medium mb-16">
-              Filter Options
+              {t("filter-options")}
             </h3>
             <Filter />
           </div>
