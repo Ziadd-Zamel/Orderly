@@ -228,11 +228,15 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-poppins), var(--font-chillax), sans-serif;
+    font-family: var(--font-poppins), sans-serif;
   }
 
   [lang="ar"] body {
     font-family: var(--font-alexandria), sans-serif;
+  }
+
+  [lang="en"][data-theme="genz"] body {
+    font-family: var(--font-chillax), sans-serif;
   }
 }
 
