@@ -15,6 +15,8 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { FaShareAlt } from "react-icons/fa";
 import { Label } from "@/components/ui/label";
+import { useTheme } from "next-themes";
+import IconGradient from "@/components/common/icon-gradiant";
 
 function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
   return (
@@ -62,6 +64,8 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
 export default function GroupButton({ disableAnimation }: { disableAnimation?: boolean }) {
   const [open, setOpen] = useState(false);
   const t = useTranslations();
+  const { resolvedTheme } = useTheme();
+  const isGenz = resolvedTheme === "genz";
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Trigger */}
@@ -72,10 +76,10 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
       </DialogTrigger>
 
       {/* Content */}
-      <DialogContent className=" w-full bg-white rounded-3xl py-10">
+      <DialogContent className=" w-full bg-white rounded-3xl pt-10 pb-0">
         <DialogHeader className="flex flex-row">
           <div className="w-1/3">
-            <Button className="bg-second hover:bg-second cursor-pointer text-main">
+            <Button className="bg-second hover:bg-second cursor-pointer text-main genz:bg-[#F9F5FF]">
               <ChevronLeft size={20} />
             </Button>
           </div>
@@ -111,16 +115,22 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
                 className="text-base"
                 readOnly
               />
-              <Button className="absolute right-0 top-0 h-full bg-transparent hover:bg-transparent text-main">
-                <FaShareAlt size={20} />
+              <Button
+                variant={"ghost"}
+                className="absolute right-0 top-0 h-full bg-transparent hover:bg-transparent text-main hover:text-main"
+              >
+                {isGenz ? <IconGradient icon={FaShareAlt} /> : <FaShareAlt size={20} />}
               </Button>
             </div>
           </div>
 
-          <Button className="w-full mb-3 py-5 text-xl">{t("continue-shopping")}</Button>
+          <Button className="w-full mb-3 py-4 text-xl mt-5">{t("continue-shopping")}</Button>
 
           {/* Delete group button */}
-          <Button className="w-full bg-transparent hover:bg-transparent text-custom-orange font-medium underline">
+          <Button
+            variant={"ghost"}
+            className="w-full bg-transparent hover:bg-transparent text-custom-orange genz:text-red-400 font-medium underline"
+          >
             {t("delete-group")}
           </Button>
         </div>

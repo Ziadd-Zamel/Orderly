@@ -4,8 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import GroupMembersDialog from "./group-members-dialog";
 
-const groupMembers = Array(10).fill("/placeholder.svg?height=32&width=32");
+const groupMembers = Array(10).fill("/assets/Images/avatar.png");
 
 export default function MyCart() {
   const visibleMembers = groupMembers.slice(0, 3);
@@ -25,7 +26,8 @@ export default function MyCart() {
 
         <CardTitle className="text-lg font-semibold text-zinc-900">{t("my-cart")}</CardTitle>
 
-        <Avatar className="size-16">
+        <Avatar className="size-12">
+          <AvatarImage src={"/assets/Images/avatar.png"} />
           <AvatarFallback>
             <User aria-hidden />
           </AvatarFallback>
@@ -43,7 +45,7 @@ export default function MyCart() {
               height={30}
               loading="lazy"
             />
-            <span className="font-medium text-zinc-800">{t("group-members")}</span>
+            <GroupMembersDialog />
           </div>
 
           {/* Member Avatars */}
@@ -51,7 +53,7 @@ export default function MyCart() {
             {visibleMembers.map((src, index) => (
               <Avatar
                 key={index}
-                className="size-12 border-2 border-white"
+                className="size-9 border-2 border-white"
                 title={`Group Member ${index + 1}`}
               >
                 <AvatarImage src={src} alt={`Group Member ${index + 1}`} loading="lazy" />
@@ -62,9 +64,14 @@ export default function MyCart() {
             ))}
 
             {extraCount > 0 && (
-              <Avatar className="size-12 border-2 border-white bg-gray-200 text-gray-600 text-xs flex items-center justify-center">
-                <AvatarFallback>{`+${extraCount}`}</AvatarFallback>
-              </Avatar>
+              <div className=" relative">
+                <Avatar className="size-9 border-2 border-white bg-gray-200 text-gray-600 text-xs flex items-center justify-center">
+                  <AvatarImage src={"/assets/Images/avatar.png"} />
+                  <AvatarFallback>{`+${extraCount}`}</AvatarFallback>
+                </Avatar>
+                <div className="bg-black/30 absolute inset-0 size-9 rounded-full" />
+                <span className="absolute text-white z-10 top-2 right-2">{`+${extraCount}`}</span>
+              </div>
             )}
           </div>
         </div>
