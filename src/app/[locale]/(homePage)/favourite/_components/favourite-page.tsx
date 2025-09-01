@@ -2,17 +2,17 @@ import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { places } from "@/lib/constants/data.constant";
 import PlaceCard from "@/components/common/place-card";
-import MealCard from "@/components/common/meal-card";
+import ProductCard from "@/components/common/product-card";
 
 export default function FavouritePage() {
   return (
     <div className="box-container mt-40 pb-20">
       <Tabs defaultValue="places">
         {/* Tab Navigation */}
-        <div className="flex justify-center mb-10">
-          <TabsList className="bg-transparent gap-5 w-full max-w-md">
+        <div className="mb-10 flex justify-center">
+          <TabsList className="w-full max-w-md gap-5 bg-transparent">
             <TabsTrigger
-              className="flex items-center genz:border-purple-500 gap-2 h-12 w-1/2 cursor-pointer hover:bg-main genz:hover:bg-gradient hover:text-white data-[state=active]:bg-main genz:data-[state=active]:bg-gradient genz:data-[state=active]:border-none data-[state=active]:text-white"
+              className="genz:border-purple-500 hover:bg-main genz:hover:bg-gradient data-[state=active]:bg-main genz:data-[state=active]:bg-gradient genz:data-[state=active]:border-none flex h-12 w-1/2 cursor-pointer items-center gap-2 hover:text-white data-[state=active]:text-white"
               value="places"
               aria-label="View favorite places"
             >
@@ -27,7 +27,7 @@ export default function FavouritePage() {
             </TabsTrigger>
 
             <TabsTrigger
-              className="flex items-center genz:border-purple-500 gap-2 h-12 w-1/2 cursor-pointer hover:bg-main genz:hover:bg-gradient hover:text-white data-[state=active]:bg-main genz:data-[state=active]:bg-gradient genz:data-[state=active]:border-none data-[state=active]:text-white"
+              className="genz:border-purple-500 hover:bg-main genz:hover:bg-gradient data-[state=active]:bg-main genz:data-[state=active]:bg-gradient genz:data-[state=active]:border-none flex h-12 w-1/2 cursor-pointer items-center gap-2 hover:text-white data-[state=active]:text-white"
               value="items"
               aria-label="View favorite items"
             >
@@ -45,7 +45,7 @@ export default function FavouritePage() {
 
         {/* Places Tab */}
         <TabsContent value="places" className="w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 gap-x-4 md:gap-6 justify-items-center">
+          <div className="grid grid-cols-1 justify-items-center gap-x-4 gap-y-12 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {places.map((place) => (
               <PlaceCard key={place.id} place={place} />
             ))}
@@ -54,9 +54,9 @@ export default function FavouritePage() {
 
         {/* Items Tab */}
         <TabsContent value="items" className="w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-20 gap-x-4 md:gap-6 justify-items-center">
+          <div className="grid grid-cols-1 justify-items-center gap-x-4 gap-y-20 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {Array.from({ length: 6 }, (_, i) => (
-              <MealCard key={i} />
+              <ProductCard key={i} />
             ))}
           </div>
         </TabsContent>

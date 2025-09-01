@@ -6,7 +6,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import React from "react";
-import GroupButton from "./group-button";
+import GroupButton from "./general-group-button";
 
 export default function GroupDialog() {
   return (
@@ -17,9 +17,9 @@ export default function GroupDialog() {
       </DialogTrigger>
 
       {/* Content */}
-      <DialogContent className="!max-w-2xl w-full bg-white rounded-3xl py-10">
+      <DialogContent className="w-full !max-w-2xl rounded-3xl bg-white py-10">
         <DialogHeader>
-          <DialogTitle className="text-xl text-center">Add New Address</DialogTitle>
+          <DialogTitle className="text-center text-xl">Add New Address</DialogTitle>
         </DialogHeader>
       </DialogContent>
     </Dialog>

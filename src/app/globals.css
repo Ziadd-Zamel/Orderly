@@ -47,6 +47,17 @@
   font-style: normal;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  @apply leading-relaxed;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -214,7 +225,9 @@
 
 @utility border-gradient {
   @apply border-transparent;
-  background: linear-gradient(white, white) padding-box, var(--border-gradient) border-box;
+  background:
+    linear-gradient(white, white) padding-box,
+    var(--border-gradient) border-box;
 }
 
 @utility bg-gradient {
@@ -267,10 +280,10 @@
 }
 
 @utility flex-center {
-  @apply flex justify-center items-center;
+  @apply flex items-center justify-center;
 }
 @utility box-container {
-  @apply container w-full 2xl:max-w-[85%] mx-auto px-5 md:px-2 lg:px-5;
+  @apply container mx-auto w-full px-5 md:px-2 lg:px-5 2xl:max-w-[85%];
 }
 
 @utility circle {
@@ -282,7 +295,7 @@
 }
 
 header.scrolled {
-  @apply bg-white/20 backdrop-blur-sm shadow-md;
+  @apply bg-white/20 shadow-md backdrop-blur-sm;
 }
 
 .genz header.scrolled {
@@ -424,17 +437,5 @@ header.scrolled {
   }
   100% {
     transform: rotate(0deg);
-  }
-}
-
-@keyframes morph {
-  0% {
-    border-radius: 90% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; /* دائرة */
-  }
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* يرجع تاني */
   }
 }

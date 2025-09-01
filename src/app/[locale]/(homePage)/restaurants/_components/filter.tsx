@@ -19,16 +19,16 @@ function FilterContent() {
   const services = ["Wi-Fi", "Kids Area", "Parking", "Vegan", "Outdoor Seating", "Smoking"];
 
   return (
-    <div className="w-full bg-[#FBFBFB] rounded-4xl px-6 py-9 h-full overflow-y-auto">
+    <div className="h-full w-full overflow-y-auto rounded-4xl bg-[#FBFBFB] px-6 py-9">
       {/* Place Type */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">{t("place-type")}</h3>
-        <div className="flex flex-wrap gap-2 md:gap-3">
+        <h3 className="mb-6 text-lg">{t("place-type")}</h3>
+        <div className="flex gap-2 md:gap-3 lg:flex-wrap xl:flex-nowrap">
           {placeTypes.map((type) => (
             <Button
               key={type.id}
               variant="outline"
-              className="flex items-center gap-2 px-4 py-3 rounded-lg text-base genz:bg-gradient genz:text-white bg-white hover:bg-gray-50 border-gray-200"
+              className="genz:bg-gradient genz:text-white flex items-center gap-2 rounded-lg border-gray-200 bg-white px-4 py-3 text-base hover:bg-gray-50 lg:w-full xl:w-auto"
             >
               <Image src={type.icon} alt="Icon" width={25} height={0} />
               {type.label}
@@ -37,51 +37,51 @@ function FilterContent() {
         </div>
       </div>
 
-      <Separator className="w-full h-px bg-[#EEEEEE] mb-10" />
+      <Separator className="mb-10 h-px w-full bg-[#EEEEEE]" />
 
       {/* Categories */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">{t("categories")}</h3>
+        <h3 className="mb-6 text-lg">{t("categories")}</h3>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <Button
               key={category}
               variant="outline"
               size="sm"
-              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 genz:bg-gradient genz:text-white hover:bg-gray-50"
+              className="genz:bg-gradient genz:text-white rounded-full border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
             >
               {category}
             </Button>
           ))}
         </div>
       </div>
-      <Separator className="w-full h-px bg-[#EEEEEE] mb-10" />
+      <Separator className="mb-10 h-px w-full bg-[#EEEEEE]" />
 
       {/* Average Prices */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">{t("average-prices")}</h3>
+        <h3 className="mb-6 text-lg">{t("average-prices")}</h3>
         <DualRangeSlider value={values} onValueChange={setValues} min={0} max={100} step={1} />
-        <div className="flex items-center justify-between mt-8">
+        <div className="mt-8 flex items-center justify-between">
           <span className="text-gray-400">
-            From: <span className="text-black font-medium">{values[0]} EGP</span>
+            From: <span className="font-medium text-black">{values[0]} EGP</span>
           </span>
           <span className="text-gray-400">
-            To: <span className="text-black font-medium">{values[1]} EGP</span>
+            To: <span className="font-medium text-black">{values[1]} EGP</span>
           </span>
         </div>
       </div>
-      <Separator className="w-full h-px bg-[#EEEEEE] mb-10" />
+      <Separator className="mb-10 h-px w-full bg-[#EEEEEE]" />
 
       {/* Services Provided */}
       <div className="mb-8">
-        <h3 className="text-lg mb-6">{t("services-provided")}</h3>
+        <h3 className="mb-6 text-lg">{t("services-provided")}</h3>
         <div className="flex flex-wrap gap-2">
           {services.map((service) => (
             <Button
               key={service}
               variant="outline"
               size="sm"
-              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 genz:bg-gradient genz:text-white hover:bg-gray-50"
+              className="genz:bg-gradient genz:text-white rounded-full border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
             >
               {service}
             </Button>
@@ -92,7 +92,7 @@ function FilterContent() {
       {/* Clear All */}
       <Button
         variant="ghost"
-        className="w-full text-custom-orange genz:text-red-400 hover:bg-orange-50 font-medium text-base"
+        className="text-custom-orange genz:text-red-400 w-full text-base font-medium hover:bg-orange-50"
       >
         {t("clear-all")}
       </Button>
@@ -104,7 +104,7 @@ export default function Filter() {
   return (
     <>
       {/* Desktop Filter - Hidden on mobile */}
-      <div className="hidden lg:block w-full max-w-80 xl:max-w-96 lg:sticky lg:top-4 mt-9">
+      <div className="mt-9 hidden w-full lg:sticky lg:top-4 lg:block">
         <FilterContent />
       </div>
 
@@ -114,15 +114,15 @@ export default function Filter() {
           <SheetTrigger asChild>
             <Button
               variant="outline"
-              className="rounded-full px-3 py-2 text-sm bg-white text-gray-700 border-gray-200 genz:bg-gradient genz:text-white hover:bg-gray-50"
+              className="genz:bg-gradient genz:text-white rounded-full border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
             >
               <FilterIcon className="text-main text-lg" />
               Filters
             </Button>
           </SheetTrigger>
-          <SheetContent side="bottom" className=" p-0 bg-[#FBFBFB]">
-            <SheetHeader className="px-6 py-4 border-b">
-              <SheetTitle className="text-lg font-semibold text-main">Filters</SheetTitle>
+          <SheetContent side="bottom" className="bg-[#FBFBFB] p-0">
+            <SheetHeader className="border-b px-6 py-4">
+              <SheetTitle className="text-main text-lg font-semibold">Filters</SheetTitle>
             </SheetHeader>
             <div className="flex-1 overflow-hidden">
               <FilterContent />

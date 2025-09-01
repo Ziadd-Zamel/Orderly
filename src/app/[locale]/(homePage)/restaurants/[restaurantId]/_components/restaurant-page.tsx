@@ -1,10 +1,10 @@
-import MealCard from "@/components/common/meal-card";
+import ProductCard from "@/components/common/product-card";
 import HeadLine from "@/components/common/head-line";
 import RestaurantInfo from "./restaurant-Info";
 import OrderTypes from "./order-type";
 import RestaurantBanner from "./restaurant-banner";
-import Menu from "./menu";
 import { useTranslations } from "next-intl";
+import MenuTabs from "./menu-tabs";
 
 export default function RestaurantPage() {
   const t = useTranslations();
@@ -22,17 +22,18 @@ export default function RestaurantPage() {
 
         {/* Best seller */}
         <div className="mt-20">
-          <HeadLine title={t("best-seller")} />
-          <div className="box-container grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 justify-items-center">
-            <MealCard />
-            <MealCard />
-            <MealCard />
-            <MealCard />
+          <HeadLine title={t("best-seller")} className="mb-20" />
+          <div className="box-container grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </div>
         </div>
 
         {/* Menu */}
-        <Menu />
+        <MenuTabs />
       </div>
     </>
   );

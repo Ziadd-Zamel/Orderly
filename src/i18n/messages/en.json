@@ -291,5 +291,6 @@
   "take-it": "Take it By",
   "delivery-info": "Delivery Info",
   "payment-method": "Payment Method",
-  "review-order": "Review Order"
+  "review-order": "Review Order",
+  "order-as-group": "Group Order"
 }

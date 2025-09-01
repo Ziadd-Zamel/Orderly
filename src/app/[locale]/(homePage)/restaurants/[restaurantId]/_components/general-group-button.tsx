@@ -17,41 +17,44 @@ import { FaShareAlt } from "react-icons/fa";
 import { Label } from "@/components/ui/label";
 
 function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
+  // Translation
+  const t = useTranslations();
+
   return (
     <>
       {disableAnimation ? (
-        <div className="size-16 flex-center bg-main genz:bg-gradient bg-gradient circle">
+        <div className="flex-center bg-main genz:!bg-red-500 bg-gradient circle size-16">
           <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
         </div>
       ) : (
         <motion.div
-          className="bg-main genz:bg-gradient circle flex items-center flex-shrink-0 overflow-hidden border-4 border-main genz:border-gradient"
+          className="bg-main genz:bg-gradient circle border-main genz:border-gradient genz:bg-transparent flex flex-shrink-0 items-center overflow-hidden border-4"
           initial={{ width: 64, height: 64 }}
           animate={{
             width: [64, 200, 64],
           }}
           transition={{
-            duration: 5,
-            times: [0, 0.2, 1],
+            duration: 3.5,
+            times: [0, 0.5, 1],
             repeat: Infinity,
-            repeatDelay: 2,
+            repeatDelay: 1,
             ease: "easeInOut",
           }}
         >
-          <div className="size-16 flex-center bg-main genz:bg-gradient circle flex-shrink-0">
+          <div className="flex-center bg-main genz:bg-gradient circle size-16 flex-shrink-0">
             <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
           </div>
           <motion.span
-            className="text-white font-medium whitespace-nowrap pr-4"
+            className="pr-4 font-medium whitespace-nowrap text-white"
             transition={{
               duration: 3,
-              times: [0, 0.2, 1],
+              times: [0, 0.5, 1],
               repeat: Infinity,
-              repeatDelay: 4,
+              repeatDelay: 2,
               ease: "easeInOut",
             }}
           >
-            Group Order
+            {t("order-as-group")}
           </motion.span>
         </motion.div>
       )}
@@ -66,20 +69,20 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Trigger */}
       <DialogTrigger asChild>
-        <Button className="bg-transparent hover:bg-transparent genz:bg-transparent cursor-pointer border-none outline-none ">
+        <Button className="genz:bg-transparent cursor-pointer border-none bg-transparent outline-none hover:bg-transparent">
           <GroupTrigger disableAnimation={disableAnimation} />
         </Button>
       </DialogTrigger>
 
       {/* Content */}
-      <DialogContent className=" w-full bg-white rounded-3xl py-10">
+      <DialogContent className="w-full rounded-3xl bg-white py-10">
         <DialogHeader className="flex flex-row">
           <div className="w-1/3">
-            <Button className="bg-second hover:bg-second cursor-pointer text-main">
+            <Button className="bg-second hover:bg-second text-main cursor-pointer">
               <ChevronLeft size={20} />
             </Button>
           </div>
-          <DialogTitle className="text-2xl w-2/3 ps-5 leading-10">{t("group-order")}</DialogTitle>
+          <DialogTitle className="w-2/3 ps-5 text-2xl leading-10">{t("group-order")}</DialogTitle>
         </DialogHeader>
 
         <div className="p-5">
@@ -89,19 +92,19 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
               alt="Group Order"
               width={150}
               height={0}
-              className="rounded-2xl mx-auto"
+              className="mx-auto rounded-2xl"
             />
           </div>
 
           <div className="relative">
-            <span className="block w-full text-center text-zinc-300 text-base before:w-[47%] before:h-[1px] before:bg-zinc-300 before:absolute before:top-1/2 before:left-0 before:-translate-y-1/2 after:w-[47%] after:h-[1px] after:bg-zinc-300 after:absolute after:top-1/2 after:right-0 after:-translate-y-1/2">
+            <span className="block w-full text-center text-base text-zinc-300 before:absolute before:top-1/2 before:left-0 before:h-[1px] before:w-[47%] before:-translate-y-1/2 before:bg-zinc-300 after:absolute after:top-1/2 after:right-0 after:h-[1px] after:w-[47%] after:-translate-y-1/2 after:bg-zinc-300">
               Or
             </span>
           </div>
 
           {/* Share Link Input */}
           <div className="relative mt-6 mb-10">
-            <Label htmlFor="invitation-link" className="text-lg text-zinc-800 font-normal mb-1">
+            <Label htmlFor="invitation-link" className="mb-1 text-lg font-normal text-zinc-800">
               {t("invitation-link")}
             </Label>
             <div className="relative">
@@ -111,16 +114,16 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
                 className="text-base"
                 readOnly
               />
-              <Button className="absolute right-0 top-0 h-full bg-transparent hover:bg-transparent text-main">
+              <Button className="text-main absolute top-0 right-0 h-full bg-transparent hover:bg-transparent">
                 <FaShareAlt size={20} />
               </Button>
             </div>
           </div>
 
-          <Button className="w-full mb-3 py-5 text-xl">{t("continue-shopping")}</Button>
+          <Button className="mb-3 w-full py-5 text-xl">{t("continue-shopping")}</Button>
 
           {/* Delete group button */}
-          <Button className="w-full bg-transparent hover:bg-transparent text-custom-orange font-medium underline">
+          <Button className="text-custom-orange w-full bg-transparent font-medium underline hover:bg-transparent">
             {t("delete-group")}
           </Button>
         </div>
