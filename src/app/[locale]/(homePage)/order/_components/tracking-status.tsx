@@ -43,9 +43,7 @@ export default function TrackingStatus() {
         {/* Progress Bar */}
         <div className="flex gap-4 md:gap-8 items-center">
           <div className="w-1/3 h-2.5 rounded-full bg-main genz:bg-gradient"></div>
-          <div className="w-1/3 h-2.5 rounded-full  bg-main genz:bg-gradient"></div>
           <div className="w-1/3 h-2.5 rounded-full bg-main genz:bg-gradient"></div>
-          <div className="w-1/3 h-2.5 rounded-full  bg-main genz:bg-gradient"></div>
           <div className="w-1/3 h-2.5 rounded-full bg-gray-200"></div>
         </div>
 
