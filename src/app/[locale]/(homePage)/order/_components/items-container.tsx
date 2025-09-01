@@ -42,7 +42,7 @@ export default function ItemsContainer() {
 
       <div className="h-full overflow-y-auto space-y-6 sm:space-y-10 hide-scrollbar">
         {Array.from({ length: 5 }, (_, i) => (
-          <OrderCard key={i} />
+          <OrderCard className="border-none genz:border-gradient" key={i} />
         ))}
       </div>
     </div>

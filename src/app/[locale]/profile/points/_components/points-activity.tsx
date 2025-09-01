@@ -14,7 +14,7 @@ export default function PointsActivity() {
 
       <div className="flex flex-col gap-5 mt-10">
         <div
-          className="flex items-center justify-between bg-[#FCFCFC] p-6 rounded-2xl w-full flex-wrap max-w-[700px]"
+          className="flex items-center justify-between bg-[#FCFCFC] p-6 rounded-2xl w-full flex-wrap"
           aria-label="Order, expires 15-01-2025, 15 points"
         >
           <div className="flex items-center gap-5">

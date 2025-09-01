@@ -21,18 +21,18 @@ export default function PaymentSummary() {
   const totalAmount = paymentList.reduce((acc, cur) => acc + cur.price, 0);
   return (
     <div className="w-full lg:w-1/3 flex flex-col md:flex-row lg:flex-col space-y-6 md:space-x-6 lg:space-x-0">
-      <div className="w-full md:w-3/5 lg:w-full bg-gray-50 rounded-4xl p-8">
-        <div className="relative h-full flex flex-col gap-5 bg-white p-5 pb-10 rounded-t-2xl">
+      <div className="w-full md:w-3/5 lg:w-full bg-gray-50  rounded-4xl p-12">
+        <div className="relative h-full flex flex-col gap-5 bg-white genz:bg-[#F9F5FF] p-5 pb-11 rounded-t-2xl">
           {/* Check Icon on Top */}
           <span className="flex-center size-14 circle bg-white drop-shadow-lg absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2">
-            <span className="flex-center size-7 circle bg-main genz:bg-gradient">
+            <span className="flex-center size-7 circle bg-custom-orange genz:bg-gradient">
               <FiCheck size={20} className=" text-white" />
             </span>
           </span>
 
           {/* Amount Details */}
-          <div className="text-center pt-10 pb-5 border-b">
-            <h3 className="text-lg md:text-xl font-semibold text-zinc-800 mb-2">
+          <div className="text-center pt-10 pb-5 border-b genz:border-b-transparent">
+            <h3 className="text-lg md:text-xl font-semibold text-zinc-800 mb-2 ">
               {t("payment-success")}
             </h3>
             <p className="text-sm font-medium text-zinc-500">{t("payment-success-description")}</p>

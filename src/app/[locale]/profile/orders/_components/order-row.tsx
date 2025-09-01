@@ -18,7 +18,7 @@ export default function OrderRow({ order }: { order: Order }) {
   };
 
   return (
-    <div className="relative z-20 bg-white border border-zinc-300 rounded-4xl p-5 sm:p-6">
+    <div className="relative z-20 bg-white border border-[#F0EEF0] rounded-4xl p-5 sm:p-6">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6 mb-6 lg:mb-10">
         {/* Status text & Date - Time */}
         <div className="w-full lg:w-1/4 flex justify-between items-start lg:block">
@@ -75,7 +75,7 @@ export default function OrderRow({ order }: { order: Order }) {
         </div>
       </div>
 
-      <CollapsedOrdersList productsImages={order.productImages} />
+      <CollapsedOrdersList arrow productsImages={order.productImages} />
     </div>
   );
 }

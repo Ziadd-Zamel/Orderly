@@ -4,19 +4,23 @@ import { cn } from "@/lib/utils";
 import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { BiSolidUser } from "react-icons/bi";
-import { FaClipboardList, FaStar } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa";
 import { HiMiniMapPin } from "react-icons/hi2";
-import { MdPeopleOutline } from "react-icons/md";
 import { IoLogOutOutline, IoSettingsSharp } from "react-icons/io5";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useMediaChecker } from "@/hooks/use-media-checker";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import IconGradient from "@/components/common/icon-gradiant";
+import { useTheme } from "next-themes";
+import { LuStar } from "react-icons/lu";
+import { FaUserGroup } from "react-icons/fa6";
+import Image from "next/image";
 
 type MenuItem = {
   label?: string;
-  icon?: React.ElementType;
+  icon?: React.ElementType | null;
   path?: string;
   divider?: boolean;
 };
@@ -24,9 +28,13 @@ type MenuItem = {
 const SIDEBAR_LINKS: MenuItem[] = [
   { label: "profile.myInfo", icon: BiSolidUser, path: "/info" },
   { label: "profile.myOrders", icon: FaClipboardList, path: "/orders" },
-  { label: "profile.myPoints", icon: FaStar, path: "/points" },
+  {
+    label: "profile.myPoints",
+    icon: null,
+    path: "/points",
+  },
   { label: "profile.myAddresses", icon: HiMiniMapPin, path: "/addresses" },
-  { label: "profile.referEarn", icon: MdPeopleOutline, path: "/refer" },
+  { label: "profile.referEarn", icon: FaUserGroup, path: "/refer" },
   { divider: true },
   { label: "profile.accountSettings", icon: IoSettingsSharp, path: "/account-settings" },
   { label: "profile.termsConditions", icon: BsFillShieldLockFill, path: "/terms" },
@@ -106,6 +114,10 @@ export default function ProfileSidebar() {
   // Hooks
   const { screenSizes } = useMediaChecker();
   const isMobile = screenSizes?.smScreen || screenSizes?.mdScreen;
+  const { resolvedTheme } = useTheme();
+
+  // Variables
+  const isGenZ = resolvedTheme === "genz";
 
   // Close sidebar when route changes (mobile)
   useEffect(() => {
@@ -133,7 +145,7 @@ export default function ProfileSidebar() {
       <div className="relative z-20 w-full lg:bg-[#FBFBFB] py-4 px-4 md:px-1 md:sm:px-8 rounded-3xl">
         {/* Profile */}
         <div
-          className="mb-8 flex items-center gap-5"
+          className="mb-6 flex items-center gap-5"
           aria-label={t("profile.userInfo", { default: "User information" })}
         >
           <Avatar className="size-12">
@@ -144,7 +156,7 @@ export default function ProfileSidebar() {
 
         {/* Menu */}
         <motion.nav
-          className="flex flex-col gap-5 items-start"
+          className="flex flex-col gap-1 items-start"
           aria-label={t("profile.menu", { default: "Profile menu" })}
           variants={containerVariants}
           animate={isMobile ? (isOpen ? "open" : "closed") : "open"}
@@ -168,14 +180,50 @@ export default function ProfileSidebar() {
                 <Link
                   href={`/profile${link.path}`}
                   className={cn(
-                    "flex items-center gap-4 font-medium transition-colors w-full",
+                    "flex items-center gap-4 py-2 font-medium w-full group transition-all duration-300",
                     isActive
-                      ? "text-main genz:text-purple-500"
-                      : "text-gray-400 hover:text-main genz:hover:!text-purple-500",
+                      ? "text-main genz:text-gradient "
+                      : "text-gray-400 hover:text-main genz:hover:text-gradient transition-all duration-300",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {link.icon && <link.icon size={18} aria-hidden="true" focusable="false" />}
+                  {link.icon &&
+                    (isGenZ ? (
+                      <>
+                        <div
+                          className={cn(
+                            "transition-all duration-300 ease-in-out mt-2",
+                            isActive
+                              ? "opacity-100 scale-100"
+                              : "opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100",
+                          )}
+                        >
+                          <IconGradient icon={link.icon} size={18} />
+                        </div>
+                        <div
+                          className={cn(
+                            "absolute transition-all duration-300 ease-in-out",
+                            isActive
+                              ? "opacity-0 scale-95"
+                              : "opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-95",
+                          )}
+                        >
+                          <link.icon size={18} aria-hidden="true" focusable="false" />
+                        </div>
+                      </>
+                    ) : (
+                      <link.icon size={18} aria-hidden="true" focusable="false" />
+                    ))}
+                  {!link.icon && (
+                    <span
+                      className={cn(
+                        "bg-gray-400 rounded-full flex-center size-5 group-hover:bg-main genz:group-hover:!bg-gradient",
+                        isActive && " bg-main genz:bg-gradient",
+                      )}
+                    >
+                      <LuStar className="text-white" />
+                    </span>
+                  )}
                   <span>{t(link.label!)}</span>
                 </Link>
               </motion.div>
@@ -191,10 +239,10 @@ export default function ProfileSidebar() {
       >
         <Link
           href="/logout"
-          className="flex items-center justify-start gap-3 text-red-600 hover:text-red-700 transition-colors bg-[#FBFBFB] py-4 px-4 md:px-2 md:sm:px-8 rounded-2xl w-full"
+          className="flex items-center justify-start -mt-1 gap-4 text-red-600 hover:text-red-700 transition-colors bg-[#FBFBFB] py-4 px-4 md:px-2 md:sm:px-8 rounded-2xl w-full"
           aria-label={t("profile.logout")}
         >
-          <IoLogOutOutline size={20} className="rotate-180" aria-hidden="true" focusable="false" />
+          <Image src={"/assets/icons/logout.svg"} alt="Logout" width={20} height={0} />
           <span className="block">{t("profile.logout")}</span>
         </Link>
       </motion.div>
