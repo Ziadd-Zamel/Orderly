@@ -87,10 +87,11 @@ export default function ProfileInfo() {
           name="fullName"
           render={({ field }) => (
             <FormItem className="gap-2">
-              <FormLabel>{t("full-name")}</FormLabel>
+              <FormLabel className="text-base">{t("full-name")}</FormLabel>
               <div className="relative">
                 <FormControl>
                   <Input
+                    className="border-[#F0EEF0]"
                     variant="outline"
                     placeholder="e.g John Doe"
                     type="text"
@@ -114,9 +115,10 @@ export default function ProfileInfo() {
           name="emial"
           render={({ field }) => (
             <FormItem className="gap-2">
-              <FormLabel>{t("email-address")}</FormLabel>
+              <FormLabel className="text-base">{t("email-address")}</FormLabel>
               <FormControl>
                 <Input
+                  className="border-[#F0EEF0]"
                   variant="outline"
                   placeholder="example@email.com"
                   type="email"
@@ -134,10 +136,11 @@ export default function ProfileInfo() {
           name="phone"
           render={({ field }) => (
             <FormItem className="gap-2">
-              <FormLabel>{t("phone")}</FormLabel>
+              <FormLabel className="text-base">{t("phone")}</FormLabel>
               <div className="relative">
                 <FormControl>
                   <Input
+                    className="border-[#F0EEF0]"
                     variant="outline"
                     placeholder="+201234567890"
                     {...field}
@@ -160,10 +163,11 @@ export default function ProfileInfo() {
           name="password"
           render={({ field }) => (
             <FormItem className="gap-2">
-              <FormLabel>{t("password")}</FormLabel>
+              <FormLabel className="text-base">{t("password")}</FormLabel>
               <div className="relative">
                 <FormControl className="relative">
                   <Input
+                    className="border-[#F0EEF0]"
                     variant="outline"
                     placeholder="••••••••"
                     {...field}

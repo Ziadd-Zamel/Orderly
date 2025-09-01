@@ -206,7 +206,12 @@ export default function AddAddressDialog() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input variant={"outline"} {...field} placeholder={t("address")} />
+                    <Input
+                      className="border-[#F0EEF0]"
+                      variant={"outline"}
+                      {...field}
+                      placeholder={t("address")}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

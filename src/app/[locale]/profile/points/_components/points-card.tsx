@@ -17,7 +17,7 @@ export default function PointsCard() {
   }, [currentPoints, nextTierPoints]);
 
   return (
-    <section className="w-full" aria-labelledby="points-section-title">
+    <section className="w-full relative" aria-labelledby="points-section-title">
       <div className="bg-main genz:bg-gradient flex flex-wrap justify-between gap-5 rounded-3xl p-4 sm:p-7 overflow-hidden relative">
         {/* Content */}
         <div className="flex flex-col flex-1 min-w-[300px] gap-6 sm:gap-12 lg:max-w-[400px] xl:max-w-[600px]">
@@ -75,7 +75,16 @@ export default function PointsCard() {
           loading="lazy"
           className="lg:absolute rtl:lg:-left-20 rtl:xl:-left-40 ltr:lg:-right-20 ltr:xl:-right-40 xl:-top-6 xl:w-[550px] lg:w-[350px]"
         />
+        {/* Image */}
       </div>
+      <Image
+        src="/assets/icons/crown.svg"
+        alt={t("points.imageAlt", { default: "Points illustration" })}
+        width={50}
+        height={50}
+        loading="lazy"
+        className=" absolute -top-9 -start-5 -rotate-6 rtl:rotate-45"
+      />
     </section>
   );
 }

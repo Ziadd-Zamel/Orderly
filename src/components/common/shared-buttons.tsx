@@ -3,6 +3,7 @@ import { HiOutlineHeart } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
 import { Trash2 } from "lucide-react";
 import { FaPen } from "react-icons/fa";
+import { HiTrash } from "react-icons/hi2";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   bgTheme?: "light" | "dark";
@@ -76,7 +77,7 @@ const TrashButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className,
         )}
       >
-        <Trash2 size={15} />
+        <HiTrash size={18} />
       </button>
     );
   },

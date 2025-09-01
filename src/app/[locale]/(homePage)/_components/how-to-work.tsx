@@ -17,7 +17,7 @@ export default function HowToWork() {
         <motion.p
           initial={{ scale: 0.5 }}
           whileInView={{ scale: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className="text-center text-2xl font-bold text-zinc-800 mb-16"
         >
           {t("food-us")}
@@ -28,13 +28,13 @@ export default function HowToWork() {
           <motion.div
             initial={{ y: -5, opacity: 0 }}
             whileInView={{ y: 0, opacity: 100 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 1 }}
             className="flex flex-col items-center text-center lg:text-start gap-6 w-full lg:w-1/4"
           >
             <motion.div
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: 1, delay: 2.5 }}
+              transition={{ duration: 0.5, delay: 2 }}
             >
               <Image
                 src={"/assets/Images/labtop.png"}
@@ -49,7 +49,7 @@ export default function HowToWork() {
             <motion.h3
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 2.5 }}
+              transition={{ duration: 0.5, delay: 2 }}
               className="w-full text-xl 2xl:text-2xl font-bold text-zinc-800 mb-2"
             >
               {t("browse")}
@@ -58,7 +58,7 @@ export default function HowToWork() {
             <motion.p
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 2.5 }}
+              transition={{ duration: 0.5, delay: 2 }}
               className="text-sm 2xl:text-base text-zinc-800"
             >
               {t("pick-your-favorite-restaurant")}
@@ -70,7 +70,7 @@ export default function HowToWork() {
             <motion.h3
               initial={{ scale: 0.5, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 100 }}
-              transition={{ duration: 1, delay: 5.5 }}
+              transition={{ duration: 1, delay: 3 }}
               className="text-xl 2xl:text-3xl text-zinc-800 font-bold"
             >
               {t("choose")}
@@ -80,8 +80,8 @@ export default function HowToWork() {
                 initial={{ opacity: 0, scale: 0.3 }}
                 whileInView={{ opacity: 100, scale: 1 }}
                 transition={{
-                  opacity: { duration: 0.5, delay: 6.5 },
-                  scale: { duration: 1, delay: 7 },
+                  opacity: { duration: 0.5, delay: 4.5 },
+                  scale: { duration: 1, delay: 5 },
                 }}
                 className="flex items-center gap-6"
               >
@@ -99,8 +99,8 @@ export default function HowToWork() {
                 initial={{ opacity: 0, scale: 0.3 }}
                 whileInView={{ opacity: 100, scale: 1 }}
                 transition={{
-                  opacity: { duration: 0.5, delay: 8 },
-                  scale: { duration: 1, delay: 8.5 },
+                  opacity: { duration: 0.5, delay: 6 },
+                  scale: { duration: 1, delay: 6.5 },
                 }}
                 className="flex items-center  gap-6"
               >
@@ -119,8 +119,8 @@ export default function HowToWork() {
                 initial={{ opacity: 0, scale: 0.3 }}
                 whileInView={{ opacity: 100, scale: 1 }}
                 transition={{
-                  opacity: { duration: 0.5, delay: 9.5 },
-                  scale: { duration: 1, delay: 10 },
+                  opacity: { duration: 0.5, delay: 7.5 },
+                  scale: { duration: 1, delay: 8 },
                 }}
                 className="flex items-center gap-6"
               >
@@ -141,13 +141,13 @@ export default function HowToWork() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 100 }}
-            transition={{ duration: 1, delay: 13 }}
+            transition={{ duration: 1, delay: 9.5 }}
             className="flex flex-col items-center text-center lg:text-start gap-6 w-full lg:w-1/4"
           >
             <motion.div
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: 1, delay: 14 }}
+              transition={{ duration: 1, delay: 10.5 }}
             >
               <Image
                 src={"/assets/Images/empty-packages.png"}
@@ -162,7 +162,7 @@ export default function HowToWork() {
             <motion.h3
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 14 }}
+              transition={{ duration: 1, delay: 10.5 }}
               className="lg:w-[90%]  text-xl 2xl:text-2xl lg:text-end font-bold text-zinc-800 mb-2 lg:me-auto"
             >
               {t("enjoy")}
@@ -170,7 +170,7 @@ export default function HowToWork() {
             <motion.p
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 2.5 }}
+              transition={{ duration: 1, delay: 10.5 }}
               className="text-sm 2xl:text-base text-zinc-800"
             >
               {t("sit-back-and-relax")}{" "}
@@ -179,7 +179,7 @@ export default function HowToWork() {
           <motion.div
             initial={{ width: "0" }}
             whileInView={{ width: "50%" }}
-            transition={{ duration: 2, delay: 3 }}
+            transition={{ duration: 2, delay: 2.5 }}
             className="absolute h-[380px] 2xl:h-[430px] -top-20 xl:-top-24 z-40 hidden xl:flex justify-start overflow-hidden 
              ltr:left-24 ltr:2xl:left-20 rtl:right-24 rtl:2xl:right-20"
           >
@@ -196,7 +196,7 @@ export default function HowToWork() {
           <motion.div
             initial={{ width: "0" }}
             whileInView={{ width: "50%" }}
-            transition={{ duration: 2, delay: 11.5 }}
+            transition={{ duration: 2, delay: 8.5 }}
             className="absolute h-[380px] 2xl:h-[430px] -top-20 xl:-top-[98px] z-40 hidden xl:flex justify-start overflow-hidden
              ltr:left-3/5 ltr:translate-x-4 ltr:min-[1700px]:translate-x-24
              rtl:right-3/5 rtl:-translate-x-4 rtl:min-[1700px]:-translate-x-24"

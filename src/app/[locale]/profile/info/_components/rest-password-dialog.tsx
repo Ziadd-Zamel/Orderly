@@ -19,7 +19,7 @@ export default function PasswordDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="max-w-md p-8 bg-white rounded-4xl">
+      <DialogContent className="max-w-md p-8 bg-white rounded-4xl border-none">
         <DialogHeader className="text-center mb-8">
           <DialogTitle className="text-2xl font-medium text-black text-center">
             {t("change-password")}
@@ -29,19 +29,31 @@ export default function PasswordDialog({
           <FormItem className="gap-2">
             <FormLabel>{t("current-password")}</FormLabel>
             <FormControl className="relative">
-              <PasswordInput variant="outline" placeholder="••••••••" type="password" />
+              <PasswordInput
+                className="border-[#F0EEF0]"
+                variant="outline"
+                placeholder="****************"
+              />
             </FormControl>
           </FormItem>
           <FormItem className="gap-2">
             <FormLabel>{t("new-password")}</FormLabel>
             <FormControl className="relative">
-              <PasswordInput variant="outline" placeholder="••••••••" type="password" />
+              <PasswordInput
+                className="border-[#F0EEF0]"
+                variant="outline"
+                placeholder="****************"
+              />
             </FormControl>
           </FormItem>
           <FormItem className="gap-2">
             <FormLabel>{t("confirm-password")}</FormLabel>
             <FormControl className="relative">
-              <PasswordInput variant="outline" placeholder="••••••••" type="password" />
+              <PasswordInput
+                className="border-[#F0EEF0]"
+                variant="outline"
+                placeholder="****************"
+              />
             </FormControl>
           </FormItem>
           <Button
