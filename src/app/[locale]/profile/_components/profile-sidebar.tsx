@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { BiSolidUser } from "react-icons/bi";
 import { FaClipboardList } from "react-icons/fa";
 import { HiMiniMapPin } from "react-icons/hi2";
-import { IoLogOutOutline, IoSettingsSharp } from "react-icons/io5";
+import { IoSettingsSharp } from "react-icons/io5";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useMediaChecker } from "@/hooks/use-media-checker";

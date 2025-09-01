@@ -31,10 +31,10 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
             width: [64, 200, 64],
           }}
           transition={{
-            duration: 5,
+            duration: 3,
             times: [0, 0.2, 1],
             repeat: Infinity,
-            repeatDelay: 2,
+            repeatDelay: 1,
             ease: "easeInOut",
           }}
         >
@@ -44,10 +44,10 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
           <motion.span
             className="text-white font-medium whitespace-nowrap pr-4"
             transition={{
-              duration: 3,
+              duration: 2,
               times: [0, 0.2, 1],
               repeat: Infinity,
-              repeatDelay: 4,
+              repeatDelay: 2,
               ease: "easeInOut",
             }}
           >

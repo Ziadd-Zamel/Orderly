@@ -160,8 +160,9 @@
     "signOut": "Sign Out"
   },
   "heroSection": {
-    "heading": "Explore Your Perfect Places",
-    "description": "Food Delivery is a thriving business and there are many opportunities for this businesses as its growing"
+    "heading": "Explore Your Perfect",
+    "description": "Food Delivery is a thriving business and there are many opportunities for this businesses as its growing",
+    "heading-v2": "Places"
   },
   "search": "Search",
   "search-input-placeholder": "Search for places",
