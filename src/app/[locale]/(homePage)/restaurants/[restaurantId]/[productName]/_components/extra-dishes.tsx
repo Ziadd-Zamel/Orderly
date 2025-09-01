@@ -10,7 +10,7 @@ export default function ExtraDishes() {
   const t = useTranslations();
   const format = useFormatter();
 
-  const [activeDish, setActiveDish] = React.useState<number | null>(null);
+  const [activeDish, setActiveDish] = React.useState<number[]>([]);
   const [activeSubDish, setActiveSubDish] = React.useState<Record<number, number | null>>({});
 
   // variabals
@@ -51,10 +51,14 @@ export default function ExtraDishes() {
     },
   ];
 
-  const handleDishClick = (dishId: React.SetStateAction<number | null>) => {
-    setActiveDish(activeDish === dishId ? null : dishId);
+  const handleDishClick = (dishId: number) => {
+    setActiveDish((prev) => {
+      if (prev.includes(dishId)) {
+        return prev.filter((id) => id !== dishId);
+      }
+      return [...prev, dishId];
+    });
   };
-
   const handleSubDishClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     dishId: number,
@@ -73,7 +77,7 @@ export default function ExtraDishes() {
           key={dish.id}
           initial={{ width: "250px" }}
           animate={{
-            width: activeDish === dish.id ? "500px" : "280px",
+            width: activeDish.includes(dish.id) ? "500px" : "280px",
           }}
           whileTap={{ scale: 0.95 }}
           transition={{
@@ -83,7 +87,7 @@ export default function ExtraDishes() {
           }}
           className={cn(
             "flex items-center gap-3 rounded-tl-full !rounded-bl-full rtl:!rounded-bl-none rtl:rounded-tl-none rtl:!rounded-br-full rtl:rounded-tr-full p-4 cursor-pointer min-h-[160px] shadow overflow-hidden",
-            activeDish === dish.id ? "bg-main genz:bg-purple-500" : "bg-white",
+            activeDish.includes(dish.id) ? "bg-main genz:bg-purple-500" : "bg-white",
           )}
           onClick={() => handleDishClick(dish.id)}
         >
@@ -91,7 +95,7 @@ export default function ExtraDishes() {
           <div className="flex-1 min-w-0">
             <motion.h3
               animate={{
-                color: activeDish === dish.id ? "#ffffff" : "var(--main)",
+                color: activeDish.includes(dish.id) ? "#ffffff" : "var(--main)",
               }}
               transition={{ duration: 0.3 }}
               className="text-2xl font-semibold mb-2  genz:text-purple-500"
@@ -101,7 +105,7 @@ export default function ExtraDishes() {
 
             {/* Closed State Price Display with Layout Animation */}
             <AnimatePresence mode="wait">
-              {activeDish !== dish.id && (
+              {activeDish.includes(dish.id) && (
                 <motion.div
                   key="price"
                   initial={{ opacity: 0, height: 0, marginBottom: 10 }}
@@ -119,7 +123,7 @@ export default function ExtraDishes() {
             </AnimatePresence>
 
             <AnimatePresence>
-              {activeDish === dish.id && (
+              {activeDish.includes(dish.id) && (
                 <motion.div
                   key="subdishes"
                   initial={{ opacity: 0, x: -20, height: 0 }}
