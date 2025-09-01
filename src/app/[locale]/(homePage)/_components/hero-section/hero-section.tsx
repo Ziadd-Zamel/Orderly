@@ -114,15 +114,15 @@ export default function HeroSection() {
               variants={searchInputVariants}
               initial="initial"
               animate="visible"
-              className="w-full lg:w-4/5 relative z-40 p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
+              className="w-full lg:w-4/5 relative h-16 z-40 p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
               aria-label={t("search-input")}
             >
               <Input
-                className="bg-background border-none  h-10"
+                className="bg-background border-none h-full "
                 placeholder={t("search-input-placeholder") || "Search..."}
               />
               {/* Search Button */}
-              <Button className="rounded-full w-[30%]" aria-label={t("search-button")}>
+              <Button className="rounded-full w-[30%] h-full" aria-label={t("search-button")}>
                 {t("search") || "Search"}
               </Button>
             </motion.div>

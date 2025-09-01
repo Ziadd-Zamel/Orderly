@@ -1,8 +1,8 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
-import { Trash2 } from "lucide-react";
 import { FaPen } from "react-icons/fa";
+import { IoBagHandle } from "react-icons/io5";
 import { HiTrash } from "react-icons/hi2";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -36,11 +36,11 @@ const DeleteButton = React.forwardRef<HTMLButtonElement, ButtonProps>(({ ...prop
       ref={ref}
       {...props}
       className={cn(
-        "size-8 flex-center !circle shrink-0 cursor-pointer bg-transparent hover:bg-transparent text-white genz:bg-white genz:hover:bg-white genz:text-zinc-900",
+        "size-10 flex-center !circle shrink-0 cursor-pointer bg-transparent hover:bg-transparent text-white genz:bg-white genz:hover:bg-white genz:text-zinc-900",
         props.className,
       )}
     >
-      <Trash2 size={20} />
+      <HiTrash size={20} />
     </button>
   );
 });
@@ -84,5 +84,23 @@ const TrashButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 TrashButton.displayName = "TrashButton";
+const CartButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        {...props}
+        className={cn(
+          "text-main genz:text-purple-500 genz:bg-purple-100 size-8 bg-[#1295751A] rounded-lg flex-center shrink-0 cursor-pointer transition-colors",
+          className,
+        )}
+      >
+        <IoBagHandle size={18} />
+      </button>
+    );
+  },
+);
 
-export { FavoriteButton, DeleteButton, ActionButton, TrashButton };
+CartButton.displayName = "CartButton";
+
+export { FavoriteButton, DeleteButton, ActionButton, TrashButton, CartButton };
