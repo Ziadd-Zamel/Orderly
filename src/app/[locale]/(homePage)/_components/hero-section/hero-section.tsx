@@ -14,15 +14,15 @@ const BackgroundVectors = dynamic(() => import("./hero-vectors"), {
   ssr: false,
 });
 
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+// Animation variants for the heading container (width reveal)
+const headingContainerVariants: Variants = {
+  hidden: { width: "0%" },
   visible: {
-    opacity: 1,
-    y: 0,
+    width: "100%",
     transition: {
-      duration: 0.8,
+      duration: 3,
+      delay: 0.5,
       ease: "easeOut",
-      type: "tween", // << ضيف دي
     },
   },
 };
@@ -37,19 +37,6 @@ const descriptionVariants: Variants = {
       duration: 0.8,
       ease: "easeOut" as const,
       delay: 1.5,
-    },
-  },
-};
-
-// Animation variants for the image
-const imageVariants: Variants = {
-  initial: { rotate: 0 },
-  hover: {
-    rotate: [0, 1, -1, 1, -1, 0],
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut" as const,
-      repeat: 2,
     },
   },
 };
@@ -80,59 +67,62 @@ export default function HeroSection() {
 
   // Variables
   const headingText = t("heroSection.heading") || "Lorem ipsum dolor sit amet consectetur.";
-  const words = headingText.split(" ");
+  const headingsecondword =
+    t("heroSection.heading-v2") || "Lorem ipsum dolor sit amet consectetur.";
 
   return (
     <section className="relative w-full genz:hero-bg mb-20 !overflow-x-hidden">
       <div className="box-container pt-28 lg:py-36 pb-16">
         <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-10 relative z-20">
-          <div className="w-full lg:w-3/5 flex flex-col items-start justify-between gap-10 ">
-            {/* Heading */}
-            <motion.h1
+          <div className="w-full lg:w-3/5 flex flex-col items-start justify-between gap-10">
+            {/* Heading with width animation */}
+            <motion.div
+              variants={headingContainerVariants}
               initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {}, // parent starts in hidden state
-                visible: {
-                  transition: { staggerChildren: 0.2 },
-                },
-              }}
-              className="max-w-[90%] text-[37px] md:text-5xl lg:text-5xl xl:text-[68px] 
-             text-main genz:text-gradient font-bold lg:leading-20 lg:mb-10"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="overflow-hidden"
             >
-              {words.map((word, i) => (
-                <motion.span key={i} variants={wordVariants} className="inline-block ms-3">
-                  {word}
-                </motion.span>
-              ))}
-            </motion.h1>
+              <h1
+                className="max-w-[90%] text-[37px] md:text-5xl lg:text-5xl xl:text-[68px] 
+                         text-main genz:text-gradient font-bold lg:leading-20 lg:mb-10 whitespace-nowrap"
+              >
+                {headingText}
+                <br />
+                {headingsecondword}
+              </h1>
+            </motion.div>
 
-            {/* Hero Description */}
+            {/* Hero Description with width animation */}
             <motion.div
               variants={descriptionVariants}
               initial="hidden"
-              animate="visible"
-              className="relative before:w-1.5 before:h-full before:absolute before:start-0 before:top-0 before:rounded-t-full before:rounded-b-full ps-4 before:bg-main genz:before:bg-purple-500"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="overflow-hidden"
             >
-              <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800">
-                {t("heroSection.description")}
-              </p>
+              <div className="relative before:w-1.5 before:h-full before:absolute before:start-0 before:top-0 before:rounded-t-full before:rounded-b-full ps-4 before:bg-main genz:before:bg-purple-500">
+                <p className="w-full lg:max-w-[85%] text-lg md:text-xl text-zinc-800">
+                  {t("heroSection.description")}
+                </p>
+              </div>
             </motion.div>
 
+            {/* Search Component with width animation */}
             {/* Search Component */}
             <motion.div
               variants={searchInputVariants}
               initial="initial"
               animate="visible"
-              className="w-full lg:w-4/5 relative z-40 p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
+              className="w-full lg:w-4/5 relative h-16 z-40 p-1.5 bg-main/10 genz:bg-white flex gap-2 rounded-full"
               aria-label={t("search-input")}
             >
               <Input
-                className="bg-background border-none  h-10"
+                className="bg-background border-none h-full "
                 placeholder={t("search-input-placeholder") || "Search..."}
               />
               {/* Search Button */}
-              <Button className="rounded-full w-[30%]" aria-label={t("search-button")}>
+              <Button className="rounded-full w-[30%] h-full" aria-label={t("search-button")}>
                 {t("search") || "Search"}
               </Button>
             </motion.div>
@@ -140,13 +130,7 @@ export default function HeroSection() {
 
           {/* Hero Image */}
           <div className="w-full lg:w-2/5 flex-center h-[350px] lg:h-[400px] xl:h-[450px] relative z-20">
-            <motion.div
-              key={resolvedTheme === "genz" ? "genz-hero" : "hero-image"}
-              className="relative w-full h-full"
-              variants={imageVariants}
-              initial="initial"
-              whileHover="hover"
-            >
+            <div className="relative w-full h-full">
               <Image
                 src={"/assets/Images/hero-image.png"}
                 alt="Hero Image"
@@ -164,7 +148,7 @@ export default function HeroSection() {
                 sizes="100%"
                 className="w-full h-full object-contain hidden genz:block"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

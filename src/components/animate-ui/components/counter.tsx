@@ -54,7 +54,7 @@ function Counter({
               buttonProps?.className,
             )}
           >
-            <FiMinus className="w-6 h-6" />
+            <FiMinus className="size-6" />
           </Button>
         ) : (
           <DeleteButton audience={audience} className={buttonProps?.className} />
@@ -65,7 +65,10 @@ function Counter({
       <SlidingNumber
         number={number}
         {...slidingNumberProps}
-        className={cn("text-lg pr-1 text-white genz:text-zinc-800", slidingNumberProps?.className)}
+        className={cn(
+          "text-lg pr-1 text-white genz:text-zinc-800 w-7 justify-center",
+          slidingNumberProps?.className,
+        )}
       />
 
       {/* Increase Button */}

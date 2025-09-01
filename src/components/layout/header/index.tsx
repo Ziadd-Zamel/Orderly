@@ -25,7 +25,7 @@ export default function Navbar() {
   const navigationLinks = [
     { href: "/", label: t("navbar.home"), active: true },
     { href: "/restaurants", label: t("navbar.restaurants"), active: false },
-    { href: "/coffee-shops", label: t("navbar.coffeeShops"), active: false },
+    { href: "/restaurants", label: t("navbar.coffeeShops"), active: false },
     { href: "/favourite", label: t("navbar.favourite"), active: false },
   ];
 

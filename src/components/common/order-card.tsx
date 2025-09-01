@@ -28,7 +28,7 @@ export default function OrderCard({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative bg-white border  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
+        "relative bg-white border-transparent  genz:border-gradient rounded-3xl px-3 sm:px-9 py-6 min-h-[90px] w-full sm:mt-16 flex flex-col items-center sm:items-start ",
         className,
       )}
     >
