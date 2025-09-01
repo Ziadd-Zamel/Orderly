@@ -34,7 +34,14 @@ export default function HeadLine({
         priority
         className="h-full w-full object-cover"
       />
-      <div className="box-container relative z-10 flex w-full flex-col items-center justify-between gap-6 md:flex-row rtl:flex-row-reverse">
+      <div
+        className={cn(
+          "box-container relative z-10 flex w-full flex-col items-center justify-between gap-6 md:flex-row md:rtl:!flex-row-reverse",
+          {
+            "rtl:justify-end": !children,
+          },
+        )}
+      >
         <h3 className="text-2xl font-semibold text-zinc-800 md:text-3xl">{title}</h3>
         {children && children}
       </div>

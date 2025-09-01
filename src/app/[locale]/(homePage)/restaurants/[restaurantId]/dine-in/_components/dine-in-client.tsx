@@ -55,39 +55,39 @@ export default function DineInClient() {
   return (
     <section className="mt-32 mb-10">
       <div className="mb-6">
-        <HeadLine title="Choose Floor">
+        <HeadLine title={t("choose-floor")}>
           <Floors selectedFloor={selectedFloor} setSelectedFloor={setSelectedFloor} />
         </HeadLine>
       </div>
 
       <div className="box-container px-4">
-        <div className="flex flex-col-reverse lg:flex-row gap-10 xl:gap-28">
-          <div className="w-full lg:w-1/2 min-h-44 flex items-center justify-center">
+        <div className="flex flex-col-reverse gap-10 lg:flex-row xl:gap-28">
+          <div className="flex min-h-44 w-full items-center justify-center lg:w-1/2">
             <Table
               chairsCount={chairsCount}
               setChairsCount={setChairsCount}
-              min={1}
+              min={2}
               max={6}
               step={1}
             />
           </div>
 
-          <div className="w-full lg:w-1/2 flex flex-col items-center gap-16">
-            <div className="w-full flex flex-col items-center gap-6 bg-gray-100 rounded-4xl min-h-44 p-8">
-              <h3 className="text-zinc-800 text-xl font-semibold">{t("date-time")}</h3>
+          <div className="flex w-full flex-col items-center gap-16 lg:w-1/2">
+            <div className="flex min-h-44 w-full flex-col items-center gap-6 rounded-4xl bg-gray-100 p-8">
+              <h3 className="text-xl font-semibold text-zinc-800">{t("date-time")}</h3>
               <DateSelector selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
               <TimePickerForm selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
             </div>
 
-            <Button onClick={handleReservation} className="w-full text-lg hidden genz:block">
-              Reserve
+            <Button onClick={handleReservation} className="genz:block hidden w-full text-lg">
+              {t("reserve")}
             </Button>
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center genz:justify-end genz:hidden">
-          <Button onClick={handleReservation} className="w-full sm:max-w-sm text-lg">
-            Reserve
+        <div className="genz:justify-end genz:hidden mt-12 flex justify-center">
+          <Button onClick={handleReservation} className="w-full text-lg sm:max-w-sm">
+            {t("reserve")}
           </Button>
         </div>
       </div>

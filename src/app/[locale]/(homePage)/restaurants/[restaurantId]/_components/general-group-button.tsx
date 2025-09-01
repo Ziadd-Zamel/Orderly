@@ -38,7 +38,6 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
             times: [0, 0.5, 1],
             repeat: Infinity,
             repeatDelay: 1,
-            repeatDelay: 1,
             ease: "easeInOut",
           }}
         >
@@ -51,7 +50,6 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
               duration: 3,
               times: [0, 0.5, 1],
               repeat: Infinity,
-              repeatDelay: 2,
               repeatDelay: 2,
               ease: "easeInOut",
             }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { ArrowBigLeft, ChevronLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 

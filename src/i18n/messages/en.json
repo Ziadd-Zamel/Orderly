@@ -293,5 +293,6 @@
   "delivery-info": "Delivery Info",
   "payment-method": "Payment Method",
   "review-order": "Review Order",
-  "order-as-group": "Group Order"
+  "order-as-group": "Group Order",
+  "reserve": "Reserve"
 }
