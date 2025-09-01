@@ -10,7 +10,12 @@ import { useTranslations } from "next-intl";
 
 function FilterContent() {
   const [values, setValues] = useState([0, 100]);
+  const [selectedPlaceTypes, setSelectedPlaceTypes] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+
   const t = useTranslations();
+
   const placeTypes = [
     { id: "Restaurant", label: "Restaurant", icon: "/assets/icons/food.svg" },
     { id: "Coffee shop", label: "Coffee shop", icon: "/assets/icons/coffee.svg" },
@@ -18,22 +23,55 @@ function FilterContent() {
   const categories = ["Fast Food", "Seafood", "Breakfast Spot", "Vegan", "Fried Chicken", "Grill"];
   const services = ["Wi-Fi", "Kids Area", "Parking", "Vegan", "Outdoor Seating", "Smoking"];
 
+  const togglePlaceType = (typeId: string) => {
+    setSelectedPlaceTypes((prev) =>
+      prev.includes(typeId) ? prev.filter((id) => id !== typeId) : [...prev, typeId],
+    );
+  };
+
+  const toggleCategory = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category) ? prev.filter((cat) => cat !== category) : [...prev, category],
+    );
+  };
+
+  const toggleService = (service: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(service) ? prev.filter((serv) => serv !== service) : [...prev, service],
+    );
+  };
+
+  const clearAll = () => {
+    setSelectedPlaceTypes([]);
+    setSelectedCategories([]);
+    setSelectedServices([]);
+    setValues([0, 100]);
+  };
+
   return (
     <div className="h-full w-full overflow-y-auto rounded-4xl bg-[#FBFBFB] px-6 py-9">
       {/* Place Type */}
       <div className="mb-8">
         <h3 className="mb-6 text-lg">{t("place-type")}</h3>
-        <div className="flex gap-2 md:gap-3 lg:flex-wrap xl:flex-nowrap">
-          {placeTypes.map((type) => (
-            <Button
-              key={type.id}
-              variant="outline"
-              className="genz:bg-gradient genz:text-white flex items-center gap-2 rounded-lg border-gray-200 bg-white px-4 py-3 text-base hover:bg-gray-50 lg:w-full xl:w-auto"
-            >
-              <Image src={type.icon} alt="Icon" width={25} height={0} />
-              {type.label}
-            </Button>
-          ))}
+        <div className="flex flex-wrap gap-2 md:gap-3">
+          {placeTypes.map((type) => {
+            const isSelected = selectedPlaceTypes.includes(type.id);
+            return (
+              <Button
+                key={type.id}
+                variant="outline"
+                onClick={() => togglePlaceType(type.id)}
+                className={`flex items-center gap-2 rounded-lg px-4 py-3 text-base transition-colors ${
+                  isSelected
+                    ? "bg-main border-main hover:bg-main/90 genz:bg-gradient genz:text-white text-white"
+                    : "genz:text-purple-500 border-gray-200 bg-white hover:bg-gray-50"
+                }`}
+              >
+                <Image src={type.icon} alt="Icon" width={25} height={0} />
+                {type.label}
+              </Button>
+            );
+          })}
         </div>
       </div>
 
@@ -43,16 +81,24 @@ function FilterContent() {
       <div className="mb-8">
         <h3 className="mb-6 text-lg">{t("categories")}</h3>
         <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant="outline"
-              size="sm"
-              className="genz:bg-gradient genz:text-white rounded-full border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
-            >
-              {category}
-            </Button>
-          ))}
+          {categories.map((category) => {
+            const isSelected = selectedCategories.includes(category);
+            return (
+              <Button
+                key={category}
+                variant="outline"
+                size="sm"
+                onClick={() => toggleCategory(category)}
+                className={`rounded-full px-3 py-2 text-sm transition-colors ${
+                  isSelected
+                    ? "bg-main border-main hover:bg-main/90 genz:bg-gradient genz:text-white text-white"
+                    : "genz:text-black genz:border-transparent border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                {category}
+              </Button>
+            );
+          })}
         </div>
       </div>
       <Separator className="mb-10 h-px w-full bg-[#EEEEEE]" />
@@ -76,22 +122,31 @@ function FilterContent() {
       <div className="mb-8">
         <h3 className="mb-6 text-lg">{t("services-provided")}</h3>
         <div className="flex flex-wrap gap-2">
-          {services.map((service) => (
-            <Button
-              key={service}
-              variant="outline"
-              size="sm"
-              className="genz:bg-gradient genz:text-white rounded-full border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
-            >
-              {service}
-            </Button>
-          ))}
+          {services.map((service) => {
+            const isSelected = selectedServices.includes(service);
+            return (
+              <Button
+                key={service}
+                variant="outline"
+                size="sm"
+                onClick={() => toggleService(service)}
+                className={`rounded-full px-3 py-2 text-sm transition-colors ${
+                  isSelected
+                    ? "bg-main border-main hover:bg-main/90 genz:bg-gradient genz:text-white text-white"
+                    : "genz:text-black genz:border-transparent border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                {service}
+              </Button>
+            );
+          })}
         </div>
       </div>
 
       {/* Clear All */}
       <Button
         variant="ghost"
+        onClick={clearAll}
         className="text-custom-orange genz:text-red-400 w-full text-base font-medium hover:bg-orange-50"
       >
         {t("clear-all")}

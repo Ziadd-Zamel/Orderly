@@ -15,6 +15,8 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { FaShareAlt } from "react-icons/fa";
 import { Label } from "@/components/ui/label";
+import { useTheme } from "next-themes";
+import IconGradient from "@/components/common/icon-gradiant";
 
 function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
   // Translation
@@ -65,6 +67,8 @@ function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
 export default function GroupButton({ disableAnimation }: { disableAnimation?: boolean }) {
   const [open, setOpen] = useState(false);
   const t = useTranslations();
+  const { resolvedTheme } = useTheme();
+  const isGenz = resolvedTheme === "genz";
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Trigger */}
