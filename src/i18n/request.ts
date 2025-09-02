@@ -63,6 +63,13 @@ export const getFormats = (locale: (typeof routing.locales)[number]): Formats =>
         hour12: false,
       },
 
+      time: {
+        numberingSystem: locale === "ar" ? "arab" : "latn",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      },
+
       //^ --- FULL YEAR FORMATS (year: 'numeric') ---
 
       //~ 09/06/2025

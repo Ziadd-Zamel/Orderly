@@ -27,9 +27,12 @@ export default function OpeningHours() {
             )}
           >
             <span className="flex items-center gap-2 sm:gap-3 sm:text-base xl:text-xl">
-              <span className="font-medium">{hour.day}</span>
+              <span className="font-medium">{t(hour.day)}</span>
               {activeDay === hour.day && (
-                <span className="font-normal text-zinc-700">{hour.time}</span>
+                <span className="font-normal text-zinc-700">
+                  {t("time-formatter", { value: new Date(hour.timeFrom) })} -{" "}
+                  {t("time-formatter", { value: new Date(hour.timeTo) })}
+                </span>
               )}
             </span>
           </div>

@@ -294,5 +294,14 @@
   "payment-method": "طريقة الدفع",
   "review-order": "مراجعة الطلب",
   "order-as-group": "الطـلب كمجمـوعة",
-  "reserve": "حـجــز"
+  "reserve": "حـجــز",
+  "Saturday": "السبت",
+  "Sunday": "الأحد",
+  "Monday": "الاثنين",
+  "Tuesday": "الثلاثاء",
+  "Wednesday": "الأربعاء",
+  "Friday": "الجمعة",
+  "time-formatter": "{value, time, time}",
+  "restaurant": "مـطــعـم",
+  "coffee-shop": "كــافيــة"
 }
