@@ -59,7 +59,7 @@ const customerReviews = [
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
-    <div className="flex gap-1 mb-4">
+    <div className="mb-4 flex gap-1">
       {[...Array(5)].map((_, index) => (
         <Star
           key={index}
@@ -83,32 +83,32 @@ export default function CustomersCarousel() {
         <Carousel
           className="w-full"
           opts={{
-            align: "start",
+            align: "center",
           }}
         >
-          <CarouselContent className="w-full py-20 px-5  gap-4 cursor-grab">
+          <CarouselContent className="w-full cursor-grab gap-4 px-5 py-20">
             {customerReviews.map((review) => (
               <CarouselItem key={review.id} className="md:basis-1/2 lg:basis-1/3">
-                <div className="relative flex flex-col items-center text-center h-full pb-8 pt-24 2xl:px-20 xl:px-10 px-5  bg-white min-h-96 rounded-tl-[80px] rounded-tr-4xl rounded-bl-4xl rounded-br-[80px] shadow-md">
+                <div className="relative flex h-full min-h-96 flex-col items-center rounded-tl-[80px] rounded-tr-4xl rounded-br-[80px] rounded-bl-4xl bg-white px-5 pt-24 pb-8 text-center shadow-md xl:px-10 2xl:px-20">
                   {/* Customer Avatar */}
                   <Image
                     src={review.avatar}
                     alt={review.name}
                     width={100}
                     height={100}
-                    className="absolute rounded-full border-4 border-gray-100 -top-12"
+                    className="absolute -top-12 rounded-full border-4 border-gray-100"
                   />
 
                   {/* Star Rating */}
                   <StarRating rating={review.rating} />
 
                   {/* Review Text */}
-                  <p className="text-gray-600 leading-relaxed mt-6 flex-grow">{review.review}</p>
+                  <p className="mt-6 flex-grow leading-relaxed text-gray-600">{review.review}</p>
 
                   {/* Customer Name and Time */}
                   <div className="mt-auto">
                     <h3 className="font-semibold text-gray-800">{review.name}</h3>
-                    <p className="text-gray-400 text-sm mt-2">{review.timeAgo}</p>
+                    <p className="mt-2 text-sm text-gray-400">{review.timeAgo}</p>
                   </div>
                 </div>
               </CarouselItem>

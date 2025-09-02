@@ -15,7 +15,7 @@ export default function RestaurantsPage() {
       <section className="box-container mt-32 mb-16">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Filter Sidebar - Hidden on mobile, shown on large screens */}
-          <div className="">
+          <div className="max-w-[30%]">
             <h3 className="lg:block hidden text-2xl text-main genz:text-gradient font-medium mb-16">
               {t("filter-options")}
             </h3>
@@ -40,8 +40,7 @@ export default function RestaurantsPage() {
 
             {/* Places Grid */}
             <PlacesGrid places={places} />
-            <PlacesGrid places={places} />
-            <div className=" mt-32">
+            <div className="mt-32">
               <PaginationComp currentPage={1} totalPages={4} />
             </div>
           </div>

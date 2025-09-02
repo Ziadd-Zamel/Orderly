@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
+import { ChevronLeft } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
@@ -17,37 +18,42 @@ export default function ThemeSwitcher() {
   const handleSwitch = async () => {
     if (isAnimating) return;
     setIsAnimating(true);
+
     // expand animation
     await controls.start({
       scale: 50,
-      transition: { duration: 1.5, ease: "easeInOut" },
+      transition: { duration: 1, ease: "easeInOut" },
     });
 
     // switch theme
     setTheme(theme === "general" ? "genz" : "general");
     setShowContent(true);
 
-    setTimeout(() => setShowContent(false), 5000);
-    // shrink + move to left
+    setTimeout(() => setShowContent(false), 3000);
+
+    // shrink + يرجع تاني يمين زي ما كان
     await controls.start({
       scale: 1,
-      x: theme === "general" ? -window.innerWidth - 50 : 0,
-      transition: { duration: 1.5, ease: "easeInOut", delay: 4 },
+      x: 0, // بيرجع لنفس مكانه
+      transition: { duration: 1, ease: "easeInOut", delay: 2.5 },
     });
+
     setIsAnimating(false);
   };
 
   return (
     <>
       <motion.div
-        className="fixed top-1/2 right-0 translate-x-2/3 size-44 rounded-full bg-gradient-to-br from-fuchsia-600 to-blue-400 z-50 cursor-pointer overflow-hidden"
+        className="fixed top-2/3 -right-3 z-50 flex h-24 w-10 cursor-pointer items-center justify-center rounded-l-full bg-gradient-to-br from-purple-500 to-cyan-400 shadow-lg md:h-28 md:w-12 lg:h-32 lg:w-14"
         animate={controls}
         onClick={handleSwitch}
-      />
+      >
+        {!isAnimating && <ChevronLeft className="me-3 size-6 text-white sm:size-7" />}
+      </motion.div>
 
       {showContent && (
         <motion.div
-          className="fixed inset-0 flex flex-col items-center justify-center text-white z-[999] pointer-events-none"
+          className="pointer-events-none fixed inset-0 z-[999] flex flex-col items-center justify-center text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -55,43 +61,35 @@ export default function ThemeSwitcher() {
         >
           {/* Main title */}
           <motion.div
-            className="text-4xl md:text-5xl font-semibold mb-16 text-center"
+            className="mb-16 text-center text-4xl font-semibold md:text-5xl"
             initial={{ opacity: 0, scale: 0.5, y: -30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{
-              duration: 1,
+              duration: 0.8,
               ease: "easeOut",
               type: "spring",
-              stiffness: 100,
+              stiffness: 120,
             }}
           >
-            <h1 className="">{theme === "genz" ? "GEN Z" : "GENERAL"}</h1>
-
-            <p className="">MODE</p>
+            <h1>{theme === "genz" ? "GEN Z" : "GENERAL"}</h1>
+            <p>MODE</p>
           </motion.div>
 
           {/* Bouncing yellow ball */}
           <motion.div
-            className="w-7 h-7 rounded-full bg-custom-orange drop-shadow-2xl"
-            initial={{
-              y: -200,
-              opacity: 0,
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-              scale: 1,
-            }}
+            className="bg-custom-orange h-7 w-7 rounded-full drop-shadow-2xl"
+            initial={{ y: -200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
             transition={{
               type: "spring",
               stiffness: 200,
               damping: 8,
               mass: 2,
-              delay: 0.8,
+              delay: 0.5,
             }}
           />
 
-          {/* Enhanced sparkle effects */}
+          {/* Sparkles */}
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
@@ -107,9 +105,9 @@ export default function ThemeSwitcher() {
                 rotate: [0, 180, 360],
               }}
               transition={{
-                duration: 2.5,
+                duration: 2,
                 repeat: Infinity,
-                delay: 1.2 + i * 0.2,
+                delay: 1 + i * 0.2,
                 ease: "easeInOut",
               }}
             />

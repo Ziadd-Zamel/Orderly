@@ -6,7 +6,7 @@ import { Loader2 } from "lucide-react";
 import { HiArrowLongRight } from "react-icons/hi2";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[10px] text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none cursor-pointer [&_svg]:shrink-0 hover:transition-all hover:duration-300",
+  "inline-flex items-center justify-center rtl:flex-row-reverse gap-2 whitespace-nowrap rounded-[10px] text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none cursor-pointer [&_svg]:shrink-0 hover:transition-all hover:duration-300",
   {
     variants: {
       variant: {

@@ -17,7 +17,7 @@ type TableProps = {
 const Table = ({
   chairsCount,
   setChairsCount,
-  min = 1,
+  min = 2,
   max = 6,
   step = 1,
   ariaLabel = "Chairs selection",
@@ -49,14 +49,14 @@ const Table = ({
     <div
       role="group"
       aria-label={ariaLabel}
-      className="h-full w-full lg:max-w-[80%] flex items-center justify-between gap-8"
+      className="flex h-full w-full flex-col-reverse items-center justify-between gap-8 sm:max-w-[70%] sm:flex-row lg:max-w-[80%] xl:max-w-[60%]"
     >
       <button
         type="button"
         aria-label="Decrease chairs"
         title="Decrease"
         className={cn(
-          "bg-custom-orange genz:bg-[#FF6F61] flex-center text-white rounded-lg size-10 text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+          "bg-custom-orange genz:bg-[#FF6F61] flex-center size-10 cursor-pointer rounded-lg text-2xl text-white disabled:cursor-not-allowed disabled:opacity-50",
         )}
         onClick={decrease}
         disabled={isDecrementDisabled}
@@ -65,56 +65,59 @@ const Table = ({
       </button>
 
       {/* Table */}
-      <div className="flex-1 flex min-h-[380px] py-6 overflow-hidden">
+      <div className="flex w-full flex-1 gap-3 overflow-hidden py-6 sm:max-w-4/5">
         {/* Right Side */}
-        <div className="flex-center flex-col gap-2 basis-[15%]">
-          {/* 1 */}
-          <div className="bg-[#EBEBEB] w-4 h-24 rounded-full" />
-
-          {/* 2 */}
+        <div className="flex-center basis-[15%] flex-col gap-2">
+          {/* 3 */}
           <div
-            className={cn("bg-[#EBEBEB] w-4 h-24 rounded-full transition duration-300", {
-              "-translate-x-20 opacity-0": chairsCount < 2,
+            className={cn("h-24 w-4 rounded-full bg-[#EBEBEB] duration-300", {
+              "translate-y-1/2": chairsCount === 3 || chairsCount === 4,
+              "-translate-x-20 translate-y-1/2 opacity-0": chairsCount < 3,
+            })}
+          />
+
+          {/* 5 */}
+          <div
+            className={cn("h-24 w-4 rounded-full bg-[#EBEBEB] transition duration-300", {
+              "translate-x-20 opacity-0": chairsCount < 5,
             })}
           />
         </div>
 
         {/* Center */}
         <div className="flex-center flex-1 flex-col gap-4">
-          {/* 3 */}
-          <div
-            className={cn("bg-[#EBEBEB] w-24 h-4 rounded-full transition duration-300", {
-              "-translate-y-20 opacity-0": chairsCount < 3,
-            })}
-          />
+          {/* 1 */}
+          <div className="h-4 w-24 rounded-full bg-[#EBEBEB] transition duration-300" />
 
           {/* Table Box */}
-          <div className="w-full flex-1 flex-center bg-[#EBEBEB] border-2 border-custom-orange genz:border-[#FF6F61] rounded-lg">
-            <span className="text-base sm:text-lg text-zinc-600 font-medium">
+          <div
+            className={cn(
+              "flex-center border-custom-orange genz:border-[#FF6F61] w-full rounded-lg border-2 bg-[#EBEBEB] duration-300",
+              { "h-38": chairsCount <= 2, "h-44": chairsCount <= 4, "h-64": chairsCount > 4 },
+            )}
+          >
+            <span className="text-base font-medium text-zinc-600 sm:text-lg">
               {chairsCount} {chairsCount === 1 ? t("chair") : t("chairs")}
             </span>
           </div>
 
-          {/* 4 */}
-          <div
-            className={cn("bg-[#EBEBEB] w-24 h-4 rounded-full transition duration-300", {
-              "translate-y-20 opacity-0": chairsCount < 4,
-            })}
-          />
+          {/* 2 */}
+          <div className="h-4 w-24 rounded-full bg-[#EBEBEB] transition duration-300" />
         </div>
 
         {/* Left Side */}
-        <div className="flex-center flex-col gap-2 basis-[15%]">
-          {/* 5 */}
+        <div className="flex-center basis-[15%] flex-col gap-2">
+          {/* 4 */}
           <div
-            className={cn("bg-[#EBEBEB] w-4 h-24 rounded-full transition duration-300", {
-              "translate-x-20 opacity-0": chairsCount < 5,
+            className={cn("h-24 w-4 rounded-full bg-[#EBEBEB] transition duration-300", {
+              "translate-y-1/2": chairsCount === 4,
+              "translate-x-20 translate-y-1/2 opacity-0": chairsCount < 4,
             })}
           />
 
           {/* 6 */}
           <div
-            className={cn("bg-[#EBEBEB] w-4 h-24 rounded-full transition duration-300", {
+            className={cn("h-24 w-4 rounded-full bg-[#EBEBEB] transition duration-300", {
               "translate-x-20 opacity-0": chairsCount < 6,
             })}
           />
@@ -127,7 +130,7 @@ const Table = ({
         aria-label="Increase chairs"
         title="Increase"
         className={cn(
-          "bg-custom-orange genz:bg-[#FF6F61] flex-center text-white rounded-lg size-10 text-2xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+          "bg-custom-orange genz:bg-[#FF6F61] flex-center size-10 cursor-pointer rounded-lg text-2xl text-white disabled:cursor-not-allowed disabled:opacity-50",
         )}
         onClick={increase}
         disabled={isIncrementDisabled}

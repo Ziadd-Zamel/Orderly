@@ -1,10 +1,19 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { ReactNode } from "react";
 
-export default function HeadLine({ children, title }: { children?: ReactNode; title: string }) {
+export default function HeadLine({
+  children,
+  title,
+  className,
+}: {
+  children?: ReactNode;
+  title: string;
+  className?: string;
+}) {
   const { resolvedTheme } = useTheme();
 
   const images = {
@@ -17,17 +26,24 @@ export default function HeadLine({ children, title }: { children?: ReactNode; ti
   }
 
   return (
-    <div className="relative min-h-20 flex items-center justify-between w-full ">
+    <div className={cn("relative flex min-h-20 w-full items-center justify-between", className)}>
       <Image
         src={images[resolvedTheme as keyof typeof images]!}
         alt="Frame"
         fill
         priority
-        className="w-full h-full object-cover"
+        className="h-full w-full object-cover"
       />
-      <div className="box-container flex flex-col md:flex-row gap-6 items-center justify-between w-full  relative z-10">
+      <div
+        className={cn(
+          "box-container relative z-10 flex w-full flex-col items-center justify-between gap-6 md:flex-row md:rtl:!flex-row-reverse",
+          {
+            "rtl:justify-end": !children,
+          },
+        )}
+      >
+        <h3 className="text-2xl font-semibold text-zinc-800 md:text-3xl">{title}</h3>
         {children && children}
-        <h3 className="text-2xl md:text-3xl font-semibold text-zinc-800">{title}</h3>
       </div>
     </div>
   );
