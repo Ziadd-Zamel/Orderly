@@ -54,11 +54,9 @@ export default function DineInClient() {
 
   return (
     <section className="mt-32 mb-10">
-      <div className="mb-6">
-        <HeadLine title={t("choose-floor")}>
-          <Floors selectedFloor={selectedFloor} setSelectedFloor={setSelectedFloor} />
-        </HeadLine>
-      </div>
+      <HeadLine title={t("choose-floor")} className="mb-10">
+        <Floors selectedFloor={selectedFloor} setSelectedFloor={setSelectedFloor} />
+      </HeadLine>
 
       <div className="box-container px-4">
         <div className="flex flex-col-reverse gap-10 lg:flex-row xl:gap-28">

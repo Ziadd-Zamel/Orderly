@@ -21,7 +21,7 @@ export default function ThemeSwitcher() {
 
     // expand animation
     await controls.start({
-      scale: 50,
+      scale: 100,
       transition: { duration: 1, ease: "easeInOut" },
     });
 
@@ -48,7 +48,7 @@ export default function ThemeSwitcher() {
         animate={controls}
         onClick={handleSwitch}
       >
-        {!isAnimating && <ChevronLeft className="me-3 size-6 text-white sm:size-7" />}
+        {!isAnimating && <ChevronLeft className="me-3 size-6 text-white sm:size-7 rtl:me-0" />}
       </motion.div>
 
       {showContent && (
