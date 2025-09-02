@@ -38,17 +38,48 @@ export const places = [
 ];
 interface OpeningHour {
   day: string;
-  time: string;
+  timeFrom: string;
+  timeTo: string;
   isOpen: boolean;
 }
 
 export const openingHours: OpeningHour[] = [
-  { day: "Saturday", time: "10:00 AM - 12:00 PM", isOpen: true },
-  { day: "Sunday", time: "9:00 AM - 6:00 PM", isOpen: true },
-  { day: "Monday", time: "8:00 AM - 8:00 PM", isOpen: true },
-  { day: "Tuesday", time: "8:00 AM - 8:00 PM", isOpen: true },
-  { day: "Wednesday", time: "8:00 AM - 8:00 PM", isOpen: true },
-  { day: "Friday", time: "8:00 AM - 6:00 PM", isOpen: true },
+  {
+    day: "Saturday",
+    timeFrom: "1970-01-01T08:00:00",
+    timeTo: "1970-01-01T20:00:00",
+    isOpen: true,
+  },
+  {
+    day: "Sunday",
+    timeFrom: "1970-01-01T09:00:00",
+    timeTo: "1970-01-01T18:00:00",
+    isOpen: true,
+  },
+  {
+    day: "Monday",
+    timeFrom: "1970-01-01T08:00:00",
+    timeTo: "1970-01-01T20:00:00",
+    isOpen: true,
+  },
+  {
+    day: "Tuesday",
+    timeFrom: "1970-01-01T08:00:00",
+    timeTo: "1970-01-01T20:00:00",
+    isOpen: true,
+  },
+  {
+    day: "Wednesday",
+    timeFrom: "1970-01-01T08:00:00",
+    timeTo: "1970-01-01T20:00:00",
+    isOpen: true,
+  },
+  {
+    day: "Friday",
+    timeFrom: "1970-01-01T08:00:00",
+    timeTo: "1970-01-01T18:00:00",
+    isOpen: true,
+  },
 ];
 
 export const branches = [

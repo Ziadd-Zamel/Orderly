@@ -61,7 +61,7 @@ export default function ThemeSwitcher() {
         >
           {/* Main title */}
           <motion.div
-            className="mb-16 text-center text-4xl font-semibold md:text-5xl"
+            className="font-poppins genz:font-chillax mb-16 text-center text-4xl font-semibold md:text-5xl"
             initial={{ opacity: 0, scale: 0.5, y: -30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{

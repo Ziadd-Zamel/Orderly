@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 function FilterContent() {
-  const [values, setValues] = useState([0, 100]);
+  const [values, setValues] = useState([0, 9999]);
   const [selectedPlaceTypes, setSelectedPlaceTypes] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -17,8 +17,8 @@ function FilterContent() {
   const t = useTranslations();
 
   const placeTypes = [
-    { id: "Restaurant", label: "Restaurant", icon: "/assets/icons/food.svg" },
-    { id: "Coffee shop", label: "Coffee shop", icon: "/assets/icons/coffee.svg" },
+    { id: "Restaurant", label: "restaurant", icon: "/assets/icons/food.svg" },
+    { id: "Coffee shop", label: "coffee-shop", icon: "/assets/icons/coffee.svg" },
   ];
   const categories = ["Fast Food", "Seafood", "Breakfast Spot", "Vegan", "Fried Chicken", "Grill"];
   const services = ["Wi-Fi", "Kids Area", "Parking", "Vegan", "Outdoor Seating", "Smoking"];
@@ -53,7 +53,7 @@ function FilterContent() {
       {/* Place Type */}
       <div className="mb-8">
         <h3 className="mb-6 text-lg">{t("place-type")}</h3>
-        <div className="flex flex-wrap gap-2 md:gap-3">
+        <div className="flex flex-wrap gap-2 md:gap-3 lg:flex-nowrap">
           {placeTypes.map((type) => {
             const isSelected = selectedPlaceTypes.includes(type.id);
             return (
@@ -61,14 +61,14 @@ function FilterContent() {
                 key={type.id}
                 variant="outline"
                 onClick={() => togglePlaceType(type.id)}
-                className={`flex items-center gap-2 rounded-lg px-4 py-3 text-base transition-colors ${
+                className={`flex w-full items-center gap-2 rounded-lg px-4 py-3 text-base transition-colors lg:w-1/2 ${
                   isSelected
                     ? "bg-main border-main hover:bg-main/90 genz:bg-gradient genz:text-white text-white"
                     : "genz:text-purple-500 border-gray-200 bg-white hover:bg-gray-50"
                 }`}
               >
                 <Image src={type.icon} alt="Icon" width={25} height={0} />
-                {type.label}
+                {t(type.label)}
               </Button>
             );
           })}

@@ -294,5 +294,14 @@
   "payment-method": "Payment Method",
   "review-order": "Review Order",
   "order-as-group": "Group Order",
-  "reserve": "Reserve"
+  "reserve": "Reserve",
+  "Saturday": "Saturday",
+  "Sunday": "Sunday",
+  "Monday": "Monday",
+  "Tuesday": "Tuesday",
+  "Wednesday": "Wednesday",
+  "Friday": "Friday",
+  "time-formatter": "{value, time, time}",
+  "restaurant": "Restaurant",
+  "coffee-shop": "Coffee Shop"
 }
