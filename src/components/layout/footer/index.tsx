@@ -4,11 +4,12 @@ import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/routing";
 
 export default function Footer() {
   const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
-
+  const pathname = usePathname();
   const navigationLinks = [
     { href: "/", label: t("home") },
     { href: "/restaurants", label: t("restaurants") },
@@ -27,7 +28,9 @@ export default function Footer() {
     { href: "https://facebook.com", icon: "/assets/icons/Facebook.svg", label: t("facebook") },
     { href: "https://youtube.com", icon: "/assets/icons/Youtube.svg", label: t("youtube") },
   ];
-
+  if (pathname.includes("/dine-in") || /^\/restaurants\/[^\/]+\/[^\/]+$/.test(pathname)) {
+    return null;
+  }
   return (
     <footer className="bg-main genz:footer-bg overflow-x-hidden">
       <div className="box-container">

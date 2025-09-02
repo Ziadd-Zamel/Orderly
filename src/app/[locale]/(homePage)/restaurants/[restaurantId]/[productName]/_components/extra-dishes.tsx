@@ -11,7 +11,7 @@ export default function ExtraDishes() {
   const format = useFormatter();
 
   const [activeDish, setActiveDish] = React.useState<number[]>([]);
-  const [activeSubDish, setActiveSubDish] = React.useState<Record<number, number | null>>({});
+  const [activeSubDish, setActiveSubDish] = React.useState<Record<number, number[]>>({});
 
   // variabals
   const extraDishes = [
@@ -59,17 +59,32 @@ export default function ExtraDishes() {
       return [...prev, dishId];
     });
   };
+
   const handleSubDishClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     dishId: number,
-    subDishId: number | null,
+    subDishId: number,
   ) => {
     e.stopPropagation();
-    setActiveSubDish((prev) => ({
-      ...prev,
-      [dishId]: prev[dishId] === subDishId ? null : subDishId,
-    }));
+    setActiveSubDish((prev) => {
+      const currentSelections = prev[dishId] || [];
+
+      if (currentSelections.includes(subDishId)) {
+        // Remove if already selected
+        return {
+          ...prev,
+          [dishId]: currentSelections.filter((id) => id !== subDishId),
+        };
+      } else {
+        // Add to selections
+        return {
+          ...prev,
+          [dishId]: [...currentSelections, subDishId],
+        };
+      }
+    });
   };
+
   return (
     <div className="flex flex-col items-end justify-end gap-4 w-[500px] absolute top-1/2 -translate-y-1/2 ltr:right-0 rtl:!left-0">
       {extraDishes.map((dish) => (
@@ -105,7 +120,7 @@ export default function ExtraDishes() {
 
             {/* Closed State Price Display with Layout Animation */}
             <AnimatePresence mode="wait">
-              {activeDish.includes(dish.id) && (
+              {!activeDish.includes(dish.id) && (
                 <motion.div
                   key="price"
                   initial={{ opacity: 0, height: 0, marginBottom: 10 }}
@@ -115,7 +130,7 @@ export default function ExtraDishes() {
                     duration: 0.3,
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
-                  className="text-custom-orange text-lg font-medium overflow-hidden"
+                  className="text-black text-lg font-medium overflow-hidden"
                 >
                   {format.number(dish.price)} {t("currency")}
                 </motion.div>
@@ -151,7 +166,7 @@ export default function ExtraDishes() {
                   >
                     <CarouselContent className="-ml-1">
                       {dish.subDishes.map((subDish) => {
-                        const isActive = activeSubDish[dish.id] === subDish.id;
+                        const isActive = (activeSubDish[dish.id] || []).includes(subDish.id);
 
                         return (
                           <CarouselItem key={subDish.id} className="pl-1 basis-auto">
@@ -186,8 +201,8 @@ export default function ExtraDishes() {
                                   transition-all duration-300 ease-in-out
                                   ${
                                     isActive
-                                      ? "text-main genz:text-purple-500 text-base"
-                                      : "text-custom-orange text-lg"
+                                      ? "text-main genz:text-purple-500 text-base font-medium"
+                                      : "text-custom-orange genz:!text-[#FFF200]  text-lg"
                                   }
                                 `}
                               >
