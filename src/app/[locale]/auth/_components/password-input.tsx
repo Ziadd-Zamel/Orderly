@@ -18,13 +18,13 @@ export const PasswordInput = forwardRef<HTMLInputElement, React.ComponentProps<t
         {/* Toggle visibility */}
         <button
           type="button"
-          className="absolute cursor-pointer right-0 rtl:right-auto rtl:left-0 top-0 h-full px-3 "
+          className="absolute top-0 right-0 h-full cursor-pointer px-3 rtl:right-auto rtl:left-0"
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? (
-            <VscEyeClosed className="h-6 w-6 text-gray-400" />
-          ) : (
             <VscEye className="h-6 w-6 text-gray-400" />
+          ) : (
+            <VscEyeClosed className="h-6 w-6 text-gray-400" />
           )}
           <span className="sr-only">
             {showPassword ? t("auth.passwordInput.hide") : t("auth.passwordInput.show")}
