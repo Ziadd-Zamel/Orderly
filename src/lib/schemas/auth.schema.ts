@@ -85,18 +85,12 @@ export const useLoginSchema = () => {
 export type LoginFields = z.infer<ReturnType<typeof useLoginSchema>>;
 
 export const useProfileSchema = () => {
-  const t = useTranslations();
-
   return z.object({
-    fullName: z.string().min(1, { message: t("firstname-required") }),
+    fullName: z.string().optional(),
     emial: z.string().optional(),
-    phone: z
-      .string()
-      .min(1, { message: t("phone-required") })
-      .regex(phoneRegex, {
-        message: t("phone-invalid"),
-      }),
-    password: z.string().min(1, { message: t("password-required") }),
+    phone: z.string().optional(),
+    password: z.string().optional(),
   });
 };
+
 export type ProfileFields = z.infer<ReturnType<typeof useProfileSchema>>;

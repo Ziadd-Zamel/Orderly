@@ -10,71 +10,26 @@ import {
 } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { FaShareAlt } from "react-icons/fa";
 import { Label } from "@/components/ui/label";
-import { useTheme } from "next-themes";
-import IconGradient from "@/components/common/icon-gradiant";
 
-function GroupTrigger({ disableAnimation }: { disableAnimation?: boolean }) {
-  // Translation
-  const t = useTranslations();
-
-  return (
-    <>
-      {disableAnimation ? (
-        <div className="flex-center bg-main genz:!bg-red-500 bg-gradient circle size-16">
-          <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
-        </div>
-      ) : (
-        <motion.div
-          className="bg-main genz:bg-gradient circle border-main genz:border-gradient genz:bg-transparent flex flex-shrink-0 items-center overflow-hidden border-4"
-          initial={{ width: 64, height: 64 }}
-          animate={{
-            width: [64, 200, 64],
-          }}
-          transition={{
-            duration: 3.5,
-            times: [0, 0.5, 1],
-            repeat: Infinity,
-            repeatDelay: 1,
-            ease: "easeInOut",
-          }}
-        >
-          <div className="flex-center bg-main genz:bg-gradient circle size-16 flex-shrink-0">
-            <Image src={"/assets/icons/group.svg"} alt="group icon" width={40} height={40} />
-          </div>
-          <motion.span
-            className="pr-4 font-medium whitespace-nowrap text-white"
-            transition={{
-              duration: 3,
-              times: [0, 0.5, 1],
-              repeat: Infinity,
-              repeatDelay: 2,
-              ease: "easeInOut",
-            }}
-          >
-            {t("order-as-group")}
-          </motion.span>
-        </motion.div>
-      )}
-    </>
-  );
-}
-
-export default function GroupButton({ disableAnimation }: { disableAnimation?: boolean }) {
+export default function GroupButton() {
   const [open, setOpen] = useState(false);
   const t = useTranslations();
-  const { resolvedTheme } = useTheme();
-  const isGenz = resolvedTheme === "genz";
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Trigger */}
       <DialogTrigger asChild>
-        <Button className="genz:bg-transparent cursor-pointer border-none bg-transparent outline-none hover:bg-transparent">
-          <GroupTrigger disableAnimation={disableAnimation} />
+        <Button
+          variant={'ghost'}
+          className="text-main genz:text-gradient font-medium flex  items-center gap-1 mt-5 self-end hover:underline"
+        >
+          <ChevronRight size={16} aria-hidden className="genz:text-purple-500 rotate-180 rtl:block hidden" />
+          {t("add-members")}
+          <ChevronRight size={16} aria-hidden className="genz:text-purple-500 rtl:hidden " />
         </Button>
       </DialogTrigger>
 
@@ -82,7 +37,7 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
       <DialogContent className="w-full rounded-3xl bg-white py-10">
         <DialogHeader dir="ltr" className="flex flex-row">
           <div className="w-1/3">
-            <Button variant={'ghost'} className="bg-second hover:bg-second text-main cursor-pointer">
+            <Button variant={'ghost'}  className="bg-second hover:bg-second text-main cursor-pointer">
               <ChevronLeft size={20} />
             </Button>
           </div>
@@ -118,7 +73,7 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
                 className="text-base"
                 readOnly
               />
-              <Button variant={"ghost"} className="text-main absolute top-0 end-0 h-full bg-transparent hover:bg-transparent">
+              <Button variant={"ghost"} className="text-main absolute genz:text-purple-400 top-0 end-0 h-full bg-transparent hover:bg-transparent">
                 <FaShareAlt size={20} />
               </Button>
             </div>
@@ -127,7 +82,7 @@ export default function GroupButton({ disableAnimation }: { disableAnimation?: b
           <Button className="mb-3 w-full py-4 text-xl">{t("continue-shopping")}</Button>
 
           {/* Delete group button */}
-          <Button variant={"ghost"} className="text-custom-orange w-full bg-transparent font-medium underline hover:bg-transparent">
+          <Button variant={"ghost"} className="text-custom-orange genz:text-red-500 w-full bg-transparent font-medium underline hover:bg-transparent">
             {t("delete-group")}
           </Button>
         </div>

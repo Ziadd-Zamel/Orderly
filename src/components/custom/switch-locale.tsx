@@ -35,35 +35,33 @@ export function SwitchLocale({ className }: { className?: string }) {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu dir={locale === "ar" ? "rtl" : "ltr"}>
       {/* Trigger */}
-      <DropdownMenuTrigger asChild className="w-full">
-        <Button variant="ghost" size="sm" className={cn("gap-1 px-2 w-full", className)}>
-          <div className="flex items-center gap-2">
-            {/* Icon */}
-            <Globe className="h-4 w-4" />
-
-            {/* Name */}
-            <span className="text-sm font-medium">
-              {languages.find((lang) => lang.code === locale)?.name}
-            </span>
-          </div>
-
+      <DropdownMenuTrigger className="flex h-14 w-[300px] max-w-[400px] items-center justify-between rounded-xl border border-[#DCDBDB] px-4 sm:w-full">
+        <div className="flex items-center gap-2">
           {/* Icon */}
-          <ChevronDown size={18} />
-        </Button>
+          <Globe className="h-4 w-4" />
+
+          {/* Name */}
+          <span className="text-sm font-medium">
+            {languages.find((lang) => lang.code === locale)?.name}
+          </span>
+        </div>
+
+        {/* Icon */}
+        <ChevronDown size={28} strokeWidth={1.2} />
       </DropdownMenuTrigger>
 
       {/* Dropdown */}
-      <DropdownMenuContent className="w-full min-w-full" align="start">
+      <DropdownMenuContent className="w-[300px] sm:w-[400px]" align="center">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => switchLocale(language.code as Locale)}
-            className="flex items-center justify-between"
+            className="flex w-full items-center justify-between"
           >
             {language.name}
-            {locale === language.code && <Check className="h-4 w-4 ml-2" />}
+            {locale === language.code && <Check className="ml-2 h-4 w-4" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

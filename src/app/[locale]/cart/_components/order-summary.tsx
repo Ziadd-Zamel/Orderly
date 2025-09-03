@@ -42,9 +42,9 @@ export default function OrderSummary({
   const t = useTranslations();
 
   return (
-    <Card className="rounded-xl border-none shadow-none bg-gray-50">
+    <Card className="rounded-xl border-none bg-gray-50 shadow-none">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold genz:text-gradient">
+        <CardTitle className="genz:text-gradient text-xl font-semibold">
           {t("order-summary")}
         </CardTitle>
       </CardHeader>
@@ -63,7 +63,7 @@ export default function OrderSummary({
         {/* Company info */}
         {companyName && (
           <Card className="bg-white p-0">
-            <CardContent className="text-sm flex justify-between items-center px-3 py-2">
+            <CardContent className="flex items-center justify-between px-3 py-2 text-sm">
               <div className="flex items-center gap-2">
                 <Avatar>
                   <AvatarImage
@@ -83,21 +83,21 @@ export default function OrderSummary({
         )}
 
         {/* Bill details */}
-        <div className="space-y-2 px-8 py-3 text-sm bg-custom-orange/20 genz:bg-purple-50 relative">
+        <div className="bg-custom-orange/20 genz:bg-purple-50 relative space-y-2 px-8 py-3 text-sm">
           {/* Decorative waves */}
           <Image
             src={"/assets/Images/wave.svg"}
             alt="wave"
             width={30}
             height={0}
-            className="h-[90%] absolute -left-3.5 top-1/2 -translate-y-1/2"
+            className="absolute top-1/2 -left-3.5 h-[90%] -translate-y-1/2"
           />
           <Image
             src={"/assets/Images/wave.svg"}
             alt="wave"
             width={30}
             height={0}
-            className="h-[90%] absolute -right-3.5 top-1/2 -translate-y-1/2"
+            className="absolute top-1/2 -right-3.5 h-[90%] -translate-y-1/2"
           />
           {/* Items list */}
           {!onlyTotal &&
@@ -109,12 +109,12 @@ export default function OrderSummary({
             ))}
 
           {/* Total */}
-          {onlyTotal && <p className="text-sm font-semibold mb-2">{t("your-bill")}</p>}
-          <div className="flex justify-between pt-2 border-t border-dashed border-[#FF9C00AB] genz:border-none font-semibold text-lg">
-            <span className="text-main md:text-sm lg:text-base genz:text-gradient">
+          {onlyTotal && <p className="mb-2 text-sm font-semibold">{t("your-bill")}</p>}
+          <div className="genz:border-none flex justify-between border-t border-dashed border-[#FF9C00AB] pt-2 text-lg font-semibold">
+            <span className="text-main genz:text-gradient md:text-sm lg:text-base">
               {t("total")}
             </span>
-            <span className="text-main md:text-sm lg:text-base genz:text-gradient">
+            <span className="text-main genz:text-gradient md:text-sm lg:text-base">
               {total} EGP
             </span>
           </div>
@@ -126,11 +126,11 @@ export default function OrderSummary({
         {!checkout && !sendOrder && (
           <Button
             variant="default"
-            className="flex justify-between items-center py-3.5 font-normal mt-5"
+            className="mt-5 flex items-center justify-between py-3.5 font-normal"
             onClick={() => router.push("/cart/checkout")}
           >
-            <span className="flex items-center">
-              <CiCreditCard1 className="h-5 w-5 mr-2 rtl:ml-4 text-white" />
+            <span className="flex items-center rtl:flex-row-reverse">
+              <CiCreditCard1 className="mr-2 h-5 w-5 text-white" />
               {t("checkout")}
             </span>
             {total} EGP

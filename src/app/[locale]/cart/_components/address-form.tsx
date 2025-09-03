@@ -129,40 +129,42 @@ export default function AddressForm() {
           />
         </div>
 
-        <div>
-          <Label className="font-medium text-zinc-900 mb-3 text-lg">{t("address-type")}</Label>
-          <FormField
-            control={form.control}
-            name="addressType"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <div className="flex gap-2">
-                    {addressTypes.map((type) => {
-                      const Icon = type.icon;
-                      const isSelected = field.value === type.value;
-                      return (
-                        <Button
-                          key={type.value}
-                          type="button"
-                          onClick={() => field.onChange(type.value)}
-                          className={cn(
-                            "flex items-center gap-2 px-4 py-3 rounded-full hover:bg-main hover:text-white",
-                            isSelected ? "bg-main text-white " : "bg-gray-200 text-zinc-600 ",
-                          )}
-                        >
-                          <Icon className="w-4 h-4" />
-                          <span className="text-sm font-medium">{type.label}</span>
-                        </Button>
-                      );
-                    })}
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
+     <div>
+              <Label className="font-medium text-zinc-900 mb-3 text-lg">{t("address-type")}</Label>
+              <FormField
+                control={form.control}
+                name="addressType"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <div className="flex gap-2">
+                        {addressTypes.map((type) => {
+                          const Icon = type.icon;
+                          const isSelected = field.value === type.value;
+                          return (
+                            <Button
+                              key={type.value}
+                              type="button"
+                              onClick={() => field.onChange(type.value)}
+                              className={cn(
+                                "flex items-center gap-2 px-4 py-3 rounded-full genz:bg-transparent genz:hover:bg-gradient hover:bg-main hover:text-white",
+                                isSelected
+                                  ? "bg-main text-white genz:bg-gradient "
+                                  : "bg-gray-200 text-zinc-600 genz:bg-[#F8F7F8] ",
+                              )}
+                            >
+                              <Icon className="w-4 h-4" />
+                              <span className="text-sm font-medium">{type.label}</span>
+                            </Button>
+                          );
+                        })}
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
 
         <FormField
           control={form.control}

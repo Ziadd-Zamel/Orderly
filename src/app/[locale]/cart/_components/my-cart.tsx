@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import GroupMembersDialog from "./group-members-dialog";
+import { Button } from "@/components/ui/button";
+import GroupButton from "./add-group-dialog";
 
 const groupMembers = Array(10).fill("/assets/Images/avatar.png");
 
@@ -77,14 +79,7 @@ export default function MyCart() {
         </div>
 
         {/* Add Members Link */}
-        <Link
-          href="#"
-          className="text-main genz:text-gradient font-medium flex items-center gap-1 mt-5 self-end hover:underline"
-          prefetch={false}
-        >
-          {t("add-members")}
-          <ChevronRight size={16} aria-hidden className="genz:text-purple-500 rtl:rotate-180" />
-        </Link>
+      <GroupButton/>
       </CardContent>
     </Card>
   );

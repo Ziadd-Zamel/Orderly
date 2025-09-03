@@ -8,6 +8,7 @@ import DateSelector from "@/components/custom/date-selector";
 import TimePickerForm from "@/components/custom/time-picker/time-wheel-picker";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import LeftHeadLine from "@/components/common/left-head-line";
 
 type TimeFormValues = {
   hours: number;
@@ -53,10 +54,13 @@ export default function DineInClient() {
   };
 
   return (
-    <section className="mt-32 mb-10">
-      <HeadLine title={t("choose-floor")} className="mb-10">
+    <section className="mt-32 mb-10 pt-10">
+      <HeadLine title={t("choose-floor")} className="mb-10 rtl:hidden">
         <Floors selectedFloor={selectedFloor} setSelectedFloor={setSelectedFloor} />
       </HeadLine>
+      <LeftHeadLine title={t("choose-floor")} className="mb-10 ltr:hidden">
+        <Floors selectedFloor={selectedFloor} setSelectedFloor={setSelectedFloor} />
+      </LeftHeadLine>
 
       <div className="box-container px-4">
         <div className="flex flex-col-reverse gap-10 lg:flex-row xl:gap-28">

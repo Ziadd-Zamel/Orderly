@@ -245,12 +245,12 @@ a {
   }
 
   /* Default Arabic (general theme) → Beiruti */
-  [lang="ar"]:not([data-theme="genz"]) body {
+  [lang="ar"][data-theme="genz"] body {
     font-family: var(--font-beiruti), sans-serif !important;
   }
 
   /* Arabic + GenZ → Zain */
-  [lang="ar"][data-theme="genz"] body {
+  [lang="ar"]:not([data-theme="genz"]) body {
     font-family: var(--font-zain), sans-serif;
   }
 

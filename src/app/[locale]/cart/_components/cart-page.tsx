@@ -34,7 +34,7 @@ export default function CartPage() {
           >
             <CalendarDays className="h-4 w-4 text-black genz:text-purple-400" aria-hidden />
             Wed 123
-            <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
+            <ChevronRight className="h-4 w-4" aria-hidden />
           </Button>
         </header>
 

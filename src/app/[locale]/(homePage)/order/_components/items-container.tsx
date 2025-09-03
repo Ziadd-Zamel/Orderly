@@ -1,16 +1,19 @@
 import OrderCard from "@/components/common/order-card";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 import { RiStarFill } from "react-icons/ri";
 
 export default function ItemsContainer() {
+  const t = useTranslations("TrackingStatus");
+
   // Variables
   const orderRate = 4;
   return (
-    <div className="w-full h-[70vh] bg-gray-50 rounded-4xl p-5 pb-26 md:px-6 overflow-hidden">
-      <div className="flex items-center justify-between mb-6">
+    <div className="h-[70vh] w-full overflow-hidden rounded-4xl bg-gray-50 p-5 pb-26 md:px-6">
+      <div className="mb-6 flex items-center justify-between">
         {/* Container Headline */}
-        <h3 className="text-xl font-semibold text-zinc-800">Order Items</h3>
+        <h3 className="text-xl font-semibold text-zinc-800">{t("order-items")}</h3>
 
         <div className="flex items-center gap-2">
           {/* Place Image */}
@@ -40,9 +43,9 @@ export default function ItemsContainer() {
         </div>
       </div>
 
-      <div className="h-full overflow-y-auto space-y-6 sm:space-y-10 hide-scrollbar">
+      <div className="hide-scrollbar h-full space-y-6 overflow-y-auto sm:space-y-10">
         {Array.from({ length: 5 }, (_, i) => (
-          <OrderCard className="border-none genz:border-gradient" key={i} />
+          <OrderCard className="genz:border-gradient border-none" key={i} />
         ))}
       </div>
     </div>

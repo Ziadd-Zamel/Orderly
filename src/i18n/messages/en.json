@@ -144,7 +144,7 @@
   "viwe details": "View Details",
   "navbar": {
     "home": "Home",
-    "restaurants": "Restaurants",
+    "restaurants": "Restaurants & coffee Shops",
     "coffeeShops": "Coffee Shops",
     "favourite": "Favourite",
     "expand": "Expand",
@@ -303,5 +303,18 @@
   "Friday": "Friday",
   "time-formatter": "{value, time, time}",
   "restaurant": "Restaurant",
-  "coffee-shop": "Coffee Shop"
+  "coffee-shop": "Coffee Shop",
+  "TrackingStatus": {
+    "title": "Order Has Completed",
+    "arrivalTime": "Order Arrived at {date}",
+    "deliveredText": "Order is Delivered",
+    "order-items": "Orders",
+    "status": {
+      "completed": "Completed"
+    }
+  },
+  "fav": {
+    "places": "Places",
+    "items": "Items"
+  }
 }

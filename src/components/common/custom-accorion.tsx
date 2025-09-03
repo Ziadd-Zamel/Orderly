@@ -1,13 +1,15 @@
 import { ReactNode } from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import { cn } from "@/lib/utils";
 
 interface Props {
   title: string;
   triggerContent: ReactNode;
   accordionContent: ReactNode;
+  className?:string
 }
-export default function CustomAccordion({ title, triggerContent, accordionContent }: Props) {
+export default function CustomAccordion({ title, triggerContent, accordionContent,className }: Props) {
   return (
     <Accordion className="w-full" type="single" collapsible>
       <AccordionItem
@@ -29,7 +31,7 @@ export default function CustomAccordion({ title, triggerContent, accordionConten
             </div>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="transition-all duration-200 ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+        <AccordionContent className={cn("transition-all duration-200 ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",className)}>
           {accordionContent}
         </AccordionContent>
       </AccordionItem>

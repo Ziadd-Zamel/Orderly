@@ -115,9 +115,9 @@ export default function GenZGroupButton({ disableAnimation }: { disableAnimation
 
       {/* Content */}
       <DialogContent className="w-full rounded-3xl bg-white py-10">
-        <DialogHeader className="flex flex-row">
+        <DialogHeader dir="ltr" className="flex flex-row">
           <div className="w-1/3">
-            <Button className="bg-second hover:bg-second text-main cursor-pointer">
+            <Button variant={"ghost"} className="bg-second hover:bg-second text-main cursor-pointer">
               <ChevronLeft size={20} />
             </Button>
           </div>
@@ -153,16 +153,16 @@ export default function GenZGroupButton({ disableAnimation }: { disableAnimation
                 className="text-base"
                 readOnly
               />
-              <Button className="text-main absolute top-0 right-0 h-full bg-transparent hover:bg-transparent">
+              <Button variant={"ghost"} className="text-main absolute top-0 end-0 h-full bg-transparent hover:bg-transparent">
                 <FaShareAlt size={20} />
               </Button>
             </div>
           </div>
 
-          <Button className="mb-3 w-full py-5 text-xl">{t("continue-shopping")}</Button>
+          <Button className="mb-3 w-full py-4 text-xl">{t("continue-shopping")}</Button>
 
           {/* Delete group button */}
-          <Button className="text-custom-orange w-full bg-transparent font-medium underline hover:bg-transparent">
+          <Button variant={"ghost"} className="text-custom-orange w-full bg-transparent font-medium underline hover:bg-transparent">
             {t("delete-group")}
           </Button>
         </div>

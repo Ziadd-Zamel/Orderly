@@ -7,7 +7,7 @@ import Sidebar from "./_components/sidebar";
 import { useTranslations } from "next-intl";
 import { HiMiniShoppingBag } from "react-icons/hi2";
 import { TbScan } from "react-icons/tb";
-import { Link, useRouter } from "@/i18n/routing";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { UserDropdown } from "@/components/custom/user-dropdown";
 import { useEffect, useRef } from "react";
 
@@ -17,7 +17,7 @@ export default function Navbar() {
 
   // Navigation
   const router = useRouter();
-
+  const pathName = usePathname();
   // Refs
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +25,6 @@ export default function Navbar() {
   const navigationLinks = [
     { href: "/", label: t("navbar.home"), active: true },
     { href: "/restaurants", label: t("navbar.restaurants"), active: false },
-    { href: "/restaurants", label: t("navbar.coffeeShops"), active: false },
     { href: "/favourite", label: t("navbar.favourite"), active: false },
   ];
 
@@ -54,9 +53,9 @@ export default function Navbar() {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
+        className="fixed top-0 right-0 left-0 z-50 transition-colors duration-300"
       >
-        <div className="h-full genz:shadow-none py-6">
+        <div className="genz:shadow-none h-full py-6">
           <nav className="box-container flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
@@ -64,13 +63,13 @@ export default function Navbar() {
             </Link>
 
             {/* Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden items-center space-x-8 lg:flex">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-medium transition-colors  ${
-                    link.active
+                  className={`font-medium transition-colors ${
+                    pathName === link.href || (link.href !== "/" && pathName.startsWith(link.href))
                       ? "text-main genz:text-gradient"
                       : "text-gray-600 hover:text-gray-900"
                   }`}

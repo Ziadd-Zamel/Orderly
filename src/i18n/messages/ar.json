@@ -144,7 +144,7 @@
   "terms-required": "يجب الموافقة على الشروط والأحكام",
   "navbar": {
     "home": "الرئيسية",
-    "restaurants": "المطاعم",
+    "restaurants": "المطاعم والمقاهي",
     "coffeeShops": "المقاهي",
     "favourite": "المفضلة",
     "expand": "توسيع",
@@ -303,5 +303,19 @@
   "Friday": "الجمعة",
   "time-formatter": "{value, time, time}",
   "restaurant": "مـطــعـم",
-  "coffee-shop": "كــافيــة"
+  "coffee-shop": "كــافيــة",
+  "TrackingStatus": {
+    "title": "تم إكمال الطلب",
+    "arrivalTime": "وصل الطلب في {date}",
+    "deliveredText": "تم توصيل الطلب",
+    "order-items": "الطلبات",
+    "status": {
+      "completed": "مكتمل"
+    }
+  },
+
+  "fav": {
+    "places": "الاماكن",
+    "items": "المنتجات"
+  }
 }

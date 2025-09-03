@@ -9,9 +9,9 @@ const inputVariants = cva(
   {
     variants: {
       variant: {
-        default: "border border-[#F0EEF0] bg-background",
+        default: "border border-[#DCDBDB] bg-background",
         outline:
-          "rounded-[16px] border border-gray-shade-300 hover:border-gray-shade-400 text-zinc-800 pla ceholder:text-black/50 focus:border-main disabled:bg-gray-200 disabled:border-none",
+          "rounded-[16px] border border-[#DCDBDB] hover:border-gray-shade-400 text-zinc-800 pla ceholder:text-black/50 focus:border-main disabled:bg-gray-200 disabled:border-none",
       },
       state: {
         default: "",

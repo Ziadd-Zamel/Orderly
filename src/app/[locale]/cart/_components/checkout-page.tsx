@@ -77,8 +77,9 @@ export default function CheckoutPage() {
                 <CustomAccordion
                   title={t("review-order")}
                   triggerContent={<CollapsedOrdersList productsImages={productsImages} />}
+                  className="bg-[#FBFBFB] px-5  pt-5 rounded-3xl"
                   accordionContent={
-                    <div className="flex flex-col gap-3 mt-5">
+                    <div className="flex flex-col gap-3 ">
                       {Array(6)
                         .fill(null)
                         .map((_, i) => (
