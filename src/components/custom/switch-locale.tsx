@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { type Locale, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
+
 import { useSearchParams } from "next/navigation";
-import { cn } from "@/lib/utils/tailwind-merge";
 
 export function SwitchLocale({ className }: { className?: string }) {
   // Translation

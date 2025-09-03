@@ -12,9 +12,9 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/routing";
-import { useSearchParams } from "next/navigation";
 import { type Locale } from "next-intl";
 import { Globe } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 export function UserDropdown() {
   // Translation

@@ -9,7 +9,8 @@ import { HiMiniShoppingBag } from "react-icons/hi2";
 import { TbScan } from "react-icons/tb";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { UserDropdown } from "@/components/custom/user-dropdown";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Navbar() {
   // Translation
@@ -96,8 +97,17 @@ export default function Navbar() {
                 </Button>
               ))}
 
-              {/* User Avatar */}
-              <UserDropdown />
+              {/* User Avatar with Suspense */}
+              <Suspense
+                fallback={
+                  <Avatar className="hidden h-7 w-7 cursor-pointer sm:size-10 lg:block">
+                    <AvatarImage src="/abstract-profile.png" alt="User avatar" />
+                    <AvatarFallback>U</AvatarFallback>
+                  </Avatar>
+                }
+              >
+                <UserDropdown />
+              </Suspense>
 
               {/* Sidebar for small screens */}
               <Sidebar />
